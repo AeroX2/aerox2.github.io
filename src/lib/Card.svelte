@@ -1,13 +1,13 @@
 <script>
   let showBack = $state(false);
-  let { title, backgroundImage } = $props();
+  let { title, backgroundImage, front, back } = $props();
 
   function flipCard() {
     showBack = !showBack;
   }
 </script>
 
-<div class="card-container" onclick={flipCard}>
+<button class="card-container" onclick={flipCard}>
   <div class="card" class:show-back={showBack}>
     <div
       class="card-background"
@@ -15,20 +15,44 @@
     ></div>
     <div class="card-front">
       <h5>{title}</h5>
-      <slot name="front"></slot>
+      {@render front()}
     </div>
     <div class="card-back">
-      <slot name="back"></slot>
+      {@render back()}
     </div>
   </div>
-</div>
+</button>
 
 <style>
   .card-container {
     display: flex;
-    margin: 2em;
+    margin: 2em 0;
+
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 0;
 
     perspective: 100vw;
+
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    text-align: center;
+    text-decoration: inherit;
+    text-transform: initial;
+    white-space: inherit;
+  }
+
+  .card-container:focus,
+  .card-container:hover {
+    color: inherit;
   }
 
   .card-background {
@@ -71,11 +95,16 @@
     align-items: center;
     text-align: center;
 
-    transition: transform 1s;
     transform-style: preserve-3d;
     will-change: transform;
 
     position: relative;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .card {
+      transition: transform 1s;
+    }
   }
 
   .card.show-back {
