@@ -13,7 +13,7 @@
   <Experience />
   <Competitions />
   <Buzzwords />
-  <DarkMode/>
+  <DarkMode />
 </main>
 
 <style>
