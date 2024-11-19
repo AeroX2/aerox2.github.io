@@ -1,6 +1,4 @@
 <script lang="ts">
-  import './lib/scroll-timeline.js';
-
   import google from './assets/google.svg';
   import canva from './assets/canva.svg';
   import first from './assets/first.png';
@@ -159,7 +157,7 @@
 
   .timeline-card {
     flex: 0 0 100%;
-    padding: 0 1em;
+    padding: 0 1.5em;
     scroll-snap-align: center;
   }
 </style>
