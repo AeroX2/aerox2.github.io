@@ -15,7 +15,7 @@
   title="FlareOn - Global Reverse Engineering Competition"
   backgroundImage={flareon}
 >
-  <div slot="front">
+  {#snippet front()}
     <div class="star-list">
       <ul class="list-no-space list-no-points">
         <li>
@@ -25,8 +25,8 @@
         <li><i class="fa fa-star"></i>2022 - Rank 292nd<br /></li>
       </ul>
     </div>
-  </div>
-  <div slot="back">
+  {/snippet}
+  {#snippet back()}
     <p>
       A Windows-centric reverse engineering CTF contest that features a total of
       12 challenges covering a variety of architectures from x86 on Windows,
@@ -37,18 +37,18 @@
       mainly Windows, figuring out how they work and finding a certain flag in
       order to proceed to the next question.
     </p>
-  </div>
+  {/snippet}
 </Card>
 
 <Card title="CySCA 2018 - Cyber Security Competition" backgroundImage={cysca}>
-  <div slot="front">
+  {#snippet front()}
     <div class="star-list">
       <ul class="list-no-space list-no-points">
         <li><i class="fa fa-star"></i>Rank 15/108 teams</li>
       </ul>
     </div>
-  </div>
-  <div slot="back">
+  {/snippet}
+  {#snippet back()}
     <p>
       CySCA is a hacking competition run by an alliance of the Australian
       Government, business and academic professionals who are committed to
@@ -58,19 +58,19 @@
       The competition involves breaking into Boot2Root machines and finding
       various web exploits, design flaws, and general security vulnerabilities.
     </p>
-  </div>
+  {/snippet}
 </Card>
 
 <Card title="ASEAN Australia Codeathon 2018" backgroundImage={asean}>
-  <div slot="front">
+  {#snippet front()}
     <div class="star-list">
       <ul class="list-no-space list-no-points">
         <li><i class="fa fa-star"></i>Overall runner up</li>
         <li><i class="fa fa-star"></i>Applying Blockchain Technology winner</li>
       </ul>
     </div>
-  </div>
-  <div slot="back">
+  {/snippet}
+  {#snippet back()}
     <p>
       Over 32 hours, the Codeathon brings together financial intelligence units
       (FIUs), banks, developers, innovators, and other partners to create
@@ -81,18 +81,18 @@
       A codeathon competition focused on solving complex issues related to
       terrorism financing and cybersecurity.
     </p>
-  </div>
+  {/snippet}
 </Card>
 
 <Card title="Hack Mac 2017 Competition" backgroundImage={hackmac}>
-  <div slot="front">
+  {#snippet front()}
     <div class="star-list">
       <ul class="list-no-space list-no-points">
         <li><i class="fa fa-star"></i>1st place - Winning a trip to AusCERT</li>
       </ul>
     </div>
-  </div>
-  <div slot="back">
+  {/snippet}
+  {#snippet back()}
     <p>
       Macquarie University IT has designed and built hacking challenges for
       Macquarie University undergraduate students.
@@ -101,11 +101,11 @@
       A hacking competition focused on Boot2Root machines, allowing students to
       break into official Macquarie services to earn points.
     </p>
-  </div>
+  {/snippet}
 </Card>
 
 <Card title="USYD NCSS Python Programming Challenge" backgroundImage={ncss}>
-  <div slot="front">
+  {#snippet front()}
     <div class="star-list">
       <ul class="list-no-space list-no-points">
         <li><i class="fa fa-star"></i>2014 - Advanced - Perfect score</li>
@@ -114,8 +114,8 @@
         <li><i class="fa fa-star"></i>2011 - Advanced - Credit</li>
       </ul>
     </div>
-  </div>
-  <div slot="back">
+  {/snippet}
+  {#snippet back()}
     <p>
       The NCSS Challenge is a programming competition open to all school
       students and teachers. The Grok Learning team has been running coding
@@ -126,7 +126,7 @@
       questions is released each week and students have until the end of the
       week to complete them.
     </p>
-  </div>
+  {/snippet}
 </Card>
 
 <style>
