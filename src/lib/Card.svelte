@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   let showBack = $state(false);
   let { title, backgroundImage, front, back } = $props();
 
