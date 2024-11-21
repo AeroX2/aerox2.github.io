@@ -49,7 +49,7 @@ export class Atlas {
     return new Promise((resolve) => {
       fontAtlasImage.onload = () => {
         const canvas = document.createElement('canvas');
-        canvas.width = totalWidth * 2;
+        canvas.width = totalWidth;
         const hh = fontData.metrics.lineHeight * fontData.atlas.size;
         canvas.height = hh * 2;
 
@@ -70,18 +70,16 @@ export class Atlas {
           const sy = h - top;
           const sw = right - left;
           const sh = top - bottom;
-          const x = glyph.totalScaledAdvance * 2;
+          const x = glyph.totalScaledAdvance;
           const y =
             hh - sh - (glyph.planeBounds?.bottom ?? 0) * fontData.atlas.size;
 
           ctx.drawImage(fontAtlasImage, sx, sy, sw, sh, x, y, sw, sh);
         }
 
-        // Debug
-        document.body.prepend(canvas);
-
         const img = new Image();
         img.src = canvas.toDataURL();
+        document.body.prepend(img);
         resolve(img);
       };
     });
