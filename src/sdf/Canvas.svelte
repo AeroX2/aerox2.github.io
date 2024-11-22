@@ -1,7 +1,8 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onDestroy, onMount } from 'svelte';
   import { WebGL } from './webgl';
   import { Atlas } from './atlas';
+  import debugTexture from '../assets/debug.png';
 
   let { glSupported = $bindable() } = $props();
 
@@ -9,6 +10,7 @@
   let atlas: Atlas;
   let canvas: HTMLCanvasElement;
 
+  let stop = false;
   let isDragging = false;
   let mousePos = { x: 0, y: 0 };
   let lastMousePos = { x: 0, y: 0 };
@@ -47,18 +49,23 @@
     window.addEventListener('resize', () => webgl.resetViewport());
     webgl.resetViewport();
 
-    // const img = new Image();
-    // img.src = debugTexture;
-    const img = await atlas.createTexture('James Ridey');
+    const img = new Image();
+    img.src = debugTexture;
+    // const img = await atlas.createTexture('James Ridey');
     webgl.loadFontTexture(img);
 
     webgl.init();
     function loop() {
       webgl.setMousePos(mousePos);
       webgl.loop();
-      requestAnimationFrame(loop);
+
+      if (!stop) requestAnimationFrame(loop);
     }
     loop();
+  });
+
+  onDestroy(async () => {
+    stop = true;
   });
 </script>
 

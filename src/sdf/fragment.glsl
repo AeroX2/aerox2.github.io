@@ -60,38 +60,37 @@ float sdBox(vec3 p, vec3 radius)
 float sdFont(vec2 p) {
     vec2 uv = (p * 0.5 + 0.5);
     
-    vec4 t = texture(iTexture, uv, -100.0);
+    vec4 t = texture(iTexture, uv * vec2(1., 1.), -100.0);
     vec3 msd = t.rgb;
-    float sd = 1. - t.a; //1. - median(msd.r, msd.g, msd.b);
+    float sd = t.w - 0.5 + 1./256.;
     
     // float value = (dot(vec2(0.2), 0.5*fwidth(uv)))*(sd - 0.5);
-    float value = sd; // (dot(vec2(0.2), 0.5*fwidth(uv)))*(sd - 0.5);
-    float smoothValue = clamp(value + 0.5, 0.0, 1.0);
+    // float value = sd; // (dot(vec2(0.2), 0.5*fwidth(uv)))*(sd - 0.5);
+    // float smoothValue = clamp(value + 0.5, 0.0, 1.0);
     return sd;
 }
 
 float sdf(vec3 p) {
     // float plane = dot(p,vec3(0.,0.,1.)) + 4.;
 
-    // float ss = 3.;
-    // vec3 s = vec3(ss,ss,ss);
+    float ss = 2.;
+    vec3 s = vec3(ss,ss,ss);
 
     vec3 spherePos = p - vec3(sin(iTime) * 3.0, 0, 0);
     
     float sphere = sdSphere(spherePos, 1.0);
     
-    // vec3 q2 = (p - s*round(p/s));
-    // vec3 q = (p - s*clamp(round(p/s), -vec3(1000.,1000.,0.), vec3(1000.,1000.,1000.)));
+    vec3 q2 = (p - s*round(p/s));
+    vec3 q = (p - s*clamp(round(p/s), -vec3(1000.,1000.,0.), vec3(1000.,1000.,1000.)));
     // q.xz *= rot2D(iTime);
     
-    float fontSdf = sdFont(p.xy);
-
-    float box = sdBox(p, vec3(1.));
-    // fontSdf = max(box, fontSdf);
+    float fontSdf = sdFont(q.xy);
+    float box = sdBox(q, vec3(0.8));
+    fontSdf = max(box, fontSdf);
     
     //return sphere2d;
-    return min(sphere, fontSdf);
-    //return opSmoothUnion(sphere, sphere2d, .4);
+    // return min(sphere, fontSdf);
+    return opSmoothUnion(sphere, fontSdf, .4);
 }
 
 vec3 palette(float t) {
@@ -139,9 +138,7 @@ void main() {
 
     vec2 r = rayMarch(ro, rd);
 
-    vec3 color = vec3(r.x * 0.2); //palette(r.x * .02 + float(r.y) * 0.01);
-
-    vec4 t = texture(iTexture, v_uv, -100.0);
+    vec3 color = vec3(r.x * 0.15); //palette(r.x * .02 + float(r.y) * 0.01);
 
     fragColor = vec4(color, 1.0);
 }
