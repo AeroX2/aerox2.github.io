@@ -6,21 +6,23 @@
   import typescript from '../node_modules/devicon/icons/typescript/typescript-original.svg';
   import Canvas from './sdf/Canvas.svelte';
 
+  let sdfEnabled = $state(false);
   let glSupported = $state(true);
 </script>
 
 {#if glSupported}
   <Canvas bind:glSupported />
-{:else}
+{/if}
   <h1>Hi, I'm James Ridey</h1>
 
   I'm a<br />
   <ul class="list-no-space">
     <li><b>Software Engineer</b></li>
     <li><b>Programmer</b></li>
-    <li><b>Engineer</b></li>
-    <li><b>Hacker</b></li>
     <li><b>Tinkerer</b></li>
+    <li><b>Hacker</b></li>
+    <li><b>Maker</b></li>
+    <li><b>Coder</b></li>
   </ul>
   In other words, I build things, this website included. Crafted using the latest
   frameworks and techniques, it is powered by
@@ -48,7 +50,6 @@
       </div>
     </div>
   </div>
-{/if}
 
 <style>
   .dev-icons {
