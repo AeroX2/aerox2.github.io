@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   let darkMode = $state(
     window.matchMedia('(prefers-color-scheme: dark)').matches
   );

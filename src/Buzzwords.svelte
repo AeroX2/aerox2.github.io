@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import nodejs from 'devicon/icons/nodejs/nodejs-original.svg';
   import csharp from 'devicon/icons/csharp/csharp-original.svg';
   import javascript from 'devicon/icons/javascript/javascript-original.svg';
