@@ -1,13 +1,11 @@
 <script lang="ts">
   import { onDestroy, onMount } from 'svelte';
   import { WebGL } from './webgl';
-  import { Atlas } from './atlas';
-  import debugTexture from '../assets/debug.png';
+  import jamesRideyTexture from '../assets/jamesridey.png';
 
   let { glSupported = $bindable() } = $props();
 
   let webgl: WebGL;
-  let atlas: Atlas;
   let canvas: HTMLCanvasElement;
 
   let stop = false;
@@ -22,14 +20,12 @@
     glSupported = webgl.isSupported();
     if (!glSupported) return;
 
-    atlas = new Atlas();
-
-    canvas.addEventListener('mousedown', (event) => {
+    canvas.addEventListener('pointerdown', (event) => {
       isDragging = true;
       lastMousePos = { x: event.clientX, y: event.clientY };
     });
 
-    canvas.addEventListener('mousemove', (event) => {
+    canvas.addEventListener('pointermove', (event) => {
       if (isDragging) {
         const rect = canvas.getBoundingClientRect();
         const deltaX = event.clientX - lastMousePos.x;
@@ -42,7 +38,7 @@
       }
     });
 
-    canvas.addEventListener('mouseup', () => {
+    canvas.addEventListener('pointerup', () => {
       isDragging = false;
     });
 
@@ -50,8 +46,7 @@
     webgl.resetViewport();
 
     const img = new Image();
-    img.src = debugTexture;
-    // const img = await atlas.createTexture('James Ridey');
+    img.src = jamesRideyTexture;
     webgl.loadFontTexture(img);
 
     webgl.init();
@@ -73,6 +68,10 @@
 
 <style>
   canvas {
+    touch-action: none;
     width: 100%;
+
+    border-radius: 1em;
+    overflow: hidden;
   }
 </style>
