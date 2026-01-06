@@ -1,5 +1,6 @@
 <script lang="ts">
   import Card from './lib/Card.svelte';
+  import TextScramble from './lib/TextScramble.svelte';
 
   import flareon from './assets/images/flareon.png';
   import cysca from './assets/images/cysca.png';
@@ -9,8 +10,10 @@
 </script>
 
 <!-- <div class="container"> -->
-<h3>Competitions</h3>
-<h6 class="sub-text">(tap or hover on each card to learn more)</h6>
+<h3><TextScramble>Competitions</TextScramble></h3>
+<h6 class="sub-text">
+  <TextScramble>(tap or hover on each card to learn more)</TextScramble>
+</h6>
 
 <div class="bento-grid">
   <div class="bento-item large">

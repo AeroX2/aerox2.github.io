@@ -200,4 +200,31 @@
       opacity: 1;
     }
   }
+
+  /* Accessibility: Disable animations for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .card-container {
+      transition: none;
+    }
+
+    .active {
+      transform: none;
+    }
+
+    .card-image-bg {
+      transition: none;
+    }
+
+    .active .card-image-bg {
+      transform: none;
+    }
+
+    .active .info-badge {
+      animation: none;
+    }
+
+    .card-overlay {
+      transition: none;
+    }
+  }
 </style>
