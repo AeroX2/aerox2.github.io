@@ -22,8 +22,6 @@
   .reality-wrapper {
     width: 100%;
     min-height: 200px;
-    display: grid;
-    grid-template-areas: 'overlap';
   }
 
   .content-side,
