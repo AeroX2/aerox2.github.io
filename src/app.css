@@ -175,7 +175,7 @@ a:hover {
   }
 
   .glass-card {
-    padding: 1.25rem 0.75rem;
+    padding: 2.5rem;
     border-radius: 12px;
   }
 
@@ -193,7 +193,7 @@ a:hover {
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 1.25rem 0.75rem;
   box-shadow: var(--glass-shadow);
   transition:
     transform 0.3s ease,
@@ -224,6 +224,7 @@ a:hover {
 
 /* Accessibility: Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
