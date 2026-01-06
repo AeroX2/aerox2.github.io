@@ -5,36 +5,66 @@
   import Competitions from './Competitions.svelte';
   import Experience from './Experience.svelte';
   import DarkMode from './lib/DarkMode.svelte';
+  import SourceRealitySwitch from './lib/SourceRealitySwitch.svelte';
+  import SourceRealityWrapper from './lib/SourceRealityWrapper.svelte';
+  import Canvas from './sdf/Canvas.svelte';
+
+  import aboutMeSource from './AboutMe.svelte?raw';
+  import experienceSource from './Experience.svelte?raw';
+  import competitionsSource from './Competitions.svelte?raw';
+  import buzzwordsSource from './Buzzwords.svelte?raw';
+  import introSource from './Introduction.svelte?raw';
+  import fragmentSource from './sdf/fragment.glsl?raw';
+
+  let glSupported = $state(true);
 </script>
 
+<SourceRealitySwitch />
+<DarkMode />
+
 <main>
-  <Introduction />
-  <AboutMe />
-  <Experience />
-  <Competitions />
-  <Buzzwords />
-  <DarkMode />
+  {#if glSupported}
+    <SourceRealityWrapper code={fragmentSource} filename="fragment.glsl">
+      <Canvas bind:glSupported />
+    </SourceRealityWrapper>
+  {/if}
+
+  <SourceRealityWrapper code={introSource} filename="Introduction.svelte">
+    <Introduction bind:glSupported />
+  </SourceRealityWrapper>
+
+  <div class="glass-card">
+    <SourceRealityWrapper code={aboutMeSource} filename="AboutMe.svelte">
+      <AboutMe />
+    </SourceRealityWrapper>
+  </div>
+
+  <div class="glass-card">
+    <SourceRealityWrapper code={experienceSource} filename="Experience.svelte">
+      <Experience />
+    </SourceRealityWrapper>
+  </div>
+
+  <div class="glass-card">
+    <SourceRealityWrapper
+      code={competitionsSource}
+      filename="Competitions.svelte"
+    >
+      <Competitions />
+    </SourceRealityWrapper>
+  </div>
+
+  <div class="glass-card">
+    <SourceRealityWrapper code={buzzwordsSource} filename="Buzzwords.svelte">
+      <Buzzwords />
+    </SourceRealityWrapper>
+  </div>
 </main>
 
 <style>
-  :global(body.light-mode) {
-    color: #213547;
-    background-color: #f5f8fa;
-  }
-
-  :global(body.dark-mode) {
-    color: #c8dced;
-    background-color: #1c252b;
-  }
-
-  :global(body) {
-    color: #213547;
-    background-color: #f5f8fa;
-  }
-  @media (prefers-color-scheme: dark) {
-    :global(body) {
-      color: #c8dced;
-      background-color: #1c252b;
-    }
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 </style>

@@ -1,12 +1,15 @@
 {
-  "plugins": ["prettier-plugin-svelte", "prettier-plugin-glsl"],
-  "semi": true,
+  "useTabs": false,
   "singleQuote": true,
-  "svelteSortOrder": "options-scripts-markup-styles",
-  "svelteStrictMode": false,
-  "svelteBracketNewLine": true,
-  "svelteAllowShorthand": true,
+  "trailingComma": "none",
   "printWidth": 80,
-  "tabWidth": 2,
-  "trailingComma": "none"
+  "plugins": ["prettier-plugin-svelte", "prettier-plugin-glsl"],
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    }
+  ]
 }
