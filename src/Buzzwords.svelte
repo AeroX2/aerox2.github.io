@@ -1,4 +1,5 @@
 <script lang="ts">
+  import TextScramble from './lib/TextScramble.svelte';
   import nodejs from 'devicon/icons/nodejs/nodejs-original.svg';
   import csharp from 'devicon/icons/csharp/csharp-original.svg';
   import javascript from 'devicon/icons/javascript/javascript-original.svg';
@@ -59,12 +60,12 @@
 </script>
 
 <div class="skill-cloud-container">
-  <h3 class="section-title">Technical Arsenal</h3>
+  <h3 class="section-title"><TextScramble>Technical Arsenal</TextScramble></h3>
 
   <div class="skill-groups">
     {#each skillGroups as group}
       <div class="group-container">
-        <h5 class="group-label">{group.name}</h5>
+        <h5 class="group-label"><TextScramble>{group.name}</TextScramble></h5>
         <div class="cloud-wrapper">
           {#each group.skills as skill}
             <div class="skill-chip">
@@ -75,7 +76,7 @@
                   alt="{skill.name} logo"
                 />
               {/if}
-              <span>{skill.name}</span>
+              <span><TextScramble>{skill.name}</TextScramble></span>
             </div>
           {/each}
         </div>

@@ -329,4 +329,24 @@
     top: 38%;
     left: 0%;
   }
+
+  /* Accessibility: Disable animations for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .name-header {
+      animation: none;
+    }
+
+    .pentagon-container {
+      animation: none;
+    }
+
+    .pentagon-item {
+      animation: none;
+    }
+
+    .cursor.blinking {
+      animation: none;
+      opacity: 1;
+    }
+  }
 </style>
