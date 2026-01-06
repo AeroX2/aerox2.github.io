@@ -14,10 +14,10 @@
   import kotlin from 'devicon/icons/kotlin/kotlin-original.svg';
 </script>
 
-<h3>Skills</h3>
-<h6>Or the buzzwords section</h6>
+<h3>Technical Arsenal</h3>
+<h6>Tools & Technologies</h6>
 <div class="buzzwords">
-  <h5>And I have a strong knowledge of these concepts.</h5>
+  <h5>Core Languages</h5>
   <div class="skill-list">
     <ul>
       <li>
@@ -47,9 +47,7 @@
     </ul>
   </div>
 
-  <h5>
-    I have gained experience with these languages through personal projects.
-  </h5>
+  <h5>Web & Tooling</h5>
   <div class="skill-list">
     <ul>
       <li>
@@ -79,7 +77,7 @@
     </ul>
   </div>
 
-  <h5>I have worked with these languages in a professional setting.</h5>
+  <h5>Technical Focus</h5>
   <div class="skill-list">
     <ul>
       <li>Reverse engineering</li>
