@@ -13,44 +13,112 @@
 {#if glSupported}
   <Canvas bind:glSupported />
 {/if}
-<h1>Hi, I'm James Ridey</h1>
+<div class="intro-content">
+  <h1>James Ridey</h1>
 
-I'm a<br />
-<ul class="list-no-space">
-  <li><b>Software Engineer</b></li>
-  <li><b>Programmer</b></li>
-  <li><b>Tinkerer</b></li>
-  <li><b>Hacker</b></li>
-  <li><b>Maker</b></li>
-  <li><b>Coder</b></li>
-</ul>
-In other words, I build things, this website included. Which is powered by
-<div class="dev-icons">
-  <div class="pentagon-container">
-    <div class="pentagon-item">
-      <img class="dev-icon" src={vite} alt="Vite logo" />
-      <div>Vite</div>
-    </div>
-    <div class="pentagon-item">
-      <img class="dev-icon" src={bun} alt="Bun logo" />
-      <div>Bun</div>
-    </div>
-    <div class="pentagon-item">
-      <img class="dev-icon" src={svelte} alt="Svelte logo" />
-      <div>Svelte</div>
-    </div>
-    <div class="pentagon-item">
-      <img class="dev-icon" src={typescript} alt="Typescript logo" />
-      <div>Typescript</div>
-    </div>
-    <div class="pentagon-item">
-      <img class="dev-icon" src={github} alt="Github logo" />
-      <div>Github</div>
+  <div class="role-container">
+    <span>I am a</span>
+    <ul class="role-list">
+      <li>Software Engineer</li>
+      <li>Programmer</li>
+      <li>Tinkerer</li>
+      <li>Hacker</li>
+      <li>Maker</li>
+      <li>Coder</li>
+    </ul>
+  </div>
+</div>
+<div class="glass-card tech-stack-card">
+  <p class="intro-punchline">
+    In other words, I build things—this website included. It is powered by:
+  </p>
+  <div class="dev-icons">
+    <div class="pentagon-container">
+      <div class="pentagon-item">
+        <img class="dev-icon" src={vite} alt="Vite logo" />
+        <div>Vite</div>
+      </div>
+      <div class="pentagon-item">
+        <img class="dev-icon" src={bun} alt="Bun logo" />
+        <div>Bun</div>
+      </div>
+      <div class="pentagon-item">
+        <img class="dev-icon" src={svelte} alt="Svelte logo" />
+        <div>Svelte</div>
+      </div>
+      <div class="pentagon-item">
+        <img class="dev-icon" src={typescript} alt="Typescript logo" />
+        <div>Typescript</div>
+      </div>
+      <div class="pentagon-item">
+        <img class="dev-icon theme-icon" src={github} alt="Github logo" />
+        <div>Github</div>
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  .intro-content {
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  .role-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    padding: 0 1rem;
+  }
+
+  .role-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .role-list li:not(:last-child)::after {
+    content: '•';
+    margin-left: 0.5rem;
+    color: var(--glass-border);
+  }
+
+  @media (max-width: 600px) {
+    .role-list li:not(:last-child)::after {
+      display: none;
+    }
+    .role-list li {
+      background: var(--glass-bg);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .tech-stack-card {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .intro-punchline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
   .dev-icons {
     margin-top: 0.5em;
 
@@ -65,15 +133,33 @@ In other words, I build things, this website included. Which is powered by
   }
 
   .pentagon-container {
-    margin: 1.5em 2em 3em 2em;
+    margin: 1.5em auto 3rem auto;
     position: relative;
     width: 10em;
     height: 10em;
   }
 
+  @media (max-width: 600px) {
+    .pentagon-container {
+      width: 7em;
+      height: 7em;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+  }
+
   .pentagon-item {
     position: absolute;
     height: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .pentagon-item div {
+    font-size: 0.7em;
+    font-weight: 600;
   }
 
   .pentagon-item:nth-child(1) {

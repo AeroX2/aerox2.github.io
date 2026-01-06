@@ -9,32 +9,31 @@
 
 <main>
   <Introduction />
-  <AboutMe />
-  <Experience />
-  <Competitions />
-  <Buzzwords />
+
+  <div class="glass-card">
+    <AboutMe />
+  </div>
+
+  <div class="glass-card">
+    <Experience />
+  </div>
+
+  <div class="glass-card">
+    <Competitions />
+  </div>
+
+  <div class="glass-card">
+    <Buzzwords />
+  </div>
+
   <DarkMode />
 </main>
 
 <style>
-  :global(body.light-mode) {
-    color: #213547;
-    background-color: #f5f8fa;
-  }
-
-  :global(body.dark-mode) {
-    color: #c8dced;
-    background-color: #1c252b;
-  }
-
-  :global(body) {
-    color: #213547;
-    background-color: #f5f8fa;
-  }
-  @media (prefers-color-scheme: dark) {
-    :global(body) {
-      color: #c8dced;
-      background-color: #1c252b;
-    }
+  /* Local adjustments if needed */
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 </style>

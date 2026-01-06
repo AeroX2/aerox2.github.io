@@ -14,8 +14,7 @@
   import kotlin from 'devicon/icons/kotlin/kotlin-original.svg';
 </script>
 
-<h3>Technical Arsenal</h3>
-<h6>Tools & Technologies</h6>
+<h3 class="section-title">Technical Arsenal</h3>
 <div class="buzzwords">
   <h5>Core Languages</h5>
   <div class="skill-list">
@@ -130,7 +129,26 @@
   .skill-list ul li::before {
     content: '•';
     font-size: 1em;
-    color: #666;
+    color: var(--accent-primary);
     margin-right: 0.5em;
+  }
+
+  h5 {
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 3px solid var(--accent-primary);
+    padding-left: 1rem;
+    text-align: left;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    h5 {
+      font-size: 1.4rem;
+    }
+    .skill-list ul li {
+      font-size: 0.95rem;
+    }
   }
 </style>

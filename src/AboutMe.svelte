@@ -1,5 +1,5 @@
-<div class="container" style="margin-top: 1em">
-  <h3>About me:</h3>
+<div class="container">
+  <h3 class="section-title">About me</h3>
   <p>
     I build systems from the silicon up. Whether I'm designing 8-bit computers
     with logic gates or reverse-engineering malware in a CTF, I prefer the
