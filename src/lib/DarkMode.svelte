@@ -1,19 +1,28 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
+
   let darkMode = $state(
     window.matchMedia('(prefers-color-scheme: dark)').matches
   );
 
-  function toggleMode() {
+  function updateBodyClass() {
     if (darkMode) {
-      darkMode = false;
-      window.document.body.classList.remove('dark-mode');
-      window.document.body.classList.add('light-mode');
-    } else {
-      darkMode = true;
       window.document.body.classList.add('dark-mode');
       window.document.body.classList.remove('light-mode');
+    } else {
+      window.document.body.classList.remove('dark-mode');
+      window.document.body.classList.add('light-mode');
     }
   }
+
+  function toggleMode() {
+    darkMode = !darkMode;
+    updateBodyClass();
+  }
+
+  onMount(() => {
+    updateBodyClass();
+  });
 </script>
 
 <button onclick={toggleMode} aria-label="Dark/Light mode switch">
