@@ -63,11 +63,11 @@
   <h3 class="section-title"><TextScramble>Technical Arsenal</TextScramble></h3>
 
   <div class="skill-groups">
-    {#each skillGroups as group}
+    {#each skillGroups as group (group.name)}
       <div class="group-container">
         <h5 class="group-label"><TextScramble>{group.name}</TextScramble></h5>
         <div class="cloud-wrapper">
-          {#each group.skills as skill}
+          {#each group.skills as skill (skill.name)}
             <div class="skill-chip">
               {#if skill.icon}
                 <img

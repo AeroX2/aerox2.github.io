@@ -4,12 +4,60 @@
   import first from './assets/first.png';
   import thoughdesign from './assets/thoughtdesign.png';
   import TextScramble from './lib/TextScramble.svelte';
+
+  const experiences = [
+    {
+      date: '2020-2025',
+      company: 'Canva',
+      logo: canva,
+      desc:
+        'At Canva, I built several AI features. I led the Magic Design project, ' +
+        'which integrated Generative AI into the core platform and launched for Droptober. ' +
+        'I also ran the Team Brain initiative, delivering an AI-powered search prototype ' +
+        'for internal knowledge retrieval. Separately, I worked on the Forms, Polls, ' +
+        'and Quizzes overhaul, which involved refactoring legacy code to reduce ' +
+        'technical debt. I mentored junior engineers and helped with team knowledge sharing.'
+    },
+    {
+      date: '2017-2018',
+      company: 'Google',
+      logo: google,
+      desc:
+        'I completed two internships at Google in 2017 and 2018. In 2017, ' +
+        'I built a new internal tool for Google Maps to help streamline their workflow. ' +
+        'In 2018, I joined the Neighbourly team to port their web application to the Jiophone. ' +
+        'This required reverse-engineering the existing system with minimal documentation ' +
+        'to deliver a fully functional app and creating comprehensive documentation for the team.'
+    },
+    {
+      date: '2014-2020',
+      company: 'ThoughtDesign',
+      logo: thoughdesign,
+      desc:
+        'I worked part-time at ThoughtDesign from 2014 to 2020. I developed web ' +
+        'applications using MVC and ASP.NET and customized JavaScript libraries for ' +
+        'commercial use. By 2018, I was managing several Angular projects, ' +
+        'implementing Protractor for end-to-end testing, and establishing a ' +
+        'TypeScript unit testing framework.'
+    },
+    {
+      date: '2013-2016',
+      company: 'FIRST Robotics',
+      logo: first,
+      desc:
+        'From 2013 to 2016, I was the lead software developer for a FIRST ' +
+        'Robotics team. I worked with the team to design, build, and test a 50kg ' +
+        'robot for international competition. I was responsible for developing ' +
+        'critical components of the robot control system within a strict six-week ' +
+        'deadline, ensuring high precision and reliability during competition.'
+    }
+  ];
 </script>
 
 <h3><TextScramble>Experience</TextScramble></h3>
 
 <div class="vertical-timeline">
-  {#each [{ date: '2020-2025', company: 'Canva', logo: canva, desc: 'At Canva, I built several AI features. I led the Magic Design project, which integrated Generative AI into the core platform and launched for Droptober. I also ran the Team Brain initiative, delivering an AI-powered search prototype for internal knowledge retrieval. Separately, I worked on the Forms, Polls, and Quizzes overhaul, which involved refactoring legacy code to reduce technical debt. I mentored junior engineers and helped with team knowledge sharing.' }, { date: '2017-2018', company: 'Google', logo: google, desc: 'I completed two internships at Google in 2017 and 2018. In 2017, I built a new internal tool for Google Maps to help streamline their workflow. In 2018, I joined the Neighbourly team to port their web application to the Jiophone. This required reverse-engineering the existing system with minimal documentation to deliver a fully functional app and creating comprehensive documentation for the team.' }, { date: '2014-2020', company: 'ThoughtDesign', logo: thoughdesign, desc: 'I worked part-time at ThoughtDesign from 2014 to 2020. I developed web applications using MVC and ASP.NET and customized JavaScript libraries for commercial use. By 2018, I was managing several Angular projects, implementing Protractor for end-to-end testing, and establishing a TypeScript unit testing framework.' }, { date: '2013-2016', company: 'FIRST Robotics', logo: first, desc: 'From 2013 to 2016, I was the lead software developer for a FIRST Robotics team. I worked with the team to design, build, and test a 50kg robot for international competition. I was responsible for developing critical components of the robot control system within a strict six-week deadline, ensuring high precision and reliability during competition.' }] as item}
+  {#each experiences as item (item.company)}
     <div class="timeline-item">
       <div class="timeline-marker"></div>
       <div class="timeline-content">
