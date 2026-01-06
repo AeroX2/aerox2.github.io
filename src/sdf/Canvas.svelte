@@ -2,6 +2,7 @@
   import { onDestroy, onMount } from 'svelte';
   import { WebGL } from './webgl';
   import jamesRideyTexture from '../assets/jamesridey.png';
+  import { sourceReality } from '../lib/stores';
 
   let { glSupported = $bindable() } = $props();
 
@@ -22,8 +23,21 @@
     glSupported = webgl.isSupported();
     if (!glSupported) return;
 
+    let isSourceActive = false;
+    sourceReality.subscribe((val) => {
+      const wasSource = isSourceActive;
+      isSourceActive = val;
+      // Resume loop if we just switched back to normal mode
+      if (wasSource && !val && isVisible && !stop) {
+        requestAnimationFrame(loop);
+      }
+    });
+
     function loop() {
-      if (stop || !isVisible) return;
+      // Pause loop if stopped, not visible, OR if we are fully in source mode
+      // We allow it to run during the transition (targetReality < 1)
+      if (stop || !isVisible || isSourceActive) return;
+
       webgl.setMousePos(mousePos);
       webgl.loop();
       requestAnimationFrame(loop);

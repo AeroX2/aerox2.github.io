@@ -4,10 +4,12 @@
   import svelte from '../node_modules/devicon/icons/svelte/svelte-original.svg';
   import github from '../node_modules/devicon/icons/github/github-original.svg';
   import typescript from '../node_modules/devicon/icons/typescript/typescript-original.svg';
-  import Canvas from './sdf/Canvas.svelte';
   import { onMount } from 'svelte';
+  import { sourceReality } from './lib/stores';
+  let { glSupported = $bindable(true) } = $props();
+  let isSourceActive = $state(false);
 
-  let glSupported = $state(true);
+  sourceReality.subscribe((val) => (isSourceActive = val));
 
   // Typewriter effect
   const roles = [
@@ -30,8 +32,8 @@
   let container: HTMLElement;
 
   function tick() {
-    if (!isVisible) {
-      setTimeout(tick, 1000); // Check again in a second
+    if (!isVisible || isSourceActive) {
+      setTimeout(tick, 1000);
       return;
     }
     const fullText = roles[currentRoleIndex];
@@ -73,9 +75,6 @@
   });
 </script>
 
-{#if glSupported}
-  <Canvas bind:glSupported />
-{/if}
 <div class="intro-content" bind:this={container}>
   <div class="name-header">
     <h4 class="intro-label">Hi, I'm</h4>

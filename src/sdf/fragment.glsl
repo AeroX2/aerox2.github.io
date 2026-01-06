@@ -156,36 +156,6 @@ vec2 rayMarch(vec3 ro, vec3 rd, out vec3 normal, out float mat) {
   return vec2(t, i);
 }
 
-// float map(vec3 p) {
-//   vec3 n = vec3(0, 1, 0);
-//   float k1 = 1.9;
-//   float k2 = (sin(p.x * k1) + sin(p.z * k1)) * 0.8;
-//   float k3 = (sin(p.y * k1) + sin(p.z * k1)) * 0.8;
-//   float w1 = 4.0 - dot(abs(p), normalize(n)) + k2;
-//   float w2 = 4.0 - dot(abs(p), normalize(n.yzx)) + k3;
-//   float s1 =
-//     length(
-//       mod(
-//         p.xy + vec2(sin((p.z + p.x) * 2.0) * 0.3, cos((p.z + p.x) * 1.0) * 0.5),
-//         2.0
-//       ) -
-//         1.0
-//     ) -
-//     0.2;
-//   float s2 =
-//     length(
-//       mod(
-//         0.5 +
-//           p.yz +
-//           vec2(sin((p.z + p.x) * 2.0) * 0.3, cos((p.z + p.x) * 1.0) * 0.3),
-//         2.0
-//       ) -
-//         1.0
-//     ) -
-//     0.2;
-//   return min(w1, min(w2, min(s1, s2)));
-// }
-
 void main() {
   vec2 uv = v_uv;
   vec2 m = iMouse;
@@ -216,19 +186,6 @@ void main() {
   } else {
     color = vec3(0.0);
   }
-
-  // float t = r.x;
-  // vec3 ip = ro + rd * t;
-  // vec3 col = vec3(t * 0.01);
-  // col = sqrt(col);
-  // fragColor = vec4(0.05*t+abs(rd) * col + max(0.0, map(ip - 0.1) - t), 1.0); //Thanks! Shane!
-
-//   float letters = texture(iTexture, uv, -1.0).r;
-//   color = mix(
-//     color,
-//     vec3(1.0, 1.0, 1.0) * letters,
-//     clamp(0.9 - iTime * 0.3, 0.0, 1.0)
-//   );
 
   fragColor = vec4(color, 1.0);
 }

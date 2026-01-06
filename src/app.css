@@ -54,6 +54,23 @@ body.light-mode {
   --logo-filter: none;
 }
 
+/* Source Mode (Reality Override) */
+body.source-mode {
+  --bg-color: #000000;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #001a00 0%, #000000 100%);
+  --text-primary: #00ff41;
+  /* Matrix Green */
+  --text-secondary: #003300;
+  --accent-primary: #00ff41;
+  --accent-secondary: #008f11;
+  --glass-bg: rgba(0, 20, 0, 0.4);
+  --glass-border: #00ff41;
+  --glass-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  --font-heading: 'Space Mono', monospace;
+  --font-body: 'Space Mono', monospace;
+  --logo-filter: sepia(1) saturate(10) hue-rotate(80deg) brightness(1.2);
+}
+
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
@@ -200,8 +217,10 @@ a:hover {
 .list-no-points {
   list-style: none;
 }
+
 /* Accessibility: Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -210,24 +229,24 @@ a:hover {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
   /* Disable specific animations */
   body {
     transition: none !important;
   }
-  
+
   .glass-card {
     transition: none !important;
   }
-  
+
   .glass-card:hover {
     transform: none !important;
   }
-  
+
   a {
     transition: none !important;
   }
-  
+
   .theme-icon {
     transition: none !important;
   }
