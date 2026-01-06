@@ -117,6 +117,21 @@
       </div>
     </div>
   </div>
+  <p class="sdf-description">
+    The animation at the top of the page is powered by WebGL fragment shaders
+    using Signed Distance Fields and Raymarching. Try dragging to move around
+    the camera!
+    <br />
+    <span class="learn-more">
+      <a
+        href="https://iquilezles.org/articles/raymarchingdf/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn more about SDF's from this awesome resource!
+      </a>
+    </span>
+  </p>
 </div>
 
 <style>
@@ -329,6 +344,26 @@
     left: 0%;
   }
 
+  .sdf-description {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .sdf-description a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent-primary);
+    transition: opacity 0.2s;
+  }
+
+  .sdf-description a:hover {
+    opacity: 0.8;
+  }
+
   /* Accessibility: Disable animations for reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .name-header {
@@ -347,5 +382,10 @@
       animation: none;
       opacity: 1;
     }
+  }
+
+  :global(.dark-mode) .theme-icon {
+    filter: invert(1);
+    opacity: 0.8;
   }
 </style>
