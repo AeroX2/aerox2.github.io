@@ -8,6 +8,8 @@
   let webgl: WebGL;
   let canvas: HTMLCanvasElement;
 
+  let observer: IntersectionObserver;
+  let isVisible = true;
   let stop = false;
   let isDragging = false;
   let mousePos = { x: 0, y: 0 };
@@ -19,6 +21,22 @@
     webgl = new WebGL(canvas);
     glSupported = webgl.isSupported();
     if (!glSupported) return;
+
+    function loop() {
+      if (stop || !isVisible) return;
+      webgl.setMousePos(mousePos);
+      webgl.loop();
+      requestAnimationFrame(loop);
+    }
+
+    observer = new IntersectionObserver((entries) => {
+      const wasVisible = isVisible;
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && !wasVisible) {
+        requestAnimationFrame(loop);
+      }
+    });
+    observer.observe(canvas);
 
     canvas.addEventListener('pointerdown', (event) => {
       isDragging = true;
@@ -50,17 +68,12 @@
     webgl.loadFontTexture(img);
 
     webgl.init();
-    function loop() {
-      webgl.setMousePos(mousePos);
-      webgl.loop();
-
-      if (!stop) requestAnimationFrame(loop);
-    }
     loop();
   });
 
   onDestroy(async () => {
     stop = true;
+    if (observer) observer.disconnect();
   });
 </script>
 

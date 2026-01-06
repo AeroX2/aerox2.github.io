@@ -25,7 +25,15 @@
   let isWaiting = $state(false);
   let typingSpeed = $state(150);
 
+  let observer: IntersectionObserver;
+  let isVisible = true;
+  let container: HTMLElement;
+
   function tick() {
+    if (!isVisible) {
+      setTimeout(tick, 1000); // Check again in a second
+      return;
+    }
     const fullText = roles[currentRoleIndex];
     isWaiting = false;
 
@@ -52,14 +60,23 @@
   }
 
   onMount(() => {
+    observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    if (container) observer.observe(container);
+
     tick();
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
   });
 </script>
 
 {#if glSupported}
   <Canvas bind:glSupported />
 {/if}
-<div class="intro-content">
+<div class="intro-content" bind:this={container}>
   <div class="name-header">
     <h4 class="intro-label">Hi, I'm</h4>
     <h1 class="main-name">James Ridey</h1>
@@ -234,6 +251,7 @@
     width: 12em;
     height: 12em;
     animation: rotate-pentagon 20s linear infinite;
+    will-change: transform;
   }
 
   @keyframes rotate-pentagon {
@@ -262,6 +280,7 @@
     align-items: center;
     gap: 0.3rem;
     animation: counter-rotate-item 20s linear infinite;
+    will-change: transform;
   }
 
   @keyframes counter-rotate-item {
@@ -282,6 +301,7 @@
   .dev-icon {
     width: 2.5em;
     height: 2.5em;
+    max-width: unset;
     filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
   }
 
