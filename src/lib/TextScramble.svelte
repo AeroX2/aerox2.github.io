@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount, onDestroy } from 'svelte';
+  import { SvelteSet } from 'svelte/reactivity';
 
   // Configuration constants - adjust these to tune the animation speed
   const BASE_INTERVAL_MS = 30; // Base speed for animation ticks
@@ -9,11 +10,11 @@
   export let revealOnInView: boolean = true;
 
   let displayText = '';
-  let interval: any;
+  let interval: ReturnType<typeof setInterval> | undefined;
   let element: HTMLElement;
   let observer: IntersectionObserver;
   let hasRevealed = false;
-  let revealedIndices: Set<number> = new Set();
+  let revealedIndices = new SvelteSet<number>();
   let originalText = '';
   let prefersReducedMotion = false;
 
@@ -35,7 +36,7 @@
       return;
     }
 
-    revealedIndices = new Set();
+    revealedIndices.clear();
     clearInterval(interval);
 
     // Get all non-space character indices

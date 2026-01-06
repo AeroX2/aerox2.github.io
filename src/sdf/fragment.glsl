@@ -1,13 +1,13 @@
 #version 300 es
 precision highp float;
 
-#define MAX_STEPS (160)
-#define MAX_DEPTH (160.0)
+#define MAX_STEPS 160
+#define MAX_DEPTH 160.0
 #define MIN_DIST (1.0 / 16384.0)
 
-#define BASE_TEXTURE (0.0)
-#define FONT_TEXTURE (1.0)
-#define SIDE_FONT_TEXTURE (2.0)
+#define BASE_TEXTURE 0.0
+#define FONT_TEXTURE 1.0
+#define SIDE_FONT_TEXTURE 2.0
 
 uniform float iTime;
 uniform vec2 iResolution;
