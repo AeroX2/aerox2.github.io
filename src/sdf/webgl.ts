@@ -169,8 +169,13 @@ export class WebGL {
 
     const aspectRatio = 16 / 9;
     const rect = this.canvas.getBoundingClientRect();
-    this.canvas.width = rect.width;
-    this.canvas.height = rect.width / aspectRatio;
+
+    // Cap resolution to improve performance
+    const maxWidth = 1280;
+    const width = Math.min(rect.width, maxWidth);
+
+    this.canvas.width = width;
+    this.canvas.height = width / aspectRatio;
 
     this.gl.viewport(0, 0, this.canvas.width, this.canvas.height);
   }

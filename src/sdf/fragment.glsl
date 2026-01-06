@@ -1,13 +1,13 @@
 #version 300 es
 precision highp float;
 
-#define MAX_STEPS (160)
-#define MAX_DEPTH (160.0)
+#define MAX_STEPS 160
+#define MAX_DEPTH 160.0
 #define MIN_DIST (1.0 / 16384.0)
 
-#define BASE_TEXTURE (0.0)
-#define FONT_TEXTURE (1.0)
-#define SIDE_FONT_TEXTURE (2.0)
+#define BASE_TEXTURE 0.0
+#define FONT_TEXTURE 1.0
+#define SIDE_FONT_TEXTURE 2.0
 
 uniform float iTime;
 uniform vec2 iResolution;
@@ -76,22 +76,36 @@ float sdPlane(vec3 p, vec3 n, float h) {
 float sdFont(vec2 p) {
   vec2 uv = p * 0.5 + 0.5;
 
-  vec4 t = texture(iTexture, uv, -100.0);
+  vec4 t = textureLod(iTexture, uv, 0.0);
   vec3 msd = t.rgb;
   float sd = t.w - 0.5;
 
   return sd;
 }
 
+float rand(vec2 co) {
+  return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
+
 vec2 sdfScene(vec3 p) {
   vec3 s = vec3(1.4, 1.5, 1.0);
   vec3 q = p;
-  q.y -= iTime * 2.0;
+
+  // Slow drift downwards
+  q.y += iTime * 0.5;
 
   vec3 q2 = round(q / s);
   if (q2.z < 0.0) q2.z = 0.0;
   q = q - s * q2;
-  q.xz *= rot2D(iTime);
+
+  // "DNA Twist" / Vortex effect
+  // Rotate around the Y axis based on height (q2.y is the grid row) + time
+  float twist = q2.y * 0.2 + iTime * 0.5;
+  q.xz *= rot2D(twist);
+
+  // Gentle tumble on individual elements
+  q.xy *= rot2D(sin(iTime + q2.y) * 0.5);
+  q.yz *= rot2D(cos(iTime * 0.8) * 0.5);
 
   vec2 fontSdf = vec2(sdFont(q.xy) - 0.01, SIDE_FONT_TEXTURE);
   vec2 box = vec2(
@@ -110,6 +124,31 @@ vec3 palette(float t) {
   vec3 d = vec3(0.0, 0.33, 0.67);
 
   return a + b * cos(6.28318 * (c * t + d));
+}
+
+float calcSoftShadow(vec3 ro, vec3 rd, float mint, float maxt, float k) {
+  float res = 1.0;
+  float t = mint;
+  for (int i = 0; i < 50; i++) {
+    if (t >= maxt) break;
+    float h = sdfScene(ro + rd * t).x;
+    if (h < 0.001) return 0.0;
+    res = min(res, k * h / t);
+    t += h;
+  }
+  return res;
+}
+
+float calcAO(vec3 pos, vec3 nor) {
+  float occ = 0.0;
+  float sca = 1.0;
+  for (int i = 0; i < 5; i++) {
+    float h = 0.001 + 0.15 * float(i) / 4.0;
+    float d = sdfScene(pos + h * nor).x;
+    occ += (h - d) * sca;
+    sca *= 0.95;
+  }
+  return clamp(1.0 - 1.5 * occ, 0.0, 1.0);
 }
 
 vec2 rayMarch(vec3 ro, vec3 rd, out vec3 normal, out float mat) {
@@ -143,12 +182,6 @@ vec2 rayMarch(vec3 ro, vec3 rd, out vec3 normal, out float mat) {
       ) *
       0.5;
 
-    if (mat == SIDE_FONT_TEXTURE) {
-      vec2 uv = p.xy * 0.5 + 0.5;
-      vec4 tx = texture(iTexture, uv, -100.0) - 0.5;
-      normalU = -vec3(-tx.g, tx.b, 0.0001) * 2.0 * smallVec.x;
-    }
-
     // normalU = normalU+0.000000001;
     normal = normalize(normalU);
   }
@@ -156,48 +189,31 @@ vec2 rayMarch(vec3 ro, vec3 rd, out vec3 normal, out float mat) {
   return vec2(t, i);
 }
 
-// float map(vec3 p) {
-//   vec3 n = vec3(0, 1, 0);
-//   float k1 = 1.9;
-//   float k2 = (sin(p.x * k1) + sin(p.z * k1)) * 0.8;
-//   float k3 = (sin(p.y * k1) + sin(p.z * k1)) * 0.8;
-//   float w1 = 4.0 - dot(abs(p), normalize(n)) + k2;
-//   float w2 = 4.0 - dot(abs(p), normalize(n.yzx)) + k3;
-//   float s1 =
-//     length(
-//       mod(
-//         p.xy + vec2(sin((p.z + p.x) * 2.0) * 0.3, cos((p.z + p.x) * 1.0) * 0.5),
-//         2.0
-//       ) -
-//         1.0
-//     ) -
-//     0.2;
-//   float s2 =
-//     length(
-//       mod(
-//         0.5 +
-//           p.yz +
-//           vec2(sin((p.z + p.x) * 2.0) * 0.3, cos((p.z + p.x) * 1.0) * 0.3),
-//         2.0
-//       ) -
-//         1.0
-//     ) -
-//     0.2;
-//   return min(w1, min(w2, min(s1, s2)));
-// }
+mat3 setCamera(vec3 ro, vec3 ta, float cr) {
+  vec3 cw = normalize(ta - ro);
+  vec3 cp = vec3(sin(cr), cos(cr), 0.0);
+  vec3 cu = normalize(cross(cw, cp));
+  vec3 cv = normalize(cross(cu, cw));
+  return mat3(cu, cv, cw);
+}
 
 void main() {
   vec2 uv = v_uv;
   vec2 m = iMouse;
 
-  vec3 ro = vec3(0.0, 0.0, -3.0);
-  vec3 rd = normalize(vec3((uv - 0.5) * 2.5, 1.0));
+  // Target moves in a circle ("Eyes following edge of a circle")
+  vec3 ta = vec3(sin(iTime * 0.5), cos(iTime * 0.5), 0.0);
 
-  ro.yz *= rot2D(-m.y);
-  rd.yz *= rot2D(-m.y);
+  // Camera Position controlled by mouse (Original style)
+  vec3 ro = vec3(0.0, 0.0, -3.5);
+  ro.yz *= rot2D(-m.y * 2.0 + 0.5); // Add slight offset to center view vertically
+  ro.xz *= rot2D(-m.x * 4.0);
 
-  ro.xz *= rot2D(-m.x);
-  rd.xz *= rot2D(-m.x);
+  // Camera-to-World transformation
+  mat3 ca = setCamera(ro, ta, 0.0);
+
+  // Ray direction
+  vec3 rd = ca * normalize(vec3((uv - 0.5) * 2.5, 2.0));
 
   vec3 normal = vec3(0.0);
   float mat = 0.0;
@@ -205,8 +221,17 @@ void main() {
 
   vec3 color;
   if (r.x <= MAX_DEPTH) {
+    vec3 p = ro + rd * r.x;
     vec3 texColor = vec3(0.1, 0.125, 0.1) * 0.5;
-    vec3 lightColor = clamp(normal.y * 0.5 + 0.5, 0.0, 1.0) * vec3(2.5);
+
+    // Lighting
+    vec3 lig = normalize(vec3(0.0, 0.0, -2.0));
+    float dif = clamp(dot(normal, lig), 0.0, 1.0);
+    float sh = calcSoftShadow(p, lig, 0.02, 2.5, 8.0);
+    float ao = calcAO(p, normal);
+
+    vec3 lightColor = dif * sh * vec3(1.2) + vec3(0.9) * ao;
+
     if (mat == FONT_TEXTURE) {
       texColor = vec3(0.3, 0.3, 0.9);
     }
@@ -216,19 +241,6 @@ void main() {
   } else {
     color = vec3(0.0);
   }
-
-  // float t = r.x;
-  // vec3 ip = ro + rd * t;
-  // vec3 col = vec3(t * 0.01);
-  // col = sqrt(col);
-  // fragColor = vec4(0.05*t+abs(rd) * col + max(0.0, map(ip - 0.1) - t), 1.0); //Thanks! Shane!
-
-//   float letters = texture(iTexture, uv, -1.0).r;
-//   color = mix(
-//     color,
-//     vec3(1.0, 1.0, 1.0) * letters,
-//     clamp(0.9 - iTime * 0.3, 0.0, 1.0)
-//   );
 
   fragColor = vec4(color, 1.0);
 }

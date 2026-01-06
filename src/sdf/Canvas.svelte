@@ -2,12 +2,15 @@
   import { onDestroy, onMount } from 'svelte';
   import { WebGL } from './webgl';
   import jamesRideyTexture from '../assets/jamesridey.png';
+  import { sourceReality } from '../lib/stores';
 
   let { glSupported = $bindable() } = $props();
 
   let webgl: WebGL;
   let canvas: HTMLCanvasElement;
 
+  let observer: IntersectionObserver;
+  let isVisible = true;
   let stop = false;
   let isDragging = false;
   let mousePos = { x: 0, y: 0 };
@@ -19,6 +22,35 @@
     webgl = new WebGL(canvas);
     glSupported = webgl.isSupported();
     if (!glSupported) return;
+
+    let isSourceActive = false;
+    sourceReality.subscribe((val) => {
+      const wasSource = isSourceActive;
+      isSourceActive = val;
+      // Resume loop if we just switched back to normal mode
+      if (wasSource && !val && isVisible && !stop) {
+        requestAnimationFrame(loop);
+      }
+    });
+
+    function loop() {
+      // Pause loop if stopped, not visible, OR if we are fully in source mode
+      // We allow it to run during the transition (targetReality < 1)
+      if (stop || !isVisible || isSourceActive) return;
+
+      webgl.setMousePos(mousePos);
+      webgl.loop();
+      requestAnimationFrame(loop);
+    }
+
+    observer = new IntersectionObserver((entries) => {
+      const wasVisible = isVisible;
+      isVisible = entries[0].isIntersecting;
+      if (isVisible && !wasVisible) {
+        requestAnimationFrame(loop);
+      }
+    });
+    observer.observe(canvas);
 
     canvas.addEventListener('pointerdown', (event) => {
       isDragging = true;
@@ -50,17 +82,12 @@
     webgl.loadFontTexture(img);
 
     webgl.init();
-    function loop() {
-      webgl.setMousePos(mousePos);
-      webgl.loop();
-
-      if (!stop) requestAnimationFrame(loop);
-    }
     loop();
   });
 
   onDestroy(async () => {
     stop = true;
+    if (observer) observer.disconnect();
   });
 </script>
 
