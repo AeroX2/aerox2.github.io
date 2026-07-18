@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>James's media editor</title><link rel="stylesheet" href="/style.css?v=3" /></head>
+  <body>
+    <header class="topbar">
+      <div><span class="led"></span><strong>Media editor</strong><small id="source"></small></div>
+      <div class="progress"><span id="progressText">Loading…</span><i><b id="progressBar"></b></i><span id="saveState">Saved</span></div>
+    </header>
+    <main>
+      <aside>
+        <div class="aside-tools">
+          <select id="filter"><option value="crop-review">Needs crop review</option><option value="unlabelled">Unlabelled</option><option value="included">Included</option><option value="skip">Skipped</option><option value="all">All media</option></select>
+          <button id="gridToggle" type="button">Contact sheet</button>
+        </div>
+        <div id="rail" class="rail" aria-label="Media files"></div>
+      </aside>
+      <section class="workspace">
+        <div class="file-strip"><button id="previous" type="button">← Previous</button><div><strong id="filename"></strong><span id="fileMeta"></span></div><button id="next" type="button">Next →</button></div>
+        <div id="stage" class="stage">
+          <div class="crop-layout">
+            <div id="mediaArea" class="media-area"><div id="mediaFrame" class="media-frame"></div></div>
+            <aside class="crop-panel">
+              <div>
+                <span class="panel-kicker">Output preview</span>
+                <strong id="cropReadout">Full frame</strong>
+              </div>
+              <div id="cropPreview" class="crop-preview"></div>
+              <div id="videoControls" class="video-controls" hidden>
+                <button id="playPause" type="button">Play</button>
+                <input id="videoScrub" type="range" min="0" max="1" step="0.01" value="0" aria-label="Video position" />
+                <span id="videoTime">0:00</span>
+              </div>
+              <label>Aspect
+                <select id="cropAspect">
+                  <option value="1.5" selected>3:2</option>
+                  <option value="1.7777778">16:9</option>
+                  <option value="1.3333333">4:3</option>
+                  <option value="1">Square</option>
+                  <option value="0.75">Portrait 3:4</option>
+                  <option value="free">Free (unlocked)</option>
+                </select>
+              </label>
+              <div class="crop-sliders">
+                <label>X <input id="cropX" type="range" min="0" max="100" step="0.1" /></label>
+                <label>Y <input id="cropY" type="range" min="0" max="100" step="0.1" /></label>
+                <label>Width <input id="cropWidth" type="range" min="1" max="100" step="0.1" /></label>
+                <label>Height <input id="cropHeight" type="range" min="1" max="100" step="0.1" /></label>
+              </div>
+              <div class="crop-actions">
+                <button id="fullFrame" type="button">Use full frame</button>
+                <button id="saveCrop" class="primary" type="button">Save crop + next →</button>
+              </div>
+              <p>Drag the frame to position it. Drag a corner to resize it. Video crops apply to the complete clip.</p>
+            </aside>
+          </div>
+        </div>
+        <form id="labelForm">
+          <label>Project<input id="project" list="projects" placeholder="Choose or type a project" autocomplete="off" /><datalist id="projects"></datalist></label>
+          <label>Use<select id="usage"><option value="">Not labelled</option><option value="hero">Hero</option><option value="showcase">Project showcase</option><option value="drawer">Parts drawer visual</option><option value="texture">Ambient / contact strip</option><option value="reference">Reference only</option><option value="skip">Skip</option></select></label>
+          <label class="wide">Caption<textarea id="caption" rows="2" placeholder="What does this show?"></textarea></label>
+          <label class="wide">Notes<textarea id="notes" rows="2" placeholder="Context, uncertainty, or anything to revisit…"></textarea></label>
+          <div class="form-footer"><label class="carry"><input id="carry" type="checkbox" checked /> Carry project to next item</label><span class="shortcuts">1 hero · 2 showcase · 3 drawer · 4 texture · 5 reference · 0 skip · ← → navigate</span><button id="saveNext" class="primary" type="submit">Save + next →</button></div>
+        </form>
+      </section>
+      <section id="contactSheet" class="contact-sheet" hidden></section>
+    </main>
+    <script type="module" src="/app.js?v=3"></script>
+  </body>
+</html>

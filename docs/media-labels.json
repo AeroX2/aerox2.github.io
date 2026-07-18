@@ -1,0 +1,1910 @@
+{
+  "version": 1,
+  "updatedAt": "2026-07-18T15:00:07.208Z",
+  "labels": {
+    "20211225_233717.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is the blinds-controller, it is a motor connected up to the blinds in order to control them through the internet, the project should have the 3d model and the code.",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.20548712637832245,
+        "right": 1,
+        "bottom": 0.7054871263783224
+      },
+      "cropReviewed": true
+    },
+    "20211225_234441.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "This is the first iteration of the led display, you can see the light bleeding and the low resolution of the display",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.19864899154499405,
+        "top": 0.29710865185420926,
+        "right": 0.7734504906087596,
+        "bottom": 0.8080433176886674
+      },
+      "cropReviewed": true
+    },
+    "20211226_143945.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Honestly this isnt showing much, but it is just my desk with a bunch electronics and parts on it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2000008961315752,
+        "top": 0.2527648592859576,
+        "right": 0.9390810942621425,
+        "bottom": 0.9097250354020173
+      },
+      "cropReviewed": true
+    },
+    "20211226_144000.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is a photo of my messy desk with a bunch of electronics parts, soldering, crimping etc.",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.11124359239980627,
+        "top": 0.14867696698656988,
+        "right": 0.9717476336691746,
+        "bottom": 0.9135694481148974
+      },
+      "cropReviewed": true
+    },
+    "20211226_155530.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Hmmm this is a TV light strip controller, the idea is that you connect the HDMI and the raspberry pi reads the hdmi and does a dynamic light strip around the TV",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.057284805482120185,
+        "right": 0.9223061017114869,
+        "bottom": 0.8771124514478863
+      },
+      "cropReviewed": true
+    },
+    "20211226_160458.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Same project, TV light strip with me holding the soldering iron but not the best photo",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.19745484338886748,
+        "right": 1,
+        "bottom": 0.6974548433888674
+      },
+      "cropReviewed": true
+    },
+    "20211226_164852.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "video showing the TV light strip light strip using the Hyperion software and the light strip working",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20220316_174504.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "This is a torn apart brother cartridge, card number 52, it is the reference card I used to understand what pins were going where and doing what, and since the chip was labelled this allowed me to continue the project: https://www.eevblog.com/forum/reviews/brother-(possibly-also-bernina)-embroidery-machine-memory-cards/75/",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.058575851716948124,
+        "top": 0.10945451839745589,
+        "right": 1,
+        "bottom": 0.9462759835379464
+      },
+      "cropReviewed": true
+    },
+    "20220316_174516.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "This is also of the brother card teardown of the backside",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20220319_162423.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "This is the brother card wired up to an Arduino Mega which allowed me to dump all the data",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.02196601980796952,
+        "top": 0.04433796476152467,
+        "right": 0.9707121746936779,
+        "bottom": 0.8876678802154876
+      },
+      "cropReviewed": true
+    },
+    "20220322_172518.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "Same image but a little less blurry of me dumping the data from the brother card",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.027457373931733916,
+        "top": 0,
+        "right": 0.9853559867946869,
+        "bottom": 0.8514654336559583
+      },
+      "cropReviewed": true
+    },
+    "20230122_192240.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "This is a schematic of a esp32 hub75 driver for the led display",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.0732198146461851,
+        "top": 0.17290627670733905,
+        "right": 0.9322716903058073,
+        "bottom": 0.9365079439603365
+      },
+      "cropReviewed": true
+    },
+    "20230406_0004.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is me playing around with a converted full spectrum camera that I converted myself and shooting with a IR lens",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20230406_0008.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Same deal, converted camera, IR lens",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20230406_0480.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "More converted camera images, this one is with a IR lens but of a different kind",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20230406_0481.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "converted camera, different lens",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "20230406_0482.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "converted camera, different lens",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20220904_205316969.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "This is the embroidery machine in question and it shows my custom chip plugged in the side and it correctly show Kirby on the menu proving that I successffuly made a custom chip, reversed engineered the shoftware to write a custom embroidery to the chip and have the machine accept it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.0018304513745881384,
+        "top": 0.0077240874270724375,
+        "right": 0.9835254348679469,
+        "bottom": 0.8803418505322802
+      },
+      "cropReviewed": true
+    },
+    "IMG_20220904_205323758.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "This is the embroidery machine in question and it shows my custom chip plugged in the side and it correctly show Kirby on the menu proving that I successffuly made a custom chip, reversed engineered the shoftware to write a custom embroidery to the chip and have the machine accept it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0.985356087346839,
+        "bottom": 0.8758720776416347
+      },
+      "cropReviewed": true
+    },
+    "IMG_20220904_205342009.jpg": {
+      "project": "Brother cartridge emulator",
+      "usage": "",
+      "caption": "The kirby embroidery, not the best embroidery since I'm new at it but its kirby!",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.04354186412948484,
+        "right": 0.985356087346839,
+        "bottom": 0.9194139417711195
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230129_213119097.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "1.1v of the led display, shows a rainbow version of the clock",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2983709143649609,
+        "top": 0.31272482089793074,
+        "right": 0.7693575964335362,
+        "bottom": 0.731379649403331
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230130_160102525.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "This is the guts of the led display a esp32 or esp8266 soldered to a hub75 pcb and then plugged into the display",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.06630266592439882,
+        "right": 0.9212886804018224,
+        "bottom": 0.8852259373926854
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230130_161557663.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "Custom led display hub75 driver on a perfboard but pretty bad image, wouldn't use this to be honest",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.11623929537259615,
+        "right": 1,
+        "bottom": 0.8662392953725961
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230131_214225304.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is the esp air quality clock schematic",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.014041454422313825,
+        "right": 1,
+        "bottom": 0.9029303433112027
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230829_014051610.jpg": {
+      "project": "Single-key keyboard",
+      "usage": "",
+      "caption": "Single key keyboard but in to parts the controller part and the key part, they eventually get soldered together to form the complete product",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.24711696869851732,
+        "top": 0.3070636089225266,
+        "right": 0.7464506787445949,
+        "bottom": 0.7509157956301511
+      },
+      "cropReviewed": true
+    },
+    "IMG_20230829_014111730.jpg": {
+      "project": "Single-key keyboard",
+      "usage": "",
+      "caption": "This is a soldered together product of the single key keyboard",
+      "notes": "I would probably crop to just the keyboard",
+      "kind": "image",
+      "crop": {
+        "left": 0.20501558156147034,
+        "top": 0.2525004672814426,
+        "right": 0.699798634260451,
+        "bottom": 0.692307625236092
+      },
+      "cropReviewed": true
+    },
+    "IMG_20231107_151927766.jpg": {
+      "project": "Single-key keyboard",
+      "usage": "",
+      "caption": "bad image of the single key keyboard dont use",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.05680525766072342,
+        "top": 0.396095711940455,
+        "right": 0.986366693227569,
+        "bottom": 0.8626990992053815
+      },
+      "cropReviewed": true
+    },
+    "IMG_20231107_180616106.jpg": {
+      "project": "Single-key keyboard",
+      "usage": "",
+      "caption": "Bunch of the single key keyboards which I handed out to people",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.03477948108654236,
+        "top": 0.12328636103028047,
+        "right": 0.9633900675388695,
+        "bottom": 0.948717993432349
+      },
+      "cropReviewed": true
+    },
+    "IMG_20231127_190526180.jpg": {
+      "project": "Flare-On",
+      "usage": "",
+      "caption": "This is the 9th annual flare on challenge medal",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.0182522689537346,
+        "top": 0.1903845684344953,
+        "right": 0.9863434022670358,
+        "bottom": 0.9164529184194712
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240103_231144818.jpg": {
+      "project": "Ethereal ink frame",
+      "usage": "",
+      "caption": "Back of the ethereal ink frame but not the best photo to be honest mostly just shows the tape holding it together",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.08302806812328296,
+        "right": 1,
+        "bottom": 0.971916957012172
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240104_115219476.jpg": {
+      "project": "Ethereal ink frame",
+      "usage": "",
+      "caption": "ethereal ink frame show a photo",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.010983009903984708,
+        "top": 0.032961698669231834,
+        "right": 1,
+        "bottom": 0.9120879120879121
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240104_115228831.jpg": {
+      "project": "Ethereal ink frame",
+      "usage": "",
+      "caption": "ethereal ink frame show a photo",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.05412211896942849,
+        "right": 0.9816950840455108,
+        "bottom": 0.926739971454327
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240104_115253224.jpg": {
+      "project": "Ethereal ink frame",
+      "usage": "",
+      "caption": "Back of the ethereal ink frame but not the best photo to be honest mostly just shows the tape holding it together",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.045176978105445006,
+        "right": 1,
+        "bottom": 0.9340658669943338
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240710_173832548.jpg": {
+      "project": "Flare-On",
+      "usage": "",
+      "caption": "2023 flare on medal",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.043349373756737676,
+        "top": 0.05640325979794058,
+        "right": 0.9749802889512851,
+        "bottom": 0.988034174992488
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240710_173842766.jpg": {
+      "project": "Flare-On",
+      "usage": "",
+      "caption": "me holding up the flare 2023 medal, probably a better photo than the other one",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.025096979474140146,
+        "top": 0.03309287729656457,
+        "right": 0.9817477310462654,
+        "bottom": 0.9897436288686898
+      },
+      "cropReviewed": true
+    },
+    "IMG_20240910_102425855.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "Me holding my daily driver which is the 3d printed wallet, holds 5 cards and the lever pops up the cards in a cascade: https://www.printables.com/model/871548-cascade-card-wallet-remix-with-drawer, remixed from someone elses work",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.25809997860250206,
+        "top": 0.11714372763928763,
+        "right": 0.8772199717489504,
+        "bottom": 0.7362637362637362
+      },
+      "cropReviewed": true
+    },
+    "IMG_20241111_122352651.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Quarter of the robot dog, one leg fully assembled",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.01098300990398476,
+        "top": 0.013380709830391357,
+        "right": 0.9194582290272343,
+        "bottom": 0.921855951665522
+      },
+      "cropReviewed": true
+    },
+    "IMG_20241111_122401748.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Robot dog quarter but upside down",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.056745400342359975,
+        "top": 0.05300783798445637,
+        "right": 0.8645433806116144,
+        "bottom": 0.8608058384486608
+      },
+      "cropReviewed": true
+    },
+    "IMG_20241111_122437126.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "quarter of the robot dog but on its side",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.04576239043837521,
+        "top": 0.0664932683705464,
+        "right": 0.9524070576348846,
+        "bottom": 0.9731379582331731
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250205_194546494.jpg": {
+      "project": "Flare-On",
+      "usage": "",
+      "caption": "2024 medal for flare on",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.015970782332841375,
+        "top": 0.21964340161080317,
+        "right": 0.8562628336755647,
+        "bottom": 0.6923076923076923
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250430_223514652.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "3d printed wallet with some cards loaded showing the cards popped up",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.18595086513421477,
+        "right": 1,
+        "bottom": 0.7901175318008813
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250430_223634873.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "back side of the 3d printed waller showing the additional area to store bulkier items like coins, notes, etc",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.0604686088302509,
+        "top": 0.20615158311280612,
+        "right": 0.938703999322914,
+        "bottom": 0.7367521315354568
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250430_224124298.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "front side mechanical wallet but cards not popping up",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.07180661571269133,
+        "top": 0.26420937562600166,
+        "right": 0.8256527954623595,
+        "bottom": 0.7196581092247596
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250430_224321506.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "front side mechanical wallet but cards not popping up",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.35900041726858517,
+        "top": 0.2504453617505865,
+        "right": 0.7508294806669584,
+        "bottom": 0.8989900346235796
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250430_224614575.jpg": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "Better image of the cards popped up from the mechanical wallet, showing the lever up",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2837269011596479,
+        "top": 0.083819395450208,
+        "right": 0.8201651424758032,
+        "bottom": 0.9717171963778409
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250505_114508245.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "two lets of the robot dog assembled, although one leg isnt attached correctly to the bdoy",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.1226432586619646,
+        "top": 0,
+        "right": 0.7268099102244647,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250505_114518195.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "different view of the \"two lets of the robot dog assembled, although one leg isnt attached correctly to the bdoy\"",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.15376173644717875,
+        "top": 0,
+        "right": 0.7579283880096788,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250505_114708888.jpg": {
+      "project": "Sand table",
+      "usage": "",
+      "caption": "Sand table, with the electronics and the 3d printed system sitting on top of the table that I sanded and repainted black",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.13362626856594934,
+        "top": 0,
+        "right": 0.7377929201284494,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250505_114716565.jpg": {
+      "project": "Sand table",
+      "usage": "",
+      "caption": "different view of the other iamge of the sand table",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.17572755515084432,
+        "top": 0.031292139109720035,
+        "right": 0.7048437898643432,
+        "bottom": 0.9070707563920455
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250604_232315307.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "Moon lamp lit up",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.18424145820813287,
+        "right": 1,
+        "bottom": 0.7884081248747996
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250604_232319486.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "Moon lamp lit up",
+      "notes": "may should crop out the led display in the bottom left somehow without affecting the moon lamp, not sure",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.18386753180088145,
+        "right": 1,
+        "bottom": 0.7880341984675481
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250604_232326646.jpg": {
+      "project": "Moon lamp / LED display",
+      "usage": "",
+      "caption": "moon lamp and version 2.0 of the led display clock",
+      "notes": "should crop out the right side shows my reflection in the window",
+      "kind": "image",
+      "crop": {
+        "left": 0.21439113879865113,
+        "top": 0.12520903345109585,
+        "right": 0.6647961544661245,
+        "bottom": 0.8707070090553977
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250604_232341029.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "mooin lamp withouth the 3d printed moon but has my 3d printed model attached to the lamp.",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 1.1102230246251565e-16,
+        "top": 0.20304484049479152,
+        "right": 1,
+        "bottom": 0.8072115071614582
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250612_182448668.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "better picture of the moon lamp, showing it lit up and without the led display in the way",
+      "notes": "maybe crop the bottom a bit so we dont see the cable?",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.10754304723175706,
+        "right": 1,
+        "bottom": 0.7117097138984236
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250622_235133126.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "moon lamp",
+      "notes": "right side shows my reflection should probably crop left and right",
+      "kind": "image",
+      "crop": {
+        "left": 0.24528641677177718,
+        "top": 0,
+        "right": 0.8494530683342773,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250622_235128196.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "moon lamp",
+      "notes": "right side shows my reflection should probably crop left and right",
+      "kind": "image",
+      "crop": {
+        "left": 0.23269605475314042,
+        "top": 0,
+        "right": 0.8246598784921071,
+        "bottom": 0.9798022155112759
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250712_195157605.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "messy picture of my desk but has the robot dog above the keyboard getting assembled.",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.30569282041546536,
+        "top": 0,
+        "right": 0.8055213303747941,
+        "bottom": 0.8273023819945519
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250712_211802667.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "another view of my desk showing me assembling the robot dog",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.09701633610481879,
+        "top": 0,
+        "right": 0.7011829876673188,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250713_014440354.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "half the robot dog sitting on top of my chair",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.20318502963473023,
+        "top": 1.1102230246251565e-16,
+        "right": 0.8073516811972303,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250713_014445742.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "different view of the robot dog sitting on my chair but also shows my messy clothes pile in the background, maybe not the best unless we crop nicely?",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2068460329360585,
+        "top": 0.053521436336938934,
+        "right": 0.7615892907588551,
+        "bottom": 0.9717171963778409
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250720_021517729.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Robot dog on its back but with all 4 legs",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.14094827516860584,
+        "top": 0,
+        "right": 0.7451149267311059,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250721_233253211.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Robot dog on its back but with all 4 legs, bit hard to see though with blue dog on blue carpet",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.18488011368024093,
+        "top": 1.1102230246251565e-16,
+        "right": 0.7890467652427409,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250816_005809066.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "Me assembling the lightgun, shows the guts of the light gunand me in the process of soldering it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.15193118452043863,
+        "top": 0,
+        "right": 0.7560978360829386,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250816_005832203.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "The foot pedal for the light gun , getting assembled",
+      "notes": "crop the bottom my toes are showing",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.20475424742087342,
+        "right": 1,
+        "bottom": 0.80892091408754
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250816_005944831.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "Me assembling the lightgun, shows the guts of the light gunand me in the process of soldering it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.10090043866608317,
+        "top": 0,
+        "right": 0.7050670902285834,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250816_005950219.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "Me assembling the lightgun, shows the guts of the light gun more directly",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.15376163589502678,
+        "top": 0,
+        "right": 0.7579282874575268,
+        "bottom": 0.9999999999999999
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250817_125158359.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "photo of the wiring for the light gun, this is more for my reference when I needed to make two of them",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250817_125206545.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "photo of the wiring for the light gun, this is more for my reference when I needed to make two of them",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250817_125216657.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "photo of the wiring for the light gun, this is more for my reference when I needed to make two of them",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250820_163442058.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "fully assembled light gun!",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.21159182817508015,
+        "right": 0.9717065235411139,
+        "bottom": 0.7986645194811698
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250820_163454397.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "fully assembled light gun! showing the little display on the back",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.12849581971460458,
+        "top": 0.24330790216461565,
+        "right": 0.9622071973320577,
+        "bottom": 0.7470085261418269
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250820_163458670.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "fully assembled light gun! other side",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.15480766100761212,
+        "right": 1,
+        "bottom": 0.7589743276742789
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250825_015203622.jpg": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "foot pedal fully assembled for the lgith gun",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.17412020303619233,
+        "top": 0,
+        "right": 0.7782868545986925,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250910_104542261.jpg": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "This was a request from the Canvanaut who asked me to repair their DS, the little conenctor broke and I had the tools and experience with hot air to fix it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.14094817461645387,
+        "top": 0,
+        "right": 0.745114826178954,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250910_105543316.jpg": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "Nintendo DS, connector successfully removed!",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250910_122508990.jpg": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250910_122712911.jpg": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "Slightly damaged the custom case while repairing, ignore this photo",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260304_014120708.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Half the robot dog on my blue carpet",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2361340593466845,
+        "top": 0.07876397803951252,
+        "right": 0.7560979366350906,
+        "bottom": 0.9393938654119318
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260304_014125093.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "My desk and assembling the robot dog",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260325_005025569.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "Motor controller clamped to the desk with me trying to get it working, robot leg in the background",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.1669318841180375,
+        "top": 0.2389422920422677,
+        "right": 1,
+        "bottom": 0.7422542787209534
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260325_005031637.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "More me testing the motor controller, showing the controller on the back of the motor",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.10468612711372682,
+        "top": 0.1992521471854968,
+        "right": 1,
+        "bottom": 0.7401709453876202
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260325_005037843.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "This is a top view of my desk with the robot dog leg and the motor controller clamped to the desk",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.19412397335737172,
+        "right": 1,
+        "bottom": 0.7982906400240385
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260325_005041598.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "half the robot dog",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.08770994798574261,
+        "top": 0.2471154002654247,
+        "right": 1,
+        "bottom": 0.7982906400240385
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260325_005055913.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "robot dog leg",
+      "notes": "left side shows my foot, needs to be cropped",
+      "kind": "image",
+      "crop": {
+        "left": 0.34435630351112023,
+        "top": 0,
+        "right": 0.9485229550736204,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260408_112333152.jpg": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "The led display with Friren on top and the moon lamp",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.1501007331458505,
+        "top": 0,
+        "right": 0.7542673847083505,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260417_221157940.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "The full robot dog on the wood so bit easier to make out",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.21050713678953872,
+        "top": 0.07877017444023728,
+        "right": 0.7524370338859144,
+        "bottom": 0.9757576127485795
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260417_221202847.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "My work desk where I build my project and my toolbox",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260524_220322875.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Robot dog on the workdesk",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2416255140226009,
+        "top": 0,
+        "right": 0.845792165585101,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141050081.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "V2 of the moon lamp getting printed",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.09535257975260418,
+        "right": 1,
+        "bottom": 0.6995192464192707
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141144067.jpg": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "V1 of the moon lamp with the moon removed and showing the 3d print and motor setup",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0.05566236447065309,
+        "right": 1,
+        "bottom": 0.6598290311373197
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141219876.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is the kitchen assistant, a ESP32 with a microphones. By default it shows a bunch of ported Dwitter animations for the clock, but say Hey Mycroft and it spins into assistent mode for asking kitchen questions",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.24733996740630146,
+        "top": 0,
+        "right": 0.8167271378822594,
+        "bottom": 0.9424339609003652
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141350321.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "Robot dog on the ground",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.08603337647691,
+        "top": 0,
+        "right": 0.8952155593248045,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141406457.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "fully assembled robot dog on its back",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141408312.jpg": {
+      "project": "Robot dog",
+      "usage": "",
+      "caption": "back half of the fully assembled robot dog",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.09335533280349052,
+        "top": 0,
+        "right": 0.9414240477308999,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_141450040.jpg": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "My 8 bit computer which has been made by tinytapeout, shows the breakout board and the QSPI board attached",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.20523868082140648,
+        "top": 0.06464643998579545,
+        "right": 0.7233720061830727,
+        "bottom": 0.9222464482313121
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_171726261.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "The motor controller with a bunch of wires, this was V1 of the motor controller which had a bunch of issues so did a bunch of wire hacks on it to get it working",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.23613405934668452,
+        "top": 0.14545454545454545,
+        "right": 0.6737255131834329,
+        "bottom": 0.8697438664639827
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_172055064.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "This is the moteus motor reference design shows the motor and the controller",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.199524026333402,
+        "top": 0.03333805460170216,
+        "right": 0.7707417487360999,
+        "bottom": 0.9788018946289704
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_172104100.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "back side of the moteus controller",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.17389720432840816,
+        "top": 1.1102230246251565e-16,
+        "right": 0.7780638558909082,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260708_172213370.jpg": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "This is another motor contorller which I used to test my motors were actually working correctly",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.17006802721088435,
+        "top": 0.23552347819010422,
+        "right": 0.9465490347539876,
+        "bottom": 0.7046474202473958
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260710_230016453.jpg": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "This is the tang nano 9k which is what I used to test my Verilog design before sending it to Tinytapeout",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.2198826940267195,
+        "top": 0.11209181627968443,
+        "right": 0.6586840832796357,
+        "bottom": 0.8383837890625001
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260712_140121760.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Guts of the air quality clock",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.20867648431064661,
+        "top": 0.02928530094438429,
+        "right": 0.7658570497984336,
+        "bottom": 0.9515152254971591
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260712_140149943.jpg": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Assembled air quality clock",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.214168039538715,
+        "top": 0.020201970880681763,
+        "right": 0.7597488563287339,
+        "bottom": 0.9232323109019887
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260712_192907966.jpg": {
+      "project": "E-paper smart watch",
+      "usage": "",
+      "caption": "this is the fully assembled smart watch V1 which unfortunately doesnt work, hence why I'm currently working on it",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.30752327179005357,
+        "top": 0.15953507164852437,
+        "right": 0.6956913318870985,
+        "bottom": 0.8020201526988637
+      },
+      "cropReviewed": true
+    },
+    "IMG_20260712_192957692.jpg": {
+      "project": "E-paper smart watch",
+      "usage": "",
+      "caption": "Back side of the epaper smart watch but wire up to usb and the programmer",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0.32948929159802304,
+        "top": 0.21206243896202356,
+        "right": 0.7249793582977244,
+        "bottom": 0.8666667036576705
+      },
+      "cropReviewed": true
+    },
+    "P1660999.mp4": {
+      "project": "Wireless light gun",
+      "usage": "",
+      "caption": "This is the light gun project and me showing off the light gun and me playing time crisi, showing the gun working with force feedback",
+      "notes": "Bit of background noise that could be supressed and the video should probably start when I actually start playing rather than when I'm just setting it up. Crop the left side probably as well unless people like looking at my butt",
+      "kind": "video",
+      "crop": {
+        "left": 0.31424051030029865,
+        "top": 0.06407801990367934,
+        "right": 1,
+        "bottom": 0.7498375010313871
+      },
+      "cropReviewed": true
+    },
+    "VID_20230129_103551087.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "LED debugging video, sent this video to a forum to figure out what is going on",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20230129_213119905.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "V1.1 LED display and showing the rainbow effect",
+      "notes": "Heavy flickering on the video due to it being filmed at night wit the display being the major source of light and PWM flicker",
+      "kind": "video",
+      "crop": {
+        "left": 0.12813471333788096,
+        "top": 0.24059247787744084,
+        "right": 0.6503752405207475,
+        "bottom": 0.7628329985323008
+      },
+      "cropReviewed": true
+    },
+    "VID_20230130_151111512.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "V1.2 of the led display? Shows a nice little spectrum animation",
+      "notes": "flicker on the video PWM light",
+      "kind": "video",
+      "crop": {
+        "left": 0.12447371003655272,
+        "top": 0.1674100652192756,
+        "right": 0.8206114415478274,
+        "bottom": 0.8635477880288286
+      },
+      "cropReviewed": true
+    },
+    "VID_20230130_151518415.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "rainbow spectrum led display",
+      "notes": "light flicker",
+      "kind": "video",
+      "crop": {
+        "left": 0.07321986492226111,
+        "top": 0.11675039264046944,
+        "right": 0.8297637989729201,
+        "bottom": 0.8732943172343293
+      },
+      "cropReviewed": true
+    },
+    "VID_20231019_152026895.mp4": {
+      "project": "Single-key keyboard",
+      "usage": "",
+      "caption": "Me showing off the single key keyboard, I click the key and it auto writes a bunch of stuff to the display",
+      "notes": "lot of empty space and it should probably start just before I press the button other wise the camera moves around a lot",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20240613_182947236.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Ignore",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0.04223525733278509,
+        "right": 0.8974921086671128,
+        "bottom": 0.9397273547812466
+      },
+      "cropReviewed": true
+    },
+    "VID_20240613_182950394.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "This is another clock design that I didnt design but printed out and made, it uses motors and segments to reveal the time. This video shows the segments move when the time change sfrom 18:29 to 18:30",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0.01753953481216316,
+        "right": 0.9272299066598809,
+        "bottom": 0.9447694298816703
+      },
+      "cropReviewed": true
+    },
+    "VID_20240628_014015310.mp4": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "ignore not a great video of the wallet",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20240628_014412453.mp4": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "Me demonstrating the mechanical wallet",
+      "notes": "Should probably end early, the last few seconds it me stopping the camera",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20240628_014445998.mp4": {
+      "project": "Mechanical wallet",
+      "usage": "",
+      "caption": "Demonstrating the the popup cards and opening and closing of the wallet back",
+      "notes": "Should end early, I struggle to open the back of the wallet",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20240902_210527607.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "LED display with rainbow spectrum",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0.10250779078073517,
+        "top": 0.17341017019469462,
+        "right": 0.7309170114935132,
+        "bottom": 0.8018193830523574
+      },
+      "cropReviewed": true
+    },
+    "VID_20250204_230808166.mp4": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "This is the 8 bit computer running a program that shows 8 BIT CPU on the little led display",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0.019284475956670096,
+        "right": 0.9176275765483423,
+        "bottom": 0.9369120410346677
+      },
+      "cropReviewed": true
+    },
+    "VID_20250205_113352383.mp4": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "This is the 8 bit computer running a program that shows 8 BIT CPU on the little led display but the camera is on a tripod so the image is much more stable, it is the how I made the GIF we are using on the main page so should be higher quality if we use this video",
+      "notes": "Tripod leg is in the way so needs cropping",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0.4549628785337362,
+        "right": 0.7047184356271404,
+        "bottom": 0.8513669985740027
+      },
+      "cropReviewed": true
+    },
+    "VID_20250505_114729233.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "bad video of led display",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250505_114849121.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "bad video of led display?",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250505_114931340.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "better video of led display V1.5?",
+      "notes": "Display shows black lines moving across the display due to PWM driving, not sure if this can be fixed in video",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250612_013910584.mp4": {
+      "project": "LED display",
+      "usage": "",
+      "caption": "Video of the led display demostring the web interface and the little animations I built for it",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250622_232319227.mp4": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "Moon lamp with it lit and rotating",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250820_170453959.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Random video dont use",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250905_220822090.mp4": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "Me demonstrating some odd issue with my motor controller",
+      "notes": "Do not use",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250905_221318387.mp4": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "Video of the motor finally spinning on the motor controller",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250910_115638269.mp4": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "bad video of the nintendo ds repair",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250919_155151386.mp4": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "Video of me demonstrating the DS repair went well with the screen turning on the touch working and the sound working",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250919_155316304.mp4": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "Video of me demonstrating the DS repair went well with the screen turning on the touch working and the sound working",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20260622_202840254.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Me demonstrating all the Dwitter animations for the kitchen assistent",
+      "notes": "Cam is shaking, probably need stabilization",
+      "kind": "video",
+      "crop": {
+        "left": 0.1409481243403779,
+        "top": 0.11025254646286195,
+        "right": 0.8974921589431888,
+        "bottom": 0.8667965716088725
+      },
+      "cropReviewed": true
+    },
+    "VID_20260622_203013682.mp4": {
+      "project": "Other / unknown",
+      "usage": "",
+      "caption": "Kitchen assisnetent and me demonstrating the kitchen assistent part with my voice",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0.18671051477875308,
+        "top": 0.1530445130221459,
+        "right": 0.9524070073588085,
+        "bottom": 0.9187409960309951
+      },
+      "cropReviewed": true
+    },
+    "VID_20260708_141009787.mp4": {
+      "project": "Moon lamp",
+      "usage": "",
+      "caption": "V2 of the moon lamp getting printed, shows the 3D printer moving",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20260712_003752420.mp4": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "This is a video showing the JRB8 tinytapeout machine showing a spinning cube",
+      "notes": "Camera is a little shaky probably need stabilization",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 0.9212885798496705,
+        "bottom": 0.9212885683335632
+      },
+      "cropReviewed": true
+    },
+    "VID_20260712_025501152.mp4": {
+      "project": "JRB8 computer",
+      "usage": "",
+      "caption": "This is a video showing the JRB8 tinytapeout machine showing a spinning cube with text that says JRB8 - 8-BIT CPU, it runs slower than the other one",
+      "notes": "Camera is a little shaky probably need stabilization",
+      "kind": "video",
+      "crop": {
+        "left": 0.06589785831960461,
+        "top": 0.14928709039342222,
+        "right": 0.7931539670639415,
+        "bottom": 0.8765431900470578
+      },
+      "cropReviewed": true
+    },
+    "IMG_20250910_122539428.jpg": {
+      "project": "Nintendo DS",
+      "usage": "",
+      "caption": "",
+      "notes": "",
+      "kind": "image",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    },
+    "VID_20250905_220834920.mp4": {
+      "project": "Motor controller",
+      "usage": "",
+      "caption": "",
+      "notes": "",
+      "kind": "video",
+      "crop": {
+        "left": 0,
+        "top": 0,
+        "right": 1,
+        "bottom": 1
+      },
+      "cropReviewed": true
+    }
+  }
+}
