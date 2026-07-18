@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Opening project…</title>
+    <script>
+      sessionStorage.setItem(
+        'portfolio-redirect',
+        location.pathname + location.search + location.hash
+      );
+      location.replace('/');
+    </script>
+  </head>
+  <body></body>
+</html>

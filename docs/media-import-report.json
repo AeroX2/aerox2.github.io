@@ -1,0 +1,770 @@
+{
+  "included": [
+    {
+      "name": "20211225_233717.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20211225_233717.jpg"
+    },
+    {
+      "name": "20211225_234441.jpg",
+      "project": "led-display",
+      "kind": "image",
+      "output": "20211225_234441.jpg"
+    },
+    {
+      "name": "20211226_143945.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20211226_143945.jpg"
+    },
+    {
+      "name": "20211226_144000.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20211226_144000.jpg"
+    },
+    {
+      "name": "20211226_155530.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20211226_155530.jpg"
+    },
+    {
+      "name": "20211226_160458.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20211226_160458.jpg"
+    },
+    {
+      "name": "20211226_164852.mp4",
+      "project": "side-quests",
+      "kind": "video",
+      "output": "20211226_164852.mp4"
+    },
+    {
+      "name": "20220322_172518.jpg",
+      "project": "brother-cart",
+      "kind": "image",
+      "output": "20220322_172518.jpg"
+    },
+    {
+      "name": "20230122_192240.jpg",
+      "project": "led-display",
+      "kind": "image",
+      "output": "20230122_192240.jpg"
+    },
+    {
+      "name": "20230406_0004.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20230406_0004.jpg"
+    },
+    {
+      "name": "20230406_0008.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20230406_0008.jpg"
+    },
+    {
+      "name": "20230406_0480.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20230406_0480.jpg"
+    },
+    {
+      "name": "20230406_0481.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20230406_0481.jpg"
+    },
+    {
+      "name": "20230406_0482.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "20230406_0482.jpg"
+    },
+    {
+      "name": "IMG_20220904_205323758.jpg",
+      "project": "brother-cart",
+      "kind": "image",
+      "output": "img_20220904_205323758.jpg"
+    },
+    {
+      "name": "IMG_20220904_205342009.jpg",
+      "project": "brother-cart",
+      "kind": "image",
+      "output": "img_20220904_205342009.jpg"
+    },
+    {
+      "name": "IMG_20230129_213119097.jpg",
+      "project": "led-display",
+      "kind": "image",
+      "output": "img_20230129_213119097.jpg"
+    },
+    {
+      "name": "IMG_20230130_160102525.jpg",
+      "project": "led-display",
+      "kind": "image",
+      "output": "img_20230130_160102525.jpg"
+    },
+    {
+      "name": "IMG_20230131_214225304.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "img_20230131_214225304.jpg"
+    },
+    {
+      "name": "IMG_20230829_014051610.jpg",
+      "project": "single-key-keyboard",
+      "kind": "image",
+      "output": "img_20230829_014051610.jpg"
+    },
+    {
+      "name": "IMG_20230829_014111730.jpg",
+      "project": "single-key-keyboard",
+      "kind": "image",
+      "output": "img_20230829_014111730.jpg"
+    },
+    {
+      "name": "IMG_20231107_180616106.jpg",
+      "project": "single-key-keyboard",
+      "kind": "image",
+      "output": "img_20231107_180616106.jpg"
+    },
+    {
+      "name": "IMG_20231127_190526180.jpg",
+      "project": "flare-on",
+      "kind": "image",
+      "output": "img_20231127_190526180.jpg"
+    },
+    {
+      "name": "IMG_20240103_231144818.jpg",
+      "project": "epaper-frame",
+      "kind": "image",
+      "output": "img_20240103_231144818.jpg"
+    },
+    {
+      "name": "IMG_20240104_115219476.jpg",
+      "project": "epaper-frame",
+      "kind": "image",
+      "output": "img_20240104_115219476.jpg"
+    },
+    {
+      "name": "IMG_20240104_115228831.jpg",
+      "project": "epaper-frame",
+      "kind": "image",
+      "output": "img_20240104_115228831.jpg"
+    },
+    {
+      "name": "IMG_20240104_115253224.jpg",
+      "project": "epaper-frame",
+      "kind": "image",
+      "output": "img_20240104_115253224.jpg"
+    },
+    {
+      "name": "IMG_20240710_173832548.jpg",
+      "project": "flare-on",
+      "kind": "image",
+      "output": "img_20240710_173832548.jpg"
+    },
+    {
+      "name": "IMG_20240710_173842766.jpg",
+      "project": "flare-on",
+      "kind": "image",
+      "output": "img_20240710_173842766.jpg"
+    },
+    {
+      "name": "IMG_20240910_102425855.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20240910_102425855.jpg"
+    },
+    {
+      "name": "IMG_20241111_122352651.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20241111_122352651.jpg"
+    },
+    {
+      "name": "IMG_20241111_122401748.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20241111_122401748.jpg"
+    },
+    {
+      "name": "IMG_20241111_122437126.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20241111_122437126.jpg"
+    },
+    {
+      "name": "IMG_20250205_194546494.jpg",
+      "project": "flare-on",
+      "kind": "image",
+      "output": "img_20250205_194546494.jpg"
+    },
+    {
+      "name": "IMG_20250430_223514652.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20250430_223514652.jpg"
+    },
+    {
+      "name": "IMG_20250430_223634873.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20250430_223634873.jpg"
+    },
+    {
+      "name": "IMG_20250430_224124298.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20250430_224124298.jpg"
+    },
+    {
+      "name": "IMG_20250430_224321506.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20250430_224321506.jpg"
+    },
+    {
+      "name": "IMG_20250430_224614575.jpg",
+      "project": "wallet",
+      "kind": "image",
+      "output": "img_20250430_224614575.jpg"
+    },
+    {
+      "name": "IMG_20250505_114508245.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250505_114508245.jpg"
+    },
+    {
+      "name": "IMG_20250505_114518195.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250505_114518195.jpg"
+    },
+    {
+      "name": "IMG_20250604_232326646.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20250604_232326646.jpg"
+    },
+    {
+      "name": "IMG_20250604_232341029.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20250604_232341029.jpg"
+    },
+    {
+      "name": "IMG_20250612_182448668.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20250612_182448668.jpg"
+    },
+    {
+      "name": "IMG_20250622_235133126.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20250622_235133126.jpg"
+    },
+    {
+      "name": "IMG_20250712_195157605.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250712_195157605.jpg"
+    },
+    {
+      "name": "IMG_20250712_211802667.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250712_211802667.jpg"
+    },
+    {
+      "name": "IMG_20250713_014440354.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250713_014440354.jpg"
+    },
+    {
+      "name": "IMG_20250713_014445742.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250713_014445742.jpg"
+    },
+    {
+      "name": "IMG_20250720_021517729.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250720_021517729.jpg"
+    },
+    {
+      "name": "IMG_20250721_233253211.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20250721_233253211.jpg"
+    },
+    {
+      "name": "IMG_20250816_005809066.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250816_005809066.jpg"
+    },
+    {
+      "name": "IMG_20250816_005832203.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250816_005832203.jpg"
+    },
+    {
+      "name": "IMG_20250816_005950219.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250816_005950219.jpg"
+    },
+    {
+      "name": "IMG_20250817_125206545.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250817_125206545.jpg"
+    },
+    {
+      "name": "IMG_20250817_125216657.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250817_125216657.jpg"
+    },
+    {
+      "name": "IMG_20250820_163442058.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250820_163442058.jpg"
+    },
+    {
+      "name": "IMG_20250820_163454397.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250820_163454397.jpg"
+    },
+    {
+      "name": "IMG_20250820_163458670.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250820_163458670.jpg"
+    },
+    {
+      "name": "IMG_20250825_015203622.jpg",
+      "project": "light-gun",
+      "kind": "image",
+      "output": "img_20250825_015203622.jpg"
+    },
+    {
+      "name": "IMG_20250910_104542261.jpg",
+      "project": "nintendo-ds",
+      "kind": "image",
+      "output": "img_20250910_104542261.jpg"
+    },
+    {
+      "name": "IMG_20250910_105543316.jpg",
+      "project": "nintendo-ds",
+      "kind": "image",
+      "output": "img_20250910_105543316.jpg"
+    },
+    {
+      "name": "IMG_20260304_014120708.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260304_014120708.jpg"
+    },
+    {
+      "name": "IMG_20260304_014125093.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260304_014125093.jpg"
+    },
+    {
+      "name": "IMG_20260325_005025569.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260325_005025569.jpg"
+    },
+    {
+      "name": "IMG_20260325_005031637.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260325_005031637.jpg"
+    },
+    {
+      "name": "IMG_20260325_005037843.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260325_005037843.jpg"
+    },
+    {
+      "name": "IMG_20260325_005041598.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260325_005041598.jpg"
+    },
+    {
+      "name": "IMG_20260325_005055913.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260325_005055913.jpg"
+    },
+    {
+      "name": "IMG_20260408_112333152.jpg",
+      "project": "led-display",
+      "kind": "image",
+      "output": "img_20260408_112333152.jpg"
+    },
+    {
+      "name": "IMG_20260417_221157940.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260417_221157940.jpg"
+    },
+    {
+      "name": "IMG_20260417_221202847.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "img_20260417_221202847.jpg"
+    },
+    {
+      "name": "IMG_20260524_220322875.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260524_220322875.jpg"
+    },
+    {
+      "name": "IMG_20260708_141050081.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20260708_141050081.jpg"
+    },
+    {
+      "name": "IMG_20260708_141144067.jpg",
+      "project": "moon-lamp",
+      "kind": "image",
+      "output": "img_20260708_141144067.jpg"
+    },
+    {
+      "name": "IMG_20260708_141219876.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "img_20260708_141219876.jpg"
+    },
+    {
+      "name": "IMG_20260708_141350321.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260708_141350321.jpg"
+    },
+    {
+      "name": "IMG_20260708_141406457.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260708_141406457.jpg"
+    },
+    {
+      "name": "IMG_20260708_141408312.jpg",
+      "project": "robodog",
+      "kind": "image",
+      "output": "img_20260708_141408312.jpg"
+    },
+    {
+      "name": "IMG_20260708_141450040.jpg",
+      "project": "jrb8",
+      "kind": "image",
+      "output": "img_20260708_141450040.jpg"
+    },
+    {
+      "name": "IMG_20260708_171726261.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260708_171726261.jpg"
+    },
+    {
+      "name": "IMG_20260708_172055064.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260708_172055064.jpg"
+    },
+    {
+      "name": "IMG_20260708_172104100.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260708_172104100.jpg"
+    },
+    {
+      "name": "IMG_20260708_172213370.jpg",
+      "project": "motor-controller",
+      "kind": "image",
+      "output": "img_20260708_172213370.jpg"
+    },
+    {
+      "name": "IMG_20260710_230016453.jpg",
+      "project": "jrb8",
+      "kind": "image",
+      "output": "img_20260710_230016453.jpg"
+    },
+    {
+      "name": "IMG_20260712_140121760.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "img_20260712_140121760.jpg"
+    },
+    {
+      "name": "IMG_20260712_140149943.jpg",
+      "project": "side-quests",
+      "kind": "image",
+      "output": "img_20260712_140149943.jpg"
+    },
+    {
+      "name": "P1660999.mp4",
+      "project": "light-gun",
+      "kind": "video",
+      "output": "p1660999.mp4"
+    },
+    {
+      "name": "VID_20230129_213119905.mp4",
+      "project": "led-display",
+      "kind": "video",
+      "output": "vid_20230129_213119905.mp4"
+    },
+    {
+      "name": "VID_20230130_151111512.mp4",
+      "project": "led-display",
+      "kind": "video",
+      "output": "vid_20230130_151111512.mp4"
+    },
+    {
+      "name": "VID_20230130_151518415.mp4",
+      "project": "led-display",
+      "kind": "video",
+      "output": "vid_20230130_151518415.mp4"
+    },
+    {
+      "name": "VID_20231019_152026895.mp4",
+      "project": "single-key-keyboard",
+      "kind": "video",
+      "output": "vid_20231019_152026895.mp4"
+    },
+    {
+      "name": "VID_20240613_182950394.mp4",
+      "project": "side-quests",
+      "kind": "video",
+      "output": "vid_20240613_182950394.mp4"
+    },
+    {
+      "name": "VID_20240628_014412453.mp4",
+      "project": "wallet",
+      "kind": "video",
+      "output": "vid_20240628_014412453.mp4"
+    },
+    {
+      "name": "VID_20240628_014445998.mp4",
+      "project": "wallet",
+      "kind": "video",
+      "output": "vid_20240628_014445998.mp4"
+    },
+    {
+      "name": "VID_20240902_210527607.mp4",
+      "project": "led-display",
+      "kind": "video",
+      "output": "vid_20240902_210527607.mp4"
+    },
+    {
+      "name": "VID_20250204_230808166.mp4",
+      "project": "jrb8",
+      "kind": "video",
+      "output": "vid_20250204_230808166.mp4"
+    },
+    {
+      "name": "VID_20250205_113352383.mp4",
+      "project": "jrb8",
+      "kind": "video",
+      "output": "vid_20250205_113352383.mp4"
+    },
+    {
+      "name": "VID_20250612_013910584.mp4",
+      "project": "led-display",
+      "kind": "video",
+      "output": "vid_20250612_013910584.mp4"
+    },
+    {
+      "name": "VID_20250622_232319227.mp4",
+      "project": "moon-lamp",
+      "kind": "video",
+      "output": "vid_20250622_232319227.mp4"
+    },
+    {
+      "name": "VID_20250905_221318387.mp4",
+      "project": "motor-controller",
+      "kind": "video",
+      "output": "vid_20250905_221318387.mp4"
+    },
+    {
+      "name": "VID_20250919_155151386.mp4",
+      "project": "nintendo-ds",
+      "kind": "video",
+      "output": "vid_20250919_155151386.mp4"
+    },
+    {
+      "name": "VID_20250919_155316304.mp4",
+      "project": "nintendo-ds",
+      "kind": "video",
+      "output": "vid_20250919_155316304.mp4"
+    },
+    {
+      "name": "VID_20260622_202840254.mp4",
+      "project": "side-quests",
+      "kind": "video",
+      "output": "vid_20260622_202840254.mp4"
+    },
+    {
+      "name": "VID_20260622_203013682.mp4",
+      "project": "side-quests",
+      "kind": "video",
+      "output": "vid_20260622_203013682.mp4"
+    },
+    {
+      "name": "VID_20260708_141009787.mp4",
+      "project": "moon-lamp",
+      "kind": "video",
+      "output": "vid_20260708_141009787.mp4"
+    },
+    {
+      "name": "VID_20260712_003752420.mp4",
+      "project": "jrb8",
+      "kind": "video",
+      "output": "vid_20260712_003752420.mp4"
+    },
+    {
+      "name": "VID_20260712_025501152.mp4",
+      "project": "jrb8",
+      "kind": "video",
+      "output": "vid_20260712_025501152.mp4"
+    }
+  ],
+  "excluded": [
+    {
+      "name": "20220316_174504.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "20220316_174516.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "20220319_162423.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20220904_205316969.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20230130_161557663.jpg",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "IMG_20231107_151927766.jpg",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "IMG_20250505_114708888.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250505_114716565.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250604_232315307.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250604_232319486.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250622_235128196.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250816_005944831.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250817_125158359.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20250910_122508990.jpg",
+      "reason": "no description"
+    },
+    {
+      "name": "IMG_20250910_122712911.jpg",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "IMG_20260712_192907966.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "IMG_20260712_192957692.jpg",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "VID_20230129_103551087.mp4",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "VID_20240613_182947236.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20240628_014015310.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20250505_114729233.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20250505_114849121.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20250505_114931340.mp4",
+      "reason": "curated duplicate"
+    },
+    {
+      "name": "VID_20250820_170453959.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20250905_220822090.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "VID_20250910_115638269.mp4",
+      "reason": "explicitly marked poor or ignored"
+    },
+    {
+      "name": "IMG_20250910_122539428.jpg",
+      "reason": "no description"
+    },
+    {
+      "name": "VID_20250905_220834920.mp4",
+      "reason": "no description"
+    }
+  ],
+  "counts": {
+    "included": 108,
+    "excluded": 28
+  }
+}

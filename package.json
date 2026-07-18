@@ -11,11 +11,15 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:svelte": "prettier --write '**/*.svelte'"
+    "format:svelte": "prettier --write '**/*.svelte'",
+    "media:label": "node tools/media-labeler/server.mjs",
+    "media:edit": "node tools/media-labeler/server.mjs",
+    "media:import": ".media-tools\\Scripts\\python.exe docs\\import-labeled-media.py"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.4",
+    "@types/three": "^0.183.0",
     "@typescript-eslint/eslint-plugin": "^8.52.0",
     "@typescript-eslint/parser": "^8.52.0",
     "eslint": "^9.39.2",
@@ -30,9 +34,12 @@
     "vite": "^5.4.10"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource-variable/recursive": "^5.2.8",
     "@fortawesome/fontawesome-free": "^6.6.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@google/model-viewer": "^4.3.1",
     "@types/prismjs": "^1.26.5",
     "devicon": "^2.16.0",
     "milligram": "^1.4.1",
@@ -41,6 +48,7 @@
     "prettier-plugin-glsl": "^0.2.0",
     "prettier-plugin-svelte": "^3.2.8",
     "prism-svelte": "^0.5.0",
-    "prismjs": "^1.30.0"
+    "prismjs": "^1.30.0",
+    "three": "^0.183.2"
   }
 }
