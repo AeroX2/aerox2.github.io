@@ -54,6 +54,7 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
   ],
   'epaper-smart-watch': [
     { type: 'image', src: '/projects/epaper-watch-schematic.svg', alt: 'Complete e-paper smart watch schematic', caption: 'The current power, display, sensing, charging, USB, and wireless design on one schematic sheet.', wide: true },
+    { type: 'image', src: '/projects/epaper-watch-3d.png', alt: 'Three-quarter 3D render of the current e-paper smart watch PCB', caption: 'The current routed board rendered with the USB-C connector, piezo buzzer, controls, sensing, charging, and wireless hardware populated.', wide: true },
     { type: 'image', src: '/projects/epaper-watch-front.jpg', alt: 'Earlier fabricated round e-paper smart watch PCB', caption: 'The dense component side of the earlier fabricated revision.' },
     { type: 'image', src: '/projects/epaper-watch-back.jpg', alt: 'Back of an earlier round e-paper smart watch PCB', caption: 'Display and programming connections on the earlier fabricated revision.' },
     { type: 'board', src: '/boards/epaper-smart-watch.kicad_pcb', title: 'E-paper smart watch', caption: 'Inspect the real watch PCB in KiCanvas.' }
