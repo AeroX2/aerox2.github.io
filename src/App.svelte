@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import ProjectShowcaseDialog from './ProjectShowcaseDialog.svelte';
   import ProjectImageRotator from './ProjectImageRotator.svelte';
   import CertificateDialog from './CertificateDialog.svelte';
@@ -461,8 +462,8 @@
   let selectedProject = $state<Project | null>(null);
   let selectedCertificate = $state<Certificate | null>(null);
   let openedProjects = $state<string[]>([]);
-  const currentYear = new Date().getFullYear();
-  const yearsBuilding = currentYear - 2013;
+  const dialogHistoryKey = 'aerox2Dialog';
+  let dialogHistoryEntryActive = false;
   const featuredProject = projects.find((project) => project.slug === 'robodog')!;
   const supportingProjects = ['motor-controller', 'epaper-smart-watch', 'led-display']
     .map((slug) => projects.find((project) => project.slug === slug))
@@ -470,9 +471,48 @@
   const featuredSlugs = new Set([featuredProject.slug, ...supportingProjects.map((project) => project.slug)]);
   const machineProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
 
+  onMount(() => {
+    const handlePopState = () => {
+      if (!dialogHistoryEntryActive) return;
+      dialogHistoryEntryActive = false;
+      selectedProject = null;
+      selectedCertificate = null;
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  });
+
+  function addDialogHistoryEntry() {
+    if (dialogHistoryEntryActive) return;
+
+    const currentState = typeof history.state === 'object' && history.state ? history.state : {};
+    history.pushState({ ...currentState, [dialogHistoryKey]: true }, '');
+    dialogHistoryEntryActive = true;
+  }
+
+  function closeDialog() {
+    if (dialogHistoryEntryActive && history.state?.[dialogHistoryKey]) {
+      history.back();
+      return;
+    }
+
+    dialogHistoryEntryActive = false;
+    selectedProject = null;
+    selectedCertificate = null;
+  }
+
   function openShowcase(project: Project) {
+    selectedCertificate = null;
     selectedProject = project;
+    addDialogHistoryEntry();
     if (!openedProjects.includes(project.slug)) openedProjects = [...openedProjects, project.slug];
+  }
+
+  function openCertificate(certificate: Certificate) {
+    selectedProject = null;
+    selectedCertificate = certificate;
+    addDialogHistoryEntry();
   }
 
   function projectMediaCount(slug: string) {
@@ -527,8 +567,8 @@
       <aside class="hero-field-notes" aria-label="Career field notes">
         <header><span>JR / operating card</span><b>Currently building</b></header>
         <div class="field-note-record">
-          <p><strong>{yearsBuilding} yrs</strong><span>building software + hardware</span></p>
-          <p><strong>50 kg</strong><span>FRC competition robot</span></p>
+          <p><strong>2013</strong><span>career start / software + hardware</span></p>
+          <p><strong>FRC</strong><span>software lead / 50 kg robot</span></p>
           <p><strong>4×</strong><span>Flare-On finisher</span></p>
           <p><strong>1</strong><span>CPU in silicon</span></p>
         </div>
@@ -738,11 +778,11 @@
               aria-label="Open the Burp Suite Certified Practitioner certificate"
               onclick={(event) => {
                 event.preventDefault();
-                selectedCertificate = {
+                openCertificate({
                   title: 'Burp Suite Certified Practitioner',
                   src: '/projects/burp-suite-certified-practitioner.png',
                   alt: 'Burp Suite Certified Practitioner certificate awarded to James Ridey'
-                };
+                });
               }}
             >
               <img src="/projects/burp-suite-certified-practitioner.png" alt="Burp Suite Certified Practitioner certificate awarded to James Ridey" />
@@ -760,11 +800,11 @@
               aria-label="Open the Offensive IoT Exploitation certificate"
               onclick={(event) => {
                 event.preventDefault();
-                selectedCertificate = {
+                openCertificate({
                   title: 'Offensive IoT Exploitation',
                   src: '/projects/offensive-iot-certificate.jpg',
                   alt: 'DEF CON Offensive IoT Exploitation certificate awarded to James Ridey'
-                };
+                });
               }}
             >
               <img src="/projects/offensive-iot-certificate-thumb.jpg" alt="DEF CON Offensive IoT Exploitation certificate awarded to James Ridey" />
@@ -814,7 +854,7 @@
         ? [{ type: 'image' as const, src: selectedProject.image, alt: selectedProject.alt, caption: selectedProject.summary }]
         : [])
     ]}
-    onclose={() => (selectedProject = null)}
+    onclose={closeDialog}
   />
 {/if}
 
@@ -823,6 +863,6 @@
     title={selectedCertificate.title}
     src={selectedCertificate.src}
     alt={selectedCertificate.alt}
-    onclose={() => (selectedCertificate = null)}
+    onclose={closeDialog}
   />
 {/if}

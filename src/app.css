@@ -746,13 +746,17 @@ h2 {
 .credential-card .credential-proof {
   position: relative;
   display: block;
-  margin: 0 0 18px;
+  margin: 16px 0 0;
   padding: 0;
   overflow: hidden;
   color: var(--paper-bright);
   background: var(--ink);
   border: 1px solid var(--ink);
   text-decoration: none;
+}
+
+.credential-with-proof > a:not(.credential-proof) {
+  margin-top: 10px;
 }
 
 .credential-proof img {
