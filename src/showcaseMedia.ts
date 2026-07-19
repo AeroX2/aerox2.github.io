@@ -53,8 +53,9 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: 'model', src: '/models/ftl-stealth-cruiser.glb', poster: '/projects/ftl-stealth-cruiser-render.png', alt: 'Interactive FTL Stealth Cruiser model', caption: 'The Stealth Cruiser recreated as a printable Blender model.' }
   ],
   'epaper-smart-watch': [
-    { type: 'image', src: '/projects/epaper-watch-front.jpg', alt: 'Round e-paper smart watch PCB', caption: 'The dense round component side of the current watch board.' },
-    { type: 'image', src: '/projects/epaper-watch-back.jpg', alt: 'Back of the round e-paper smart watch PCB', caption: 'The display and programming connections on the reverse.' },
+    { type: 'image', src: '/projects/epaper-watch-schematic.svg', alt: 'Complete e-paper smart watch schematic', caption: 'The current power, display, sensing, charging, USB, and wireless design on one schematic sheet.', wide: true },
+    { type: 'image', src: '/projects/epaper-watch-front.jpg', alt: 'Earlier fabricated round e-paper smart watch PCB', caption: 'The dense component side of the earlier fabricated revision.' },
+    { type: 'image', src: '/projects/epaper-watch-back.jpg', alt: 'Back of an earlier round e-paper smart watch PCB', caption: 'Display and programming connections on the earlier fabricated revision.' },
     { type: 'board', src: '/boards/epaper-smart-watch.kicad_pcb', title: 'E-paper smart watch', caption: 'Inspect the real watch PCB in KiCanvas.' }
   ]
 };
