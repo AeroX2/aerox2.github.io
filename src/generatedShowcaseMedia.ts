@@ -125,7 +125,6 @@ export const generatedShowcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: "image", src: "/labeled-media/img_20250430_223634873.jpg", alt: "The hinged rear compartment for notes, coins, and other bulky items.", caption: "The hinged rear compartment for notes, coins, and other bulky items." },
     { type: "image", src: "/labeled-media/img_20250430_224321506.jpg", alt: "The finished wallet closed for everyday carry.", caption: "The finished wallet closed for everyday carry." },
     { type: "image", src: "/labeled-media/img_20250430_224614575.jpg", alt: "The raised lever and fully deployed cascade of cards.", caption: "The raised lever and fully deployed cascade of cards." },
-    { type: "video", src: "/labeled-media/vid_20240628_014412453.mp4", caption: "The compact wallet demonstrated in everyday use." },
     { type: "video", src: "/labeled-media/vid_20240628_014445998.mp4", caption: "The cascading card lift and rear compartment demonstrated together." },
   ],
 };

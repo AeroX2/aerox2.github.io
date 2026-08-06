@@ -27,7 +27,7 @@
     hrefLabel?: string;
     storyPath?: string;
     links?: { label: string; href: string }[];
-    credit?: { label: string; href: string };
+    credit?: { label: string; href: string; prefix?: string };
     journeyEyebrow?: string;
     journeyTitle?: string;
     journey?: { label: string; title: string; description: string }[];
@@ -381,7 +381,7 @@
     },
     {
       title: 'Mechanical wallet',
-      description: 'A compact printed card wallet explored through several sliding and retention mechanisms.',
+      description: 'A printed card wallet whose thumb slider fans five cards out in a staggered cascade, with a rear door for notes and coins.',
       href: 'https://github.com/AeroX2/wallet',
       tag: 'FreeCAD',
       slug: 'wallet'
@@ -449,11 +449,16 @@
       note: 'The models translate flat in-game ship artwork into objects that still read correctly from every angle.', tags: ['Blender', '3D printing', 'FTL'], href: 'https://github.com/AeroX2/ftl-models', rotation: '0deg'
     },
     wallet: {
-      slug: 'wallet', title: 'Mechanical wallet', eyebrow: 'Pocket-sized mechanism study', category: 'Oddities', status: 'Prototype',
-      image: '/projects/wallet.jpg', alt: 'A printed mechanical wallet', summary: 'A compact printed card wallet explored through several sliding and retention mechanisms.',
-      note: 'This is the kind of small object where tenths of a millimetre, print direction, and the feel of one moving part become the whole project.', tags: ['FreeCAD', '3D printing', 'Mechanisms'], href: 'https://makerworld.com/en/models/1373651-slider-wallet-based-off-cascade-wallet',
+      slug: 'wallet', title: 'Mechanical wallet', eyebrow: 'Pocket-sized mechanism study', category: 'Oddities', status: 'Printable',
+      image: '/projects/wallet.jpg', alt: 'A printed mechanical wallet', summary: 'A printed card wallet whose thumb slider fans five cards out in a staggered cascade, with a rear door for notes and coins.',
+      note: 'The slider, drive cam, and swing arm turn as one linkage about a single pivot; a stepped profile meets each card lane at a different point in the stroke, so the cards rise into a fan instead of a block.', tags: ['FreeCAD', '3D printing', 'Mechanisms'], href: 'https://makerworld.com/en/models/3140570-sliding-wallet#profileId-3546008',
+      credit: {
+        prefix: 'Printable model:',
+        label: 'Sliding Wallet on MakerWorld',
+        href: 'https://makerworld.com/en/models/3140570-sliding-wallet#profileId-3546008'
+      },
       links: [
-        { label: 'MakerWorld model', href: 'https://makerworld.com/en/models/1373651-slider-wallet-based-off-cascade-wallet' },
+        { label: 'MakerWorld model', href: 'https://makerworld.com/en/models/3140570-sliding-wallet#profileId-3546008' },
         { label: 'GitHub source', href: 'https://github.com/AeroX2/wallet' }
       ], rotation: '0deg'
     }
