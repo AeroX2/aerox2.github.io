@@ -14,7 +14,7 @@
     tags: string[];
     href?: string;
     links?: { label: string; href: string }[];
-    credit?: { label: string; href: string };
+    credit?: { label: string; href: string; prefix?: string };
     journeyEyebrow?: string;
     journeyTitle?: string;
     journey?: { label: string; title: string; description: string }[];
@@ -93,7 +93,7 @@
         <p>{project.note}</p>
         {#if project.credit}
           <p class="project-credit">
-            Model credit:
+            {project.credit.prefix || 'Model credit:'}
             <a href={project.credit.href} target="_blank" rel="noreferrer">{project.credit.label} ↗</a>
           </p>
         {/if}

@@ -39,6 +39,7 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: 'youtube', src: 'https://www.youtube-nocookie.com/embed/FRaOzFBtV3o', title: 'Original Logisim 8-bit Fibonacci demonstration', caption: 'The original Logisim computer runs an eight-digit Fibonacci program before the design moved to HDL and silicon.' }
   ],
   wallet: [
+    { type: 'video', src: '/projects/wallet-product-film.mp4', poster: '/projects/wallet-film-poster.png', caption: 'The V2 product film, built from the exact FreeCAD solids: the slider fans five cards into a cascade, then the rear compartment loads notes and coins.' },
     { type: 'image', src: '/projects/wallet.jpg', alt: 'Printed mechanical wallet prototype', caption: 'A compact card wallet explored through several retention mechanisms.', wide: true },
     { type: 'model', src: '/models/wallet.glb', poster: '/projects/wallet.jpg', alt: 'Interactive mechanical wallet model', caption: 'Inspect the wallet body and mechanism.' }
   ],
