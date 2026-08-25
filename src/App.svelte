@@ -108,7 +108,7 @@
       imagePosition: '50% 50%',
       alt: 'The nearly complete blue and white robot dog with its aluminium frame assembled',
       summary:
-        'A build of Paul Gould’s open-source 3D-printed BLDC quadruped, with my controller, wiring, aluminium frame, and adaptations.',
+        'An articulated BLDC quadruped brought together through custom controller electronics, wiring, an aluminium frame, and mechanical adaptations—built on an open-source 3D-printed design.',
       note:
         'The mechanical model and original quadruped design are Paul Gould’s. My work here is the physical build, controller electronics, wiring, aluminium structure, and the adaptations needed to bring it together.',
       tags: ['Robotics', 'CAD', 'BLDC'],
