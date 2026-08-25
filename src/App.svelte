@@ -56,6 +56,11 @@
         'This began in high school after NAND2Tetris: first a Logisim machine and hand-designed control words, then an assembler and real programs, HDL and FPGA experiments, and finally a manufactured TinyTapeout CPU with its own language and browser toolchain.',
       tags: ['Verilog', 'CPU design', 'Compilers'],
       href: 'https://github.com/AeroX2/tt06-jrb8-computer',
+      credit: {
+        prefix: 'Fabrication credit:',
+        label: 'Tiny Tapeout team and manufacturing platform',
+        href: 'https://tinytapeout.com'
+      },
       links: [
         { label: 'Original Logisim computer', href: 'https://github.com/AeroX2/8-bit-computer' },
         { label: 'TinyTapeout JRB8', href: 'https://github.com/AeroX2/tt06-jrb8-computer' }
@@ -174,6 +179,11 @@
         'The complete input path combines IR position tracking, filtering, calibration, buttons, force feedback, wireless transport, and USB HID output.',
       tags: ['ESP32', 'IR tracking', '3D printing'],
       href: 'https://github.com/AeroX2/OpenFIRE-Wireless',
+      credit: {
+        prefix: 'Project credit:',
+        label: 'OpenFIRE project',
+        href: 'https://github.com/TeamOpenFIRE/OpenFIRE-Firmware'
+      },
       storyPath: '/projects/light-gun',
       journeyEyebrow: 'Aug 2025 / commit history',
       journeyTitle: 'From cable cut to arcade ready',
@@ -303,6 +313,11 @@
       tags: ['Lighting', 'Fabrication', 'ESP'],
       href: 'https://makerworld.com/en/models/1541080-moon-globe-holder-with-motor#profileId-1617374',
       hrefLabel: 'MakerWorld',
+      credit: {
+        prefix: 'Moon globe credit:',
+        label: 'SVS NASA Moon Globe on MakerWorld',
+        href: 'https://makerworld.com/en/models/44705-svs-nasa-moon-globe#profileId-989976'
+      },
       links: [
         { label: 'MakerWorld model', href: 'https://makerworld.com/en/models/1541080-moon-globe-holder-with-motor#profileId-1617374' }
       ],
