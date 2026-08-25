@@ -353,13 +353,14 @@
     max-width: 850px;
     font-size: clamp(56px, 9vw, 112px);
     line-height: 0.85;
+    overflow-wrap: anywhere;
   }
   .showcase-intro > div {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-    max-width: 900px;
-    margin: 40px 0 0 auto;
+    grid-template-columns: minmax(0, 760px);
+    gap: 16px;
+    max-width: 760px;
+    margin: 40px 0 0;
   }
   .showcase-intro > div p {
     font-size: 17px;
@@ -389,8 +390,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
-    margin: 26px 0 0 auto;
-    max-width: 900px;
+    margin: 26px 0 0;
+    max-width: 760px;
     list-style: none;
   }
   li {
@@ -660,6 +661,9 @@
     .showcase-intro > div,
     .showcase-media {
       grid-template-columns: 1fr;
+    }
+    h2 {
+      font-size: clamp(46px, 15vw, 64px);
     }
     .showcase-media article.wide {
       grid-column: auto;
