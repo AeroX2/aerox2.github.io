@@ -8,9 +8,11 @@ export type ShowcaseMedia =
 
 export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
   robodog: [
-    { type: 'image', src: '/projects/robodog-pair.jpg', alt: 'Two robot dog revisions side by side', caption: 'Successive mechanical revisions, kept around for comparison.' },
-    { type: 'image', src: '/projects/robodog-controllers.jpg', alt: 'Robot dog joints with local motor controllers', caption: 'Joint-mounted controllers and the current mechanical assembly.' },
-    { type: 'robot-model', src: '/models/robodog-interactive.glb', poster: '/labeled-media/img_20260708_141350321.jpg', alt: 'Interactive articulated robot dog assembly', caption: 'Interactive view of Paul Gould’s original quadruped model, prepared for the web from the Phobos URDF.' }
+    { type: 'robot-model', src: '/models/robodog-interactive.glb', poster: '/labeled-media/img_20260708_141350321.jpg', alt: 'Interactive articulated robot dog assembly', caption: 'Interactive view of Paul Gould’s original quadruped model, prepared for the web from the Phobos URDF.' },
+    { type: 'image', src: '/labeled-media/img_20241111_122437126.jpg', alt: 'A side view of the first articulated robot dog leg module', caption: 'One leg proved the printed joints, belt reductions, motor, and controller could work as a module.' },
+    { type: 'image', src: '/labeled-media/img_20250713_014440354.jpg', alt: 'An assembled robot dog half-chassis with two legs and an aluminium spine', caption: 'Two legs and the aluminium spine turned the joint design into the first half-chassis.' },
+    { type: 'image', src: '/labeled-media/img_20260524_220322875.jpg', alt: 'The nearly complete robot dog during final bench integration', caption: 'Final bench integration brought the four leg modules, controllers, and power wiring together.' },
+    { type: 'image', src: '/projects/robodog-controllers.jpg', alt: 'The current robot dog assembly with joint-mounted motor controllers', caption: 'The current assembly shows the final leg spacing and a controller mounted at every joint.' }
   ],
   'motor-controller': [
     { type: 'image', src: '/projects/motor-controller.jpg', alt: 'Custom motor controller installed beside a joint', caption: 'Compact BLDC control built for the robot dog.' },
@@ -24,7 +26,10 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: 'image', src: '/projects/sand-table.jpg', alt: 'The complete coffee-table prototype', caption: 'Built and moving, but paused while reliability problems are diagnosed.' }
   ],
   'moon-lamp': [],
-  'single-key-keyboard': [],
+  'single-key-keyboard': [
+    { type: 'board', src: '/boards/single-key-keyboard.kicad_pcb', poster: '/projects/single-key-keyboard.jpg', title: 'Single-key keyboard', caption: 'Pan, zoom, and inspect the original round keyboard PCB in KiCanvas.' },
+    { type: 'image', src: '/projects/single-key-keyboard-schematic.svg', alt: 'Complete single-key keyboard schematic', caption: 'The complete USB-C, ATtiny416, programming, and single-switch circuit.', wide: true }
+  ],
   'brother-cart': [
     { type: 'image', src: '/projects/brother-cartridge.jpg', alt: 'Disassembled Brother embroidery cartridge', caption: 'Reverse-engineered storage hardware and a replacement cartridge.' }
   ],
@@ -35,6 +40,7 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: 'image', src: '/labeled-media/img_20250205_194546494.jpg', alt: 'Flare-On 2024 reverse-engineering medal', caption: 'The 2024 Flare-On medal, earned by finishing the full challenge set for a fourth year.' }
   ],
   jrb8: [
+    { type: 'model', src: '/models/jrb8-gds-stack.glb', poster: '/projects/jrb8-gds-layout.webp', alt: 'Interactive layered 3D reconstruction of the JRB8 silicon layout', caption: 'The final Sky130 fabrication GDS reconstructed as a layered chip stack; routing geometry is preserved while vertical spacing is exaggerated for inspection.' },
     { type: 'image', src: '/projects/jrb8-still.jpg', alt: 'JRB8 running on a Tiny Tapeout board', caption: 'A home-grown CPU, toolchain, and browser programmer running in silicon.' },
     { type: 'youtube', src: 'https://www.youtube-nocookie.com/embed/FRaOzFBtV3o', title: 'Original Logisim 8-bit Fibonacci demonstration', caption: 'The original Logisim computer runs an eight-digit Fibonacci program before the design moved to HDL and silicon.' }
   ],
@@ -54,10 +60,13 @@ export const showcaseMedia: Record<string, ShowcaseMedia[]> = {
     { type: 'model', src: '/models/ftl-stealth-cruiser.glb', poster: '/projects/ftl-stealth-cruiser-render.png', alt: 'Interactive FTL Stealth Cruiser model', caption: 'The Stealth Cruiser recreated as a printable Blender model.' }
   ],
   'epaper-smart-watch': [
-    { type: 'image', src: '/projects/epaper-watch-schematic.svg', alt: 'Complete e-paper smart watch schematic', caption: 'The current power, display, sensing, charging, USB, and wireless design on one schematic sheet.', wide: true },
-    { type: 'image', src: '/projects/epaper-watch-3d.png', alt: 'Three-quarter 3D render of the current e-paper smart watch PCB', caption: 'The current routed board rendered with the USB-C connector, piezo buzzer, controls, sensing, charging, and wireless hardware populated.', wide: true },
+    { type: 'board', src: '/boards/epaper-smart-watch.kicad_pcb', title: 'E-paper smart watch', caption: 'Pan, zoom, and inspect the latest routed watch PCB in KiCanvas.' },
+    { type: 'image', src: '/projects/epaper-watch-schematic.svg', alt: 'Complete e-paper smart watch schematic', caption: 'The latest power, display, sensing, charging, USB, and wireless design on one schematic sheet.', wide: true },
+    { type: 'image', src: '/projects/epaper-watch-3d.png', alt: 'Three-quarter 3D render of the latest e-paper smart watch PCB', caption: 'The latest routed board rendered with the USB-C connector, controls, sensing, charging, and wireless hardware populated.', wide: true },
     { type: 'image', src: '/projects/epaper-watch-front.jpg', alt: 'Earlier fabricated round e-paper smart watch PCB', caption: 'The dense component side of the earlier fabricated revision.' },
     { type: 'image', src: '/projects/epaper-watch-back.jpg', alt: 'Back of an earlier round e-paper smart watch PCB', caption: 'Display and programming connections on the earlier fabricated revision.' },
-    { type: 'board', src: '/boards/epaper-smart-watch.kicad_pcb', title: 'E-paper smart watch', caption: 'Inspect the real watch PCB in KiCanvas.' }
+    { type: 'image', src: '/projects/epaper-watch-current-board.jpg', alt: 'The newer purple e-paper smart watch circuit board', caption: 'The newer fabricated board brings the wireless MCU, display connector, power system, sensors, and controls onto the round layout.' },
+    { type: 'image', src: '/projects/epaper-watch-display-prototype.jpg', alt: 'The e-paper smart watch display running in the bare watch assembly', caption: 'The display and firmware running together in the bare watch assembly.' },
+    { type: 'image', src: '/projects/epaper-watch-case-prototype.jpg', alt: 'A working e-paper smart watch in its first printed enclosure', caption: 'The working display fitted into the first printed enclosure for an on-wrist proportion check.' }
   ]
 };

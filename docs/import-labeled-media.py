@@ -9,7 +9,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageOps
+from PIL import Image, ImageFilter, ImageOps
 import imageio_ffmpeg
 
 
@@ -68,7 +68,26 @@ DUPLICATE_MEDIA = {
     "IMG_20240104_115219476.jpg", # redundant e-paper frame display angle
     "IMG_20240104_115228831.jpg", # redundant e-paper frame display angle
     "VID_20230129_103551087.mp4", # troubleshooting footage, not portfolio evidence
+    "VID_20230130_151111512.mp4", # duplicate spectrum animation
+    "VID_20230130_151518415.mp4", # duplicate spectrum animation
     "VID_20250505_114931340.mp4", # redundant LED animation footage
+}
+
+# A small set of genuinely soft source photos gets a restrained edge-only
+# sharpening pass after resizing. Technical markings and colours stay intact.
+SHARPEN_IMAGES = {
+    "IMG_20250604_232341029.jpg": (1.5, 105, 4),
+    "IMG_20250430_224614575.jpg": (1.5, 105, 4),
+    "IMG_20260708_141219876.jpg": (1.35, 95, 4),
+    "IMG_20260708_141144067.jpg": (1.35, 95, 4),
+    "IMG_20230829_014111730.jpg": (1.35, 95, 4),
+    "IMG_20250820_163458670.jpg": (1.15, 80, 4),
+    "IMG_20260325_005031637.jpg": (1.15, 80, 4),
+    "IMG_20240103_231144818.jpg": (1.15, 80, 4),
+    "IMG_20250430_224321506.jpg": (1.15, 80, 4),
+    "IMG_20250820_163454397.jpg": (1.15, 80, 4),
+    "20211225_233717.jpg": (1.15, 80, 4),
+    "IMG_20260325_005025569.jpg": (1.15, 80, 4),
 }
 
 CAPTION_OVERRIDES = {
@@ -93,10 +112,8 @@ CAPTION_OVERRIDES = {
     "20230122_192240.jpg": "The ESP32 HUB75 driver schematic behind the display controller.",
     "IMG_20230129_213119097.jpg": "The next revision running the clock with a full-colour spectrum treatment.",
     "IMG_20230130_160102525.jpg": "The compact controller wiring tucked behind the HUB75 panel.",
-    "IMG_20260408_112333152.jpg": "The display running a Frieren animation beneath the moon lamp.",
+    "IMG_20260408_112333152.jpg": "The latest iteration of the display running a full-colour animation.",
     "VID_20230129_213119905.mp4": "An early clock revision testing a smoothly shifting rainbow palette.",
-    "VID_20230130_151111512.mp4": "A spectrum animation running on the revised display hardware.",
-    "VID_20230130_151518415.mp4": "The spectrum renderer sweeping colour across the full panel.",
     "VID_20240902_210527607.mp4": "A later build revisiting the animated rainbow clock face.",
     "VID_20250612_013910584.mp4": "The current web interface controlling modes and animations in real time.",
     "IMG_20250816_005809066.jpg": "The open light-gun enclosure during wiring and final assembly.",
@@ -247,7 +264,11 @@ def optimise_image(source: Path, destination: Path, crop_override: tuple[float, 
             left, top, right, bottom = crop
             image = image.crop((round(image.width * left), round(image.height * top), round(image.width * right), round(image.height * bottom)))
         image.thumbnail((1600, 1600), Image.Resampling.LANCZOS)
-        image.save(destination, "JPEG", quality=84, optimize=True, progressive=True)
+        sharpen = SHARPEN_IMAGES.get(source.name)
+        if sharpen:
+            radius, percent, threshold = sharpen
+            image = image.filter(ImageFilter.UnsharpMask(radius=radius, percent=percent, threshold=threshold))
+        image.save(destination, "JPEG", quality=91 if sharpen else 84, optimize=True, progressive=True)
 
 
 def optimise_video(source: Path, destination: Path, crop_override: tuple[float, float, float, float] | None = None) -> None:
