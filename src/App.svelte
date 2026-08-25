@@ -143,6 +143,11 @@
         'The board is adapted for assembly-friendly parts and runs SimpleFOC. Firmware updates can travel over CAN-FD, which is much nicer than dismantling a leg for every flash.',
       tags: ['KiCad', 'STM32', 'CAN-FD'],
       href: 'https://github.com/AeroX2/moteus-controller',
+      credit: {
+        prefix: 'Controller credit:',
+        label: 'Original moteus controller work by the moteus team',
+        href: 'https://github.com/mjbots/moteus'
+      },
       storyPath: '/projects/motor-controller',
       journeyEyebrow: '2023–2026 / commit history',
       journeyTitle: 'From schematic to networked servo',
