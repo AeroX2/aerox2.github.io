@@ -867,6 +867,7 @@
     media={[
       ...projectMedia(selectedProject.slug),
       ...(projectMedia(selectedProject.slug).length === 0
+        && selectedProject.slug !== 'advent-of-code'
         ? [{ type: 'image' as const, src: selectedProject.image, alt: selectedProject.alt, caption: selectedProject.summary }]
         : [])
     ]}
