@@ -231,29 +231,29 @@
       </div>
     </footer>
   </div>
-
-  {#if zoomedImage}
-    <div
-      class="image-lightbox"
-      role="presentation"
-      onclick={(event) => event.target === event.currentTarget && closeZoom()}
-    >
-      <div
-        class="image-lightbox-panel"
-        role="dialog"
-        aria-modal="true"
-        aria-label={`Expanded image: ${zoomedImage.alt}`}
-      >
-        <header>
-          <span>Full frame</span>
-          <button type="button" onclick={closeZoom} aria-label="Close expanded image">Close ×</button>
-        </header>
-        <img src={zoomedImage.src} alt={zoomedImage.alt} />
-        {#if zoomedImage.caption}<p>{zoomedImage.caption}</p>{/if}
-      </div>
-    </div>
-  {/if}
 </div>
+
+{#if zoomedImage}
+  <div
+    class="image-lightbox"
+    role="presentation"
+    onclick={(event) => event.target === event.currentTarget && closeZoom()}
+  >
+    <div
+      class="image-lightbox-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Expanded image: ${zoomedImage.alt}`}
+    >
+      <header>
+        <span>Full frame</span>
+        <button type="button" onclick={closeZoom} aria-label="Close expanded image">Close ×</button>
+      </header>
+      <img src={zoomedImage.src} alt={zoomedImage.alt} />
+      {#if zoomedImage.caption}<p>{zoomedImage.caption}</p>{/if}
+    </div>
+  </div>
+{/if}
 
 <style>
   .dialog-backdrop {
