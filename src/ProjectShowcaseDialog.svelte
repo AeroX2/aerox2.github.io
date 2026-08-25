@@ -15,6 +15,7 @@
     href?: string;
     links?: { label: string; href: string }[];
     credit?: { label: string; href: string; prefix?: string };
+    mediaOrder?: 'priority' | 'provided';
     journeyEyebrow?: string;
     journeyTitle?: string;
     journey?: { label: string; title: string; description: string }[];
@@ -27,6 +28,7 @@
   }: { project: ProjectView; media: ShowcaseMedia[]; onclose: () => void } =
     $props();
   let dialogElement: HTMLDivElement;
+  let zoomedImage = $state<{ src: string; alt: string; caption?: string } | null>(null);
 
   const mediaPriority = (item: ShowcaseMedia) => {
     if (item.type === 'model' || item.type === 'robot-model' || item.type === 'board') return 0;
@@ -41,7 +43,11 @@
           items.findIndex((candidate) => candidate.type === item.type && candidate.src === item.src) === index
       )
       .map((item, index) => ({ item, index }))
-      .sort((a, b) => mediaPriority(a.item) - mediaPriority(b.item) || a.index - b.index)
+      .sort((a, b) =>
+        project.mediaOrder === 'provided'
+          ? a.index - b.index
+          : mediaPriority(a.item) - mediaPriority(b.item) || a.index - b.index
+      )
       .map(({ item }) => item)
   );
 
@@ -53,9 +59,29 @@
       document.body.style.overflow = previous;
     };
   });
+
+  function closeZoom() {
+    zoomedImage = null;
+  }
+
+  function handleKeydown(event: KeyboardEvent) {
+    if (event.key !== 'Escape') return;
+    if (zoomedImage) closeZoom();
+    else onclose();
+  }
+
+  function optimizedVideoSource(source: string) {
+    const match = source.match(/^\/(projects|labeled-media)\/(.+\.mp4)$/i);
+    return match ? `/video-media/${match[1]}/${match[2]}` : source;
+  }
+
+  function generatedVideoPoster(source: string) {
+    const match = source.match(/^\/(projects|labeled-media)\/(.+)\.mp4$/i);
+    return match ? `/video-media/${match[1]}/${match[2]}.webp` : undefined;
+  }
 </script>
 
-<svelte:window onkeydown={(event) => event.key === 'Escape' && onclose()} />
+<svelte:window onkeydown={handleKeydown} />
 
 <div
   class="dialog-backdrop"
@@ -127,21 +153,30 @@
             item.type === 'robot-model' ||
             item.type === 'board' ||
             (item.type === 'image' && item.wide)}
-        >
+          >
           {#if item.type === 'image'}
-            <img
-              src={item.src}
-              alt={item.alt}
-              loading={index === 0 ? 'eager' : 'lazy'}
-            />
+            <button
+              class="image-zoom-trigger"
+              type="button"
+              onclick={() =>
+                (zoomedImage = { src: item.src, alt: item.alt, caption: item.caption })}
+              aria-label={`View ${item.alt} full size`}
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+              <span aria-hidden="true">Expand image ↗</span>
+            </button>
           {:else if item.type === 'video'}
             <video
               controls
               preload="metadata"
-              poster={item.poster}
+              poster={item.poster || generatedVideoPoster(item.src)}
               class:cropped={item.crop}
               style:object-position={item.position || '50% 50%'}
-              ><source src={item.src} type="video/mp4" /></video
+              ><source src={optimizedVideoSource(item.src)} type="video/mp4" /></video
             >
           {:else if item.type === 'youtube'}
             <iframe
@@ -196,6 +231,28 @@
       </div>
     </footer>
   </div>
+
+  {#if zoomedImage}
+    <div
+      class="image-lightbox"
+      role="presentation"
+      onclick={(event) => event.target === event.currentTarget && closeZoom()}
+    >
+      <div
+        class="image-lightbox-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label={`Expanded image: ${zoomedImage.alt}`}
+      >
+        <header>
+          <span>Full frame</span>
+          <button type="button" onclick={closeZoom} aria-label="Close expanded image">Close ×</button>
+        </header>
+        <img src={zoomedImage.src} alt={zoomedImage.alt} />
+        {#if zoomedImage.caption}<p>{zoomedImage.caption}</p>{/if}
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style>
@@ -416,13 +473,55 @@
   .showcase-media article.wide {
     grid-column: 1 / -1;
   }
-  img {
+  .image-zoom-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: #cbd2d8;
+    cursor: zoom-in;
+  }
+  .image-zoom-trigger img {
     display: block;
     width: 100%;
     height: clamp(260px, 26vw, 360px);
     margin: 0 auto;
     object-fit: contain;
     background: #cbd2d8;
+    transition: transform 180ms ease, filter 180ms ease;
+  }
+  .image-zoom-trigger span {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 7px 9px;
+    border: 1px solid var(--acid);
+    color: var(--ink);
+    background: var(--acid);
+    font-family: 'Recursive Variable', monospace;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    text-transform: uppercase;
+    transform: translateY(8px);
+    transition: opacity 160ms ease, transform 160ms ease;
+  }
+  .image-zoom-trigger:hover img,
+  .image-zoom-trigger:focus-visible img {
+    filter: brightness(0.82);
+    transform: scale(1.025);
+  }
+  .image-zoom-trigger:hover span,
+  .image-zoom-trigger:focus-visible span {
+    opacity: 1;
+    transform: none;
+  }
+  .image-zoom-trigger:focus-visible {
+    outline: 3px solid var(--orange);
+    outline-offset: 3px;
   }
   video {
     display: block;
@@ -473,6 +572,58 @@
     gap: 16px;
     justify-content: flex-end;
   }
+  .image-lightbox {
+    position: fixed;
+    z-index: 110;
+    display: grid;
+    inset: 0;
+    place-items: center;
+    padding: 28px;
+    background: rgba(10, 18, 35, 0.94);
+    backdrop-filter: blur(10px);
+  }
+  .image-lightbox-panel {
+    width: min(1440px, 100%);
+    max-height: 100%;
+    overflow: auto;
+    border: 1px solid var(--acid);
+    padding: 14px;
+    color: var(--paper-bright);
+    background: var(--ink);
+    box-shadow: 10px 10px 0 rgba(232, 255, 98, 0.3);
+  }
+  .image-lightbox-panel header {
+    padding: 0 0 10px;
+    border-color: rgba(232, 255, 98, 0.5);
+  }
+  .image-lightbox-panel header > span {
+    padding: 0;
+    background: transparent;
+    color: var(--acid);
+    font-family: 'Recursive Variable', monospace;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .image-lightbox-panel header button {
+    color: var(--acid);
+  }
+  .image-lightbox-panel > img {
+    display: block;
+    width: 100%;
+    max-height: calc(100vh - 150px);
+    margin-top: 14px;
+    object-fit: contain;
+    background: #cbd2d8;
+  }
+  .image-lightbox-panel > p {
+    max-width: 850px;
+    padding: 12px 4px 2px;
+    color: rgba(248, 247, 241, 0.78);
+    font-size: 13px;
+    line-height: 1.45;
+  }
   @media (max-width: 800px) {
     .continuity-track {
       grid-template-columns: 1fr;
@@ -512,6 +663,9 @@
     }
     .showcase-media article.wide {
       grid-column: auto;
+    }
+    .image-lightbox {
+      padding: 12px;
     }
     .continuity-heading {
       display: block;

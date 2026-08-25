@@ -28,6 +28,7 @@
     storyPath?: string;
     links?: { label: string; href: string }[];
     credit?: { label: string; href: string; prefix?: string };
+    mediaOrder?: 'priority' | 'provided';
     journeyEyebrow?: string;
     journeyTitle?: string;
     journey?: { label: string; title: string; description: string }[];
@@ -116,6 +117,7 @@
         href: 'https://hackaday.io/project/184292-1000-3d-printed-bldc-quadruped-robot'
       },
       storyPath: '/projects/robodog',
+      mediaOrder: 'provided',
       journeyEyebrow: '2025–current / CAD + build history',
       journeyTitle: 'From open design to four legs',
       journey: [
@@ -193,6 +195,7 @@
         'The board compresses the display power supply, wireless MCU, flash, environmental sensing, motion sensing, battery monitoring, charging, buttons, and USB into a wearable round layout.',
       tags: ['KiCad', 'E-paper', 'Embedded'],
       href: 'https://github.com/AeroX2/epaper-smart-watch',
+      mediaOrder: 'provided',
       journeyEyebrow: '2024–2026 / commit history',
       journeyTitle: 'Shrinking a computer onto a wrist',
       journey: [
@@ -520,12 +523,17 @@
     addDialogHistoryEntry();
   }
 
+  function projectMedia(slug: string) {
+    if (slug === 'robodog') return showcaseMedia[slug] || [];
+    return [...(showcaseMedia[slug] || []), ...(generatedShowcaseMedia[slug] || [])];
+  }
+
   function projectMediaCount(slug: string) {
-    return (showcaseMedia[slug]?.length || 0) + (generatedShowcaseMedia[slug]?.length || 0);
+    return projectMedia(slug).length;
   }
 
   function projectImages(project: Project) {
-    const media = [...(showcaseMedia[project.slug] || []), ...(generatedShowcaseMedia[project.slug] || [])];
+    const media = projectMedia(project.slug);
     const candidates = [
       { src: project.image, alt: project.alt },
       ...media.flatMap((item) => {
@@ -534,7 +542,11 @@
         return [];
       })
     ];
-    return candidates.filter((image, index) => candidates.findIndex((candidate) => candidate.src === image.src) === index);
+    return candidates.filter(
+      (image, index) =>
+        /\.(?:jpe?g|png|webp)$/i.test(image.src) &&
+        candidates.findIndex((candidate) => candidate.src === image.src) === index
+    );
   }
 
 </script>
@@ -550,7 +562,7 @@
 <header class="site-header">
   <a class="wordmark" href="#top" aria-label="James Ridey, back to top">
     <span>JR</span>
-    <small>software / silicon / strange machines</small>
+    <small>software / silicon / everything between</small>
   </a>
   <nav aria-label="Primary navigation">
     <a href="#work">Work</a>
@@ -853,9 +865,8 @@
   <ProjectShowcaseDialog
     project={selectedProject}
     media={[
-      ...(showcaseMedia[selectedProject.slug] || []),
-      ...(generatedShowcaseMedia[selectedProject.slug] || []),
-      ...(!showcaseMedia[selectedProject.slug] && !generatedShowcaseMedia[selectedProject.slug]
+      ...projectMedia(selectedProject.slug),
+      ...(projectMedia(selectedProject.slug).length === 0
         ? [{ type: 'image' as const, src: selectedProject.image, alt: selectedProject.alt, caption: selectedProject.summary }]
         : [])
     ]}

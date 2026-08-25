@@ -17,6 +17,8 @@
 </script>
 
 <script lang="ts">
+  import { onMount, tick } from 'svelte';
+
   let {
     src,
     poster,
@@ -25,29 +27,171 @@
 
   let active = $state(false);
   let error = $state('');
+  let viewerElement = $state<HTMLElement>();
+  const configuredCanvases = new WeakSet<HTMLCanvasElement>();
+
+  const activationKey = $derived(`aerox2:kicanvas-opened:${src}`);
+
+  type KiCanvasPreferences = {
+    alignControlsWithKiCad: boolean;
+    save: () => void;
+  };
+
+  function preferWheelZoom() {
+    localStorage.setItem(
+      'kc:prefs:alignControlsWithKiCad',
+      JSON.stringify({ val: true })
+    );
+  }
+
+  function applyWheelZoomPreference(root: ParentNode) {
+    for (const element of root.querySelectorAll<HTMLElement>('*')) {
+      const preferences = (element as HTMLElement & { preferences?: KiCanvasPreferences })
+        .preferences;
+      if (preferences && !preferences.alignControlsWithKiCad) {
+        preferences.alignControlsWithKiCad = true;
+        preferences.save();
+      }
+      if (element.shadowRoot) applyWheelZoomPreference(element.shadowRoot);
+    }
+  }
+
+  function enableLeftDragPan(root: ParentNode) {
+    for (const canvas of root.querySelectorAll<HTMLCanvasElement>('canvas')) {
+      if (configuredCanvases.has(canvas)) continue;
+      configuredCanvases.add(canvas);
+
+      let dragging = false;
+      let moved = false;
+      let startX = 0;
+      let startY = 0;
+
+      const relayAsMiddleClick = (type: 'mousedown' | 'mouseup', event: MouseEvent) => {
+        canvas.dispatchEvent(
+          new MouseEvent(type, {
+            bubbles: true,
+            cancelable: true,
+            composed: true,
+            button: 1,
+            buttons: type === 'mousedown' ? 4 : 0,
+            clientX: event.clientX,
+            clientY: event.clientY,
+            ctrlKey: event.ctrlKey,
+            shiftKey: event.shiftKey,
+            altKey: event.altKey,
+            metaKey: event.metaKey
+          })
+        );
+      };
+
+      canvas.addEventListener(
+        'mousedown',
+        (event) => {
+          if (event.button === 2) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return;
+          }
+          if (event.button !== 0) return;
+
+          dragging = true;
+          moved = false;
+          startX = event.clientX;
+          startY = event.clientY;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          relayAsMiddleClick('mousedown', event);
+        },
+        true
+      );
+      canvas.addEventListener(
+        'mousemove',
+        (event) => {
+          if (dragging && Math.hypot(event.clientX - startX, event.clientY - startY) > 3) {
+            moved = true;
+          }
+        },
+        true
+      );
+      canvas.addEventListener(
+        'mouseup',
+        (event) => {
+          if (!dragging || event.button !== 0) return;
+          dragging = false;
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          relayAsMiddleClick('mouseup', event);
+        },
+        true
+      );
+      canvas.addEventListener(
+        'click',
+        (event) => {
+          if (moved) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        },
+        true
+      );
+    }
+
+    for (const element of root.querySelectorAll<HTMLElement>('*')) {
+      if (element.shadowRoot) enableLeftDragPan(element.shadowRoot);
+    }
+  }
+
+  async function configureViewerControls() {
+    preferWheelZoom();
+    await tick();
+    const configureCanvas = () => {
+      if (viewerElement) {
+        const root = viewerElement.shadowRoot || viewerElement;
+        applyWheelZoomPreference(root);
+        enableLeftDragPan(root);
+      }
+    };
+    requestAnimationFrame(configureCanvas);
+    // KiCanvas creates its nested canvas after its own initial render.
+    window.setTimeout(configureCanvas, 250);
+  }
 
   async function activate() {
     try {
+      preferWheelZoom();
       await loadKiCanvas();
       active = true;
+      localStorage.setItem(activationKey, 'true');
+      await configureViewerControls();
     } catch {
       error = 'The board viewer could not load. The source file is still available.';
     }
   }
 
-  function containViewerWheel(event: WheelEvent) {
-    if (active) event.preventDefault();
+  function containViewerWheel(node: HTMLElement) {
+    const contain = (event: WheelEvent) => {
+      if (active) event.preventDefault();
+    };
+    node.addEventListener('wheel', contain, { passive: false });
+    return {
+      destroy: () => node.removeEventListener('wheel', contain)
+    };
   }
+
+  onMount(() => {
+    if (localStorage.getItem(activationKey) === 'true') void activate();
+  });
 </script>
 
 <figure class="board-viewer">
-  <div class="board-stage" onwheel={containViewerWheel}>
+  <div class="board-stage" use:containViewerWheel>
     {#if active}
       <svelte:element
         this={'kicanvas-embed'}
         {src}
         controls="basic"
-        controlslist="nodownload"
+        controlslist="nodownload nooverlay"
+        bind:this={viewerElement}
       ></svelte:element>
     {:else}
       <button onclick={activate} aria-label={`Load interactive KiCanvas board: ${title}`}>
@@ -57,8 +201,8 @@
     {/if}
   </div>
   <figcaption>
-    <span>KiCad artifact / pan, zoom & inspect</span>
-    {title}. Interactive viewer loaded only when requested.
+    <span>KiCad artifact / left-drag to pan</span>
+    {title}. The interactive viewer remembers its first activation on this device.
   </figcaption>
 </figure>
 
