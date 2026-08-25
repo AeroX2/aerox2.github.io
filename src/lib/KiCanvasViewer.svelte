@@ -17,7 +17,7 @@
 </script>
 
 <script lang="ts">
-  import { onMount, tick } from 'svelte';
+  import { tick } from 'svelte';
 
   let {
     src,
@@ -29,8 +29,6 @@
   let error = $state('');
   let viewerElement = $state<HTMLElement>();
   const configuredCanvases = new WeakSet<HTMLCanvasElement>();
-
-  const activationKey = $derived(`aerox2:kicanvas-opened:${src}`);
 
   type KiCanvasPreferences = {
     alignControlsWithKiCad: boolean;
@@ -161,7 +159,6 @@
       preferWheelZoom();
       await loadKiCanvas();
       active = true;
-      localStorage.setItem(activationKey, 'true');
       await configureViewerControls();
     } catch {
       error = 'The board viewer could not load. The source file is still available.';
@@ -178,9 +175,6 @@
     };
   }
 
-  onMount(() => {
-    if (localStorage.getItem(activationKey) === 'true') void activate();
-  });
 </script>
 
 <figure class="board-viewer">
@@ -202,7 +196,7 @@
   </div>
   <figcaption>
     <span>KiCad artifact / left-drag to pan</span>
-    {title}. The interactive viewer remembers its first activation on this device.
+    {title}. Load the interactive board when you are ready to inspect it.
   </figcaption>
 </figure>
 
