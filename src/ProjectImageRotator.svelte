@@ -44,6 +44,7 @@
     const interval = 10_000 + (seed % 5_000);
     let timeout: number | undefined;
     let visible = false;
+    let paused = false;
 
     const clearTimer = () => {
       if (timeout) window.clearTimeout(timeout);
@@ -57,7 +58,7 @@
     };
     const schedule = (delay: number) => {
       clearTimer();
-      if (!visible) return;
+      if (!visible || paused) return;
       preload((active + 1) % images.length);
       timeout = window.setTimeout(() => {
         advance();
@@ -74,9 +75,21 @@
     );
 
     if (rotatorElement) observer.observe(rotatorElement);
+    const pause = () => {
+      paused = true;
+      clearTimer();
+    };
+    const resume = () => {
+      paused = false;
+      schedule(interval);
+    };
+    rotatorElement?.addEventListener('mouseenter', pause);
+    rotatorElement?.addEventListener('mouseleave', resume);
     return () => {
       clearTimer();
       observer.disconnect();
+      rotatorElement?.removeEventListener('mouseenter', pause);
+      rotatorElement?.removeEventListener('mouseleave', resume);
     };
   });
 </script>

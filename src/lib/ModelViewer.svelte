@@ -9,6 +9,8 @@
   let active = $state(false);
   let ready = $state(false);
 
+  const motionAllowed = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   async function activate() {
     active = true;
     await import('@google/model-viewer');
@@ -25,7 +27,7 @@
         poster={poster || undefined}
         {alt}
         camera-controls=""
-        auto-rotate=""
+        auto-rotate={motionAllowed() ? '' : undefined}
         shadow-intensity="1"
         exposure="1.05"
         interaction-prompt="auto"

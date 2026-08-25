@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import ModelViewer from './lib/ModelViewer.svelte';
   import RobodogViewer from './lib/RobodogViewer.svelte';
   import KiCanvasViewer from './lib/KiCanvasViewer.svelte';
+  import { focusTrap } from './lib/focusTrap';
   import type { ShowcaseMedia } from './showcaseMedia';
 
   type ProjectView = {
@@ -28,6 +29,10 @@
   }: { project: ProjectView; media: ShowcaseMedia[]; onclose: () => void } =
     $props();
   let dialogElement: HTMLDivElement;
+  let closeButton = $state<HTMLButtonElement>();
+  let zoomCloseButton = $state<HTMLButtonElement>();
+  let previousFocus: HTMLElement | null = null;
+  let zoomOrigin: HTMLElement | null = null;
   let zoomedImage = $state<{ src: string; alt: string; caption?: string } | null>(null);
 
   const mediaPriority = (item: ShowcaseMedia) => {
@@ -52,9 +57,10 @@
   );
 
   onMount(() => {
+    previousFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     const previous = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    dialogElement.focus();
+    closeButton?.focus();
     return () => {
       document.body.style.overflow = previous;
     };
@@ -62,12 +68,28 @@
 
   function closeZoom() {
     zoomedImage = null;
+    requestAnimationFrame(() => zoomOrigin?.focus());
+  }
+
+  async function openZoom(
+    image: { src: string; alt: string; caption?: string },
+    origin: HTMLButtonElement
+  ) {
+    zoomOrigin = origin;
+    zoomedImage = image;
+    await tick();
+    zoomCloseButton?.focus();
+  }
+
+  function requestClose() {
+    onclose();
+    requestAnimationFrame(() => previousFocus?.focus());
   }
 
   function handleKeydown(event: KeyboardEvent) {
     if (event.key !== 'Escape') return;
     if (zoomedImage) closeZoom();
-    else onclose();
+    else requestClose();
   }
 
   function optimizedVideoSource(source: string) {
@@ -86,7 +108,7 @@
 <div
   class="dialog-backdrop"
   role="presentation"
-  onclick={(event) => event.target === event.currentTarget && onclose()}
+  onclick={(event) => event.target === event.currentTarget && requestClose()}
 >
   <div
     class="showcase-dialog"
@@ -94,21 +116,24 @@
     aria-modal="true"
     aria-labelledby="showcase-title"
     tabindex="-1"
+    aria-hidden={zoomedImage ? 'true' : undefined}
     bind:this={dialogElement}
+    use:focusTrap
   >
     <header>
       <div>
         <span>{project.status}</span>
         <p>{project.eyebrow}</p>
         {#if orderedMedia.length}
-          <small>{orderedMedia.length} media pieces</small>
+          <small>{orderedMedia.length} {orderedMedia.length === 1 ? 'media item' : 'media items'}</small>
         {:else}
           <small>Project note</small>
         {/if}
       </div>
       <button
         type="button"
-        onclick={onclose}
+        onclick={requestClose}
+        bind:this={closeButton}
         aria-label="Close project showcase">Close ×</button
       >
     </header>
@@ -121,6 +146,13 @@
           <p class="project-credit">
             {project.credit.prefix || 'Model credit:'}
             <a href={project.credit.href} target="_blank" rel="noreferrer">{project.credit.label} ↗</a>
+          </p>
+        {/if}
+        {#if project.links || project.href}
+          <p class="project-source-links" aria-label="Project source links">
+            {#if project.links}
+              {#each project.links as link, index (link.href)}<a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>{#if index < project.links.length - 1}<span aria-hidden="true"> / </span>{/if}{/each}
+            {:else if project.href}<a href={project.href} target="_blank" rel="noreferrer">Source and files ↗</a>{/if}
           </p>
         {/if}
       </div>
@@ -158,8 +190,11 @@
             <button
               class="image-zoom-trigger"
               type="button"
-              onclick={() =>
-                (zoomedImage = { src: item.src, alt: item.alt, caption: item.caption })}
+              onclick={(event) =>
+                openZoom(
+                  { src: item.src, alt: item.alt, caption: item.caption },
+                  event.currentTarget
+                )}
               aria-label={`View ${item.alt} full size`}
             >
               <img
@@ -244,10 +279,11 @@
       role="dialog"
       aria-modal="true"
       aria-label={`Expanded image: ${zoomedImage.alt}`}
+      use:focusTrap
     >
       <header>
         <span>Full frame</span>
-        <button type="button" onclick={closeZoom} aria-label="Close expanded image">Close ×</button>
+        <button type="button" onclick={closeZoom} bind:this={zoomCloseButton} aria-label="Close expanded image">Close ×</button>
       </header>
       <img src={zoomedImage.src} alt={zoomedImage.alt} />
       {#if zoomedImage.caption}<p>{zoomedImage.caption}</p>{/if}
@@ -346,6 +382,14 @@
     font-weight: 800;
     cursor: pointer;
   }
+  .showcase-dialog > header {
+    position: sticky;
+    z-index: 3;
+    top: 0;
+    margin: -24px -24px 0;
+    padding: 24px 24px 18px;
+    background: var(--paper-bright);
+  }
   .showcase-intro {
     padding: clamp(38px, 7vw, 80px) 0 45px;
   }
@@ -383,6 +427,20 @@
     text-transform: uppercase;
   }
   .project-credit a {
+    color: var(--blue-dark);
+    text-underline-offset: 3px;
+  }
+  .showcase-intro > div .project-source-links {
+    color: var(--ink);
+    font-family: 'Recursive Variable', monospace;
+    font-size: 10px;
+    font-variation-settings: 'MONO' 1;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+  .project-source-links a {
     color: var(--blue-dark);
     text-underline-offset: 3px;
   }
@@ -524,6 +582,12 @@
     outline: 3px solid var(--orange);
     outline-offset: 3px;
   }
+  @media (hover: none) {
+    .image-zoom-trigger span {
+      opacity: 1;
+      transform: none;
+    }
+  }
   video {
     display: block;
     width: 100%;
@@ -643,6 +707,10 @@
       min-height: 100vh;
       padding: 16px;
       box-shadow: none;
+    }
+    .showcase-dialog > header {
+      margin: -16px -16px 0;
+      padding: 16px 16px 14px;
     }
     footer {
       align-items: flex-start;

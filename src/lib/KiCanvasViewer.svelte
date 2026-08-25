@@ -196,7 +196,7 @@
   </div>
   <figcaption>
     <span>KiCad artifact / left-drag to pan</span>
-    {title}. Load the interactive board when you are ready to inspect it.
+    {title}. Load the interactive board when you are ready to inspect it; scroll to zoom and left-drag to pan.
   </figcaption>
 </figure>
 

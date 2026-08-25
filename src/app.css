@@ -948,7 +948,7 @@ footer a {
 }
 
 :focus-visible {
-  outline: 3px solid var(--orange);
+  outline: 3px solid var(--blue-dark);
   outline-offset: 4px;
 }
 
@@ -1994,4 +1994,103 @@ footer a {
 
 @media (max-width: 760px) {
   .portfolio-hero h1 { font-size: clamp(66px, 20vw, 96px); }
+}
+
+/* Navigation and interaction pass — the page remains a workbench document on every screen. */
+.document-index {
+  position: sticky;
+  z-index: 24;
+  top: 0;
+  display: none;
+  border-top: 1px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  background: rgba(255, 254, 249, 0.94);
+  box-shadow: 0 5px 0 rgba(29, 49, 127, 0.14);
+  backdrop-filter: blur(12px);
+}
+
+nav.document-index a {
+  display: grid;
+  min-height: 42px;
+  place-items: center;
+  padding: 10px 14px 10px 0;
+  border-right: 1px solid var(--ink);
+  color: var(--ink);
+  font-family: 'Recursive Variable', monospace;
+  font-size: 10px;
+  font-variation-settings: 'MONO' 1;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav.document-index a:hover {
+  color: var(--ink);
+  background: rgba(232, 255, 98, 0.32);
+  box-shadow: inset 0 -3px 0 var(--orange);
+}
+
+nav.document-index a:focus-visible {
+  color: var(--ink);
+  background: rgba(48, 79, 211, 0.08);
+  outline-offset: -3px;
+}
+
+nav.document-index a.active {
+  color: var(--blue-dark);
+  background: rgba(48, 79, 211, 0.12);
+  box-shadow: inset 0 -4px 0 var(--blue);
+}
+
+.project-open {
+  display: inline-block;
+  width: max-content;
+  margin-top: 8px;
+  color: var(--blue-dark);
+  font-family: 'Recursive Variable', monospace;
+  font-size: 9px;
+  font-variation-settings: 'MONO' 1;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.featured-copy .project-open {
+  color: var(--acid);
+}
+
+.supporting-projects .project-open {
+  margin-top: 2px;
+}
+
+.machine-copy .project-open {
+  margin-top: 3px;
+}
+
+.supporting-projects small,
+.credential-meta,
+.archive-section .bin-code {
+  color: var(--blue-dark);
+}
+
+@media (max-width: 760px) {
+  .document-index {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .document-index::-webkit-scrollbar { display: none; }
+  nav.document-index a {
+    min-width: max-content;
+    flex: 1 0 auto;
+    padding-right: 15px;
+    padding-left: 0;
+  }
+
+  .bin-open {
+    color: var(--blue-dark);
+  }
 }

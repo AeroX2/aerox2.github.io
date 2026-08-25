@@ -490,6 +490,7 @@
   let selectedProject = $state<Project | null>(null);
   let selectedCertificate = $state<Certificate | null>(null);
   let openedProjects = $state<string[]>([]);
+  let activeDocumentSection = $state<string | null>(null);
   const dialogHistoryKey = 'aerox2Dialog';
   let dialogHistoryEntryActive = false;
   const featuredProject = projects.find((project) => project.slug === 'robodog')!;
@@ -498,18 +499,63 @@
     .filter((project): project is Project => Boolean(project));
   const featuredSlugs = new Set([featuredProject.slug, ...supportingProjects.map((project) => project.slug)]);
   const machineProjects = projects.filter((project) => !featuredSlugs.has(project.slug));
+  const allProjects = [...projects, ...Object.values(drawerProjects)];
 
   onMount(() => {
     const handlePopState = () => {
-      if (!dialogHistoryEntryActive) return;
-      dialogHistoryEntryActive = false;
-      selectedProject = null;
-      selectedCertificate = null;
+      const project = projectFromLocation();
+      if (project) {
+        selectedProject = project;
+        selectedCertificate = null;
+        dialogHistoryEntryActive = Boolean(history.state?.[dialogHistoryKey]);
+        if (!openedProjects.includes(project.slug)) openedProjects = [...openedProjects, project.slug];
+      } else {
+        dialogHistoryEntryActive = false;
+        selectedProject = null;
+        selectedCertificate = null;
+      }
     };
 
+    handlePopState();
     window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+
+    const sectionIds = ['work', 'machine-index', 'parts', 'experience', 'contact'];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
+    let animationFrame: number | undefined;
+    const updateActiveSection = () => {
+      animationFrame = undefined;
+      const offset = 74;
+      const current = sections.filter((section) => section.getBoundingClientRect().top <= offset).at(-1);
+      activeDocumentSection = current?.id ?? null;
+    };
+    const scheduleActiveSectionUpdate = () => {
+      if (animationFrame !== undefined) return;
+      animationFrame = window.requestAnimationFrame(updateActiveSection);
+    };
+
+    scheduleActiveSectionUpdate();
+    window.addEventListener('scroll', scheduleActiveSectionUpdate, { passive: true });
+    window.addEventListener('resize', scheduleActiveSectionUpdate);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('scroll', scheduleActiveSectionUpdate);
+      window.removeEventListener('resize', scheduleActiveSectionUpdate);
+      if (animationFrame !== undefined) window.cancelAnimationFrame(animationFrame);
+    };
   });
+
+  function projectFromLocation() {
+    const slug = new URLSearchParams(window.location.search).get('project');
+    return slug ? allProjects.find((project) => project.slug === slug) ?? null : null;
+  }
+
+  function projectLocation(slug: string) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('project', slug);
+    return `${url.pathname}${url.search}${url.hash}`;
+  }
 
   function addDialogHistoryEntry() {
     if (dialogHistoryEntryActive) return;
@@ -520,6 +566,19 @@
   }
 
   function closeDialog() {
+    if (selectedProject) {
+      if (dialogHistoryEntryActive && history.state?.[dialogHistoryKey]) {
+        history.back();
+        return;
+      }
+
+      const url = new URL(window.location.href);
+      url.searchParams.delete('project');
+      history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
+      selectedProject = null;
+      return;
+    }
+
     if (dialogHistoryEntryActive && history.state?.[dialogHistoryKey]) {
       history.back();
       return;
@@ -533,7 +592,13 @@
   function openShowcase(project: Project) {
     selectedCertificate = null;
     selectedProject = project;
-    addDialogHistoryEntry();
+    const currentState = typeof history.state === 'object' && history.state ? history.state : {};
+    history.pushState(
+      { ...currentState, [dialogHistoryKey]: true, projectSlug: project.slug },
+      '',
+      projectLocation(project.slug)
+    );
+    dialogHistoryEntryActive = true;
     if (!openedProjects.includes(project.slug)) openedProjects = [...openedProjects, project.slug];
   }
 
@@ -594,6 +659,14 @@
   </nav>
 </header>
 
+<nav class="document-index" aria-label="Document index">
+  <a href="#work" class:active={activeDocumentSection === 'work'} aria-current={activeDocumentSection === 'work' ? 'location' : undefined}>Work</a>
+  <a href="#machine-index" class:active={activeDocumentSection === 'machine-index'} aria-current={activeDocumentSection === 'machine-index' ? 'location' : undefined}>Machines</a>
+  <a href="#parts" class:active={activeDocumentSection === 'parts'} aria-current={activeDocumentSection === 'parts' ? 'location' : undefined}>Parts</a>
+  <a href="#experience" class:active={activeDocumentSection === 'experience'} aria-current={activeDocumentSection === 'experience' ? 'location' : undefined}>Experience</a>
+  <a href="#contact" class:active={activeDocumentSection === 'contact'} aria-current={activeDocumentSection === 'contact' ? 'location' : undefined}>Contact</a>
+</nav>
+
 <main id="top">
   <section class="portfolio-hero" aria-labelledby="hero-title">
     <div class="hero-heading-row">
@@ -650,6 +723,7 @@
           <small>{featuredProject.eyebrow}</small>
           <strong>{featuredProject.title}</strong>
           <span>{featuredProject.summary}</span>
+          <b class="project-open">Open project →</b>
         </span>
       </button>
       <div class="supporting-projects">
@@ -660,6 +734,7 @@
               <small>{project.status}</small>
               <strong>{project.title}</strong>
               <em>{project.summary}</em>
+              <b class="project-open">Open project →</b>
             </span>
           </button>
         {/each}
@@ -667,7 +742,7 @@
     </div>
   </section>
 
-  <section class="machine-index" aria-labelledby="machine-index-title">
+  <section class="machine-index" id="machine-index" aria-labelledby="machine-index-title">
     <div class="document-heading">
       <h2 id="machine-index-title">Machine index</h2>
       <p>Finished, unfinished, and technically alive</p>
@@ -678,6 +753,7 @@
           <span class="machine-copy">
             <strong>{project.title}</strong>
             <span>{project.summary}</span>
+            <b class="project-open">Open project →</b>
           </span>
           <ProjectImageRotator images={projectImages(project)} alt={project.alt} position={project.imagePosition || '50% 50%'} variant="machine" />
         </button>
@@ -696,7 +772,7 @@
           {#if item.slug && drawerProjects[item.slug]}
           <button class={`parts-bin bin-${index + 1}`} class:opened={openedProjects.includes(item.slug)} type="button" onclick={() => openShowcase(drawerProjects[item.slug!])}>
             <span class="bin-code">{String(index + 1).padStart(2, '0')} / {item.tag}</span>
-            {#if projectMediaCount(item.slug)}<span class="bin-media-count">{projectMediaCount(item.slug)} pieces</span>{/if}
+            {#if projectMediaCount(item.slug)}<span class="bin-media-count">{projectMediaCount(item.slug)} {projectMediaCount(item.slug) === 1 ? 'piece' : 'pieces'}</span>{/if}
             {#if projectImages(drawerProjects[item.slug]).length > 0 && !['seed-reversal', 'advent-of-code', 'onnxstream-sdxl'].includes(item.slug)}
               <ProjectImageRotator images={projectImages(drawerProjects[item.slug])} alt={drawerProjects[item.slug].alt} variant="drawer" />
             {:else if item.title === 'Seed reversal GPU optimization'}
@@ -723,7 +799,7 @@
             {/if}
             <strong>{item.title}</strong>
             <p>{item.description}</p>
-            <span class="bin-open">Inspect ↗</span>
+            <span class="bin-open">Open project →</span>
           </button>
           {:else}
           <a class={`parts-bin bin-${index + 1}`} href={item.href} target="_blank" rel="noreferrer">
@@ -863,7 +939,7 @@
     </div>
   </section>
 
-  <section class="contact-section" aria-labelledby="contact-title">
+  <section class="contact-section" id="contact" aria-labelledby="contact-title">
     <p class="section-label">End of document</p>
     <h2 id="contact-title">End of website. <span>Not of projects</span><i>.</i></h2>
     <p>Follow the builds, browse the half-finished experiments, or open an issue when I have wired something backwards.</p>
