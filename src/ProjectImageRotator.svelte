@@ -121,8 +121,8 @@
     />
   {/if}
   {#if images[active]}
-    {#key active}
     {@const activeImage = images[active]}
+    {#key active}
     <img
       class="active"
       class:crossfading={previous !== null}
