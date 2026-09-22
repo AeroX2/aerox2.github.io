@@ -10,6 +10,10 @@
   import googleLogo from './assets/google.svg';
   import thoughtDesignLogo from './assets/thoughtdesign.png';
   import firstLogo from './assets/first.png';
+  import githubIcon from '@fortawesome/fontawesome-free/svgs/brands/github.svg';
+  import linkedinIcon from '@fortawesome/fontawesome-free/svgs/brands/linkedin.svg';
+  import emailIcon from '@fortawesome/fontawesome-free/svgs/solid/envelope.svg';
+  import resumeIcon from '@fortawesome/fontawesome-free/svgs/solid/file-pdf.svg';
 
   type Project = {
     slug: string;
@@ -646,15 +650,15 @@
 
 <header class="site-header">
   <a class="wordmark" href="#top" aria-label="James Ridey, back to top">
-    <span>JR</span>
+    <img src="/android-chrome-192x192.png" width="40" height="40" alt="" />
     <small>software / silicon / everything between</small>
   </a>
   <nav aria-label="Primary navigation">
     <a href="#work">Work</a>
     <a href="#parts">Parts drawer</a>
     <a href="#experience">Experience</a>
-    <a class="nav-exit" href="https://github.com/AeroX2" target="_blank" rel="noreferrer">
-      GitHub ↗
+    <a class="nav-exit" href="/resume-technical.pdf" target="_blank" rel="noreferrer" aria-label="Resume (PDF, opens in a new tab)">
+      <img src={resumeIcon} width="16" height="16" alt="" />Resume ↗
     </a>
   </nav>
 </header>
@@ -668,34 +672,6 @@
 </nav>
 
 <main id="top">
-  <section class="portfolio-hero" aria-labelledby="hero-title">
-    <div class="hero-heading-row">
-      <div class="hero-identity">
-        <p class="kicker"><span></span> Software engineer / hardware tinkerer</p>
-        <h1 id="hero-title"><span>James</span> Ridey<i>.</i></h1>
-      </div>
-      <aside class="hero-field-notes" aria-label="Career field notes">
-        <header><span>JR / operating card</span><b>Currently building</b></header>
-        <div class="field-note-record">
-          <p><strong>2013</strong><span>career start / software + hardware</span></p>
-          <p><strong>FRC</strong><span>software lead / 50 kg robot</span></p>
-          <p><strong>4×</strong><span>Flare-On finisher</span></p>
-          <p><strong>1</strong><span>CPU in silicon</span></p>
-        </div>
-        <p class="field-note-history"><span>Work history</span><b>Nullify · Canva · Google ×2</b></p>
-        <p class="field-note-history"><span>Current work</span><b>AI products · frontend architecture</b></p>
-        <p class="field-note-history"><span>After hours</span><b>Robotics · silicon · fabrication</b></p>
-      </aside>
-    </div>
-    <div class="hero-ledger">
-      <p class="hero-intro">
-        I build the AI features and frontend foundations behind <strong>Nullify’s</strong>
-        product-security platform. After hours: processors, robots, circuit boards,
-        reverse-engineering tools, and one moon lamp.
-      </p>
-    </div>
-  </section>
-
   <div class="project-ticker" aria-hidden="true">
     <div class="ticker-track">
       <div class="ticker-group">
@@ -710,8 +686,35 @@
       </div>
     </div>
   </div>
+  <section class="portfolio-hero" aria-labelledby="hero-title">
+    <div class="hero-heading-row">
+      <div class="hero-identity">
+        <h1 id="hero-title"><span>James</span> Ridey<i>.</i></h1>
+        <p class="hero-subtitle">Software engineer / hardware tinkerer</p>
+      </div>
+      <aside class="hero-field-notes" aria-label="Career field notes">
+        <header><span>JR / operating card</span></header>
+        <div class="field-note-record">
+          <p><strong>2013</strong><span>career start / software + hardware</span></p>
+          <p><strong>FRC</strong><span>software lead / 50 kg robot</span></p>
+          <p><strong>4×</strong><span>Flare-On finisher</span></p>
+          <p><strong>1</strong><span>CPU in silicon</span></p>
+        </div>
+        <p class="field-note-history"><span>Work history</span><b>Nullify · Canva · Google ×2</b></p>
+        <p class="field-note-history"><span>Current work</span><b>AI products · frontend architecture</b></p>
+        <p class="field-note-history"><span>After hours</span><b>Robotics · silicon · fabrication</b></p>
+      </aside>
+    </div>
+    <div class="hero-ledger">
+      <p class="hero-intro">
+        I’m a software engineer working across frontend architecture, AI products,
+        and developer tools. I also design and build hardware, from custom circuit
+        boards and processors to robots and embedded systems.
+      </p>
+    </div>
+  </section>
 
-  <section class="featured-section" id="work" aria-labelledby="work-title">
+  <section class="featured-section section-card" id="work" aria-labelledby="work-title">
     <div class="document-heading">
       <h2 id="work-title">On the bench right now</h2>
     </div>
@@ -742,10 +745,10 @@
     </div>
   </section>
 
-  <section class="machine-index" id="machine-index" aria-labelledby="machine-index-title">
+  <section class="machine-index section-card" id="machine-index" aria-labelledby="machine-index-title">
     <div class="document-heading">
       <h2 id="machine-index-title">Machine index</h2>
-      <p>Finished, unfinished, and technically alive</p>
+      <p>Computers, electronics, and hardware projects</p>
     </div>
     <div class="machine-list">
       {#each machineProjects as project (project.slug)}
@@ -761,7 +764,7 @@
     </div>
   </section>
 
-  <section class="archive-section" id="parts" aria-labelledby="archive-title">
+  <section class="archive-section section-card" id="parts" aria-labelledby="archive-title">
     <div class="document-heading archive-heading">
       <h2 id="archive-title">Parts drawer</h2>
       <p>Contributions / models / smaller experiments</p>
@@ -834,13 +837,11 @@
     </div>
   </section>
 
-  <section class="experience-section" id="experience" aria-labelledby="experience-title">
+  <section class="experience-section section-card" id="experience" aria-labelledby="experience-title">
     <div class="section-heading">
       <div>
-        <p class="section-label">Work history / qualifications / recognition</p>
         <h2 id="experience-title">Experience + credentials</h2>
       </div>
-      <p>The work, followed by the evidence.</p>
     </div>
     <div class="resume-record">
       <div class="experience-list">
@@ -884,7 +885,12 @@
           <article class="credential-card credential-featured credential-with-proof">
             <p class="credential-meta">PortSwigger / issued 2026 / valid to 2032</p>
             <h3>Burp Suite Certified Practitioner</h3>
-            <p>Demonstrated practical web-security testing across attack-surface discovery, defensive bypasses, out-of-band techniques, and business-impact analysis.</p>
+            <ul class="credential-highlights">
+              <li>Attack-surface discovery and defensive bypasses</li>
+              <li>Out-of-band testing techniques</li>
+              <li>Business-impact analysis</li>
+            </ul>
+            <div class="credential-actions">
             <a
               class="credential-proof"
               href="/projects/burp-suite-certified-practitioner.png"
@@ -898,15 +904,20 @@
                 });
               }}
             >
-              <img src="/projects/burp-suite-certified-practitioner.png" alt="Burp Suite Certified Practitioner certificate awarded to James Ridey" />
-              <span>View certificate ↗</span>
+              View certificate ↗
             </a>
             <a href="https://portswigger.net/web-security/e/c/a2836e9325092f5f" target="_blank" rel="noreferrer">Verify credential ↗</a>
+            </div>
           </article>
           <article class="credential-card credential-with-proof">
             <p class="credential-meta">Reverse engineering / security</p>
             <h3>Flare-On + offensive IoT</h3>
-            <p>Four-time Flare-On finisher, ranked 157th of more than 4,100 entrants in 2025. Completed DEF CON's three-day Offensive IoT Exploitation course in firmware and hardware reverse engineering.</p>
+            <ul class="credential-highlights">
+              <li>Four-time Flare-On finisher</li>
+              <li>157th of 4,100+ entrants in 2025</li>
+              <li>Completed DEF CON’s three-day Offensive IoT Exploitation course in firmware and hardware reverse engineering</li>
+            </ul>
+            <div class="credential-actions">
             <a
               class="credential-proof"
               href="/projects/offensive-iot-certificate.jpg"
@@ -920,33 +931,39 @@
                 });
               }}
             >
-              <img src="/projects/offensive-iot-certificate-thumb.jpg" alt="DEF CON Offensive IoT Exploitation certificate awarded to James Ridey" />
-              <span>View certificate ↗</span>
+              View certificate ↗
             </a>
+            </div>
           </article>
           <article class="credential-card">
             <p class="credential-meta">Macquarie University / 2016—2020</p>
             <h3>BEng (Honours), Software Design</h3>
-            <p>Received the Head of Computing Award in five semesters for the highest academic mark in the cohort.</p>
+            <ul class="credential-highlights">
+              <li>Head of Computing Award in five semesters, for the highest academic mark in the cohort</li>
+            </ul>
           </article>
           <article class="credential-card">
             <p class="credential-meta">Competitions</p>
             <h3>Built and tested under pressure</h3>
-            <p>Hack Mac first place, ASEAN–Australia Codeathon runner-up, and 17th of 108 teams nationally in CySCA.</p>
+            <ul class="credential-highlights">
+              <li>Hack Mac — first place</li>
+              <li>ASEAN–Australia Codeathon — runner-up</li>
+              <li>CySCA — 17th of 108 teams nationally</li>
+            </ul>
           </article>
         </div>
       </aside>
     </div>
   </section>
 
-  <section class="contact-section" id="contact" aria-labelledby="contact-title">
-    <p class="section-label">End of document</p>
+  <section class="contact-section section-card" id="contact" aria-labelledby="contact-title">
     <h2 id="contact-title">End of website. <span>Not of projects</span><i>.</i></h2>
     <p>Follow the builds, browse the half-finished experiments, or open an issue when I have wired something backwards.</p>
     <div class="contact-actions">
-      <a class="button primary" href="https://github.com/AeroX2" target="_blank" rel="noreferrer">GitHub ↗</a>
-      <a class="button secondary" href="https://linkedin.com/in/james-ridey" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-      <a class="button secondary" href="mailto:james@ridey.email">Email ↗</a>
+      <a class="button primary" href="https://github.com/AeroX2" target="_blank" rel="noreferrer"><img src={githubIcon} alt="" />GitHub ↗</a>
+      <a class="button secondary" href="https://linkedin.com/in/james-ridey" target="_blank" rel="noreferrer"><img src={linkedinIcon} alt="" />LinkedIn ↗</a>
+      <a class="button secondary" href="mailto:james@ridey.email"><img src={emailIcon} alt="" />Email ↗</a>
+      <a class="button secondary" href="/resume-technical.pdf" target="_blank" rel="noreferrer" aria-label="Resume (PDF, opens in a new tab)"><img src={resumeIcon} alt="" />Resume ↗</a>
     </div>
   </section>
 </main>
