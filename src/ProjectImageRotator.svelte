@@ -24,9 +24,9 @@
     return `/card-media/${path}-640.webp 640w, /card-media/${path}-1200.webp 1200w`;
   }
 
-  function preload(index: number) {
+  async function preload(index: number) {
     const source = images[index]?.src;
-    if (!source) return;
+    if (!source) return false;
     const image = new Image();
     const sources = previewSources(source);
     if (sources) {
@@ -34,6 +34,12 @@
       image.sizes = '(max-width: 650px) 100vw, (max-width: 1050px) 50vw, 700px';
     }
     image.src = source;
+    try {
+      await image.decode();
+      return true;
+    } catch {
+      return false;
+    }
   }
 
   onMount(() => {
@@ -43,6 +49,8 @@
     const initialDelay = 1800 + (seed % 13_000);
     const interval = 10_000 + (seed % 5_000);
     let timeout: number | undefined;
+    let fadeTimeout: number | undefined;
+    let disposed = false;
     let visible = false;
     let paused = false;
 
@@ -50,19 +58,21 @@
       if (timeout) window.clearTimeout(timeout);
       timeout = undefined;
     };
-    const advance = () => {
+    const advance = async () => {
+      const next = (active + 1) % images.length;
+      const loaded = await preload(next);
+      if (!loaded || disposed || !visible || paused || !motionAllowed()) return;
       previous = active;
-      active = (active + 1) % images.length;
-      preload((active + 1) % images.length);
-      window.setTimeout(() => (previous = null), 360);
+      active = next;
+      fadeTimeout = window.setTimeout(() => (previous = null), 950);
     };
     const schedule = (delay: number) => {
       clearTimer();
       if (!visible || paused) return;
       preload((active + 1) % images.length);
-      timeout = window.setTimeout(() => {
-        advance();
-        schedule(interval);
+      timeout = window.setTimeout(async () => {
+        await advance();
+        if (!disposed) schedule(interval);
       }, delay);
     };
     const observer = new IntersectionObserver(
@@ -86,7 +96,9 @@
     rotatorElement?.addEventListener('mouseenter', pause);
     rotatorElement?.addEventListener('mouseleave', resume);
     return () => {
+      disposed = true;
       clearTimer();
+      window.clearTimeout(fadeTimeout);
       observer.disconnect();
       rotatorElement?.removeEventListener('mouseenter', pause);
       rotatorElement?.removeEventListener('mouseleave', resume);
@@ -109,9 +121,11 @@
     />
   {/if}
   {#if images[active]}
+    {#key active}
     {@const activeImage = images[active]}
     <img
       class="active"
+      class:crossfading={previous !== null}
       src={activeImage.src}
       srcset={previewSources(activeImage.src)}
       sizes="(max-width: 650px) 100vw, (max-width: 1050px) 50vw, 700px"
@@ -120,5 +134,6 @@
       decoding="async"
       style:object-position={position}
     />
+    {/key}
   {/if}
 </span>
