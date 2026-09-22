@@ -52,7 +52,7 @@
 
   .label {
     font-family: 'Space Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.875rem;
     color: var(--accent-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;

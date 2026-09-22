@@ -1,4 +1,4 @@
-@import '@fontsource-variable/bricolage-grotesque';
+@import '@fontsource-variable/sora';
 @import '@fontsource-variable/ibm-plex-sans';
 @import '@fontsource-variable/recursive';
 
@@ -97,7 +97,7 @@ figure {
 .wordmark small {
   max-width: 180px;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 650;
   line-height: 1.25;
   letter-spacing: 0.08em;
@@ -183,7 +183,7 @@ main {
   align-items: center;
   gap: 10px;
   margin-bottom: 24px;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .kicker span {
@@ -196,8 +196,9 @@ main {
 
 h1,
 h2,
-h3 {
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+h3,
+h4 {
+  font-family: 'Sora Variable', sans-serif;
   letter-spacing: -0.045em;
 }
 
@@ -244,7 +245,7 @@ h1 em {
   padding: 14px 19px;
   border: 1px solid var(--ink);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.035em;
   text-decoration: none;
@@ -301,7 +302,7 @@ h1 em {
   justify-content: space-between;
   gap: 20px;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 620;
   line-height: 1.35;
   text-align: right;
@@ -309,7 +310,7 @@ h1 em {
 
 .hero-photo figcaption span {
   color: var(--orange);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -352,7 +353,7 @@ h1 em {
 
 .manifesto > p {
   max-width: 840px;
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: clamp(27px, 3vw, 46px);
   font-weight: 610;
   line-height: 1.15;
@@ -373,7 +374,7 @@ h1 em {
 .manifesto-stats span {
   padding: 15px 14px 0 0;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   line-height: 1.25;
   text-transform: uppercase;
@@ -414,7 +415,7 @@ h1 em {
 .section-label {
   margin-bottom: 10px;
   color: var(--blue-dark);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 h2 {
@@ -439,7 +440,7 @@ h2 {
   background: transparent;
   cursor: pointer;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -504,7 +505,7 @@ h2 {
   padding: 6px 9px;
   border: 1px solid var(--ink);
   background: var(--acid);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .project-copy {
@@ -514,7 +515,7 @@ h2 {
 .project-eyebrow {
   margin-bottom: 10px;
   color: var(--orange);
-  font-size: 9px;
+  font-size: 13px;
 }
 
 .project-copy h3 {
@@ -545,7 +546,7 @@ h2 {
   padding: 5px 8px;
   border: 1px solid var(--rule);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 650;
   text-transform: uppercase;
 }
@@ -603,7 +604,7 @@ h2 {
 }
 
 .archive-title {
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: 20px;
   font-weight: 780;
 }
@@ -615,7 +616,7 @@ h2 {
 }
 
 .archive-tag {
-  font-size: 9px;
+  font-size: 13px;
   white-space: nowrap;
 }
 
@@ -635,7 +636,7 @@ h2 {
   border-bottom: 1px solid var(--ink);
   color: var(--orange);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 760;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -643,7 +644,7 @@ h2 {
 
 .resume-subheading strong {
   color: var(--ink);
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: clamp(25px, 2.5vw, 36px);
   font-weight: 850;
   letter-spacing: -.035em;
@@ -677,14 +678,13 @@ h2 {
 .credential-featured {
   color: var(--ink);
   background: rgba(48, 79, 211, .08);
-  box-shadow: inset 6px 0 0 var(--blue);
 }
 
 .credential-meta {
   margin-bottom: 18px;
   color: var(--orange);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -716,7 +716,7 @@ h2 {
   background: var(--ink);
   border: 1px solid var(--ink);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 750;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -764,7 +764,7 @@ h2 {
 
 .experience-list time {
   color: var(--blue-dark);
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .experience-list h3 {
@@ -780,11 +780,11 @@ h2 {
 }
 
 .company-name img {
-  width: 42px;
-  height: 34px;
+  width: 80px;
+  height: 48px;
+  flex: 0 0 80px;
   object-fit: contain;
   object-position: left center;
-  filter: saturate(0.9);
 }
 
 .company-name h3 {
@@ -901,7 +901,7 @@ footer {
   color: var(--paper-bright);
   background: var(--ink);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   line-height: 1.35;
@@ -998,7 +998,7 @@ footer a {
     right: 13px;
     bottom: 14px;
     left: 13px;
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .manifesto {
@@ -1007,7 +1007,7 @@ footer a {
   }
 
   .manifesto-stats span {
-    font-size: 8px;
+    font-size: 13px;
   }
 
   .section-heading,
@@ -1130,7 +1130,7 @@ footer a {
   border: 1px solid rgba(21, 27, 42, 0.65);
   background: rgba(255, 255, 255, 0.24);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 720;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -1179,7 +1179,7 @@ footer a {
   border: 1px solid var(--ink);
   background: rgba(246, 245, 238, 0.82);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   letter-spacing: 0.07em;
   text-transform: uppercase;
 }
@@ -1204,8 +1204,8 @@ footer a {
 .hero-specimen img { width: 100%; height: 100%; object-fit: cover; }
 .hero-specimen:hover img { transform: none; }
 .hero-specimen > span { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: end; justify-content: space-between; gap: 8px; padding: 20px 9px 8px; background: linear-gradient(transparent, rgba(10, 18, 35, .88)); }
-.hero-specimen b, .hero-specimen small { font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 9px; line-height: 1.15; text-transform: uppercase; }
-.hero-specimen small { color: var(--acid); font-size: 7px; }
+.hero-specimen b, .hero-specimen small { font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; line-height: 1.15; text-transform: uppercase; }
+.hero-specimen small { color: var(--acid); font-size: 13px; }
 .specimen-1 { grid-column: 1 / 3; grid-row: 2 / 4; }
 .specimen-2 { grid-column: 3; grid-row: 2; }
 .specimen-3 { grid-column: 3; grid-row: 3 / 5; }
@@ -1213,14 +1213,14 @@ footer a {
 .specimen-5 { grid-column: 2; grid-row: 4; }
 .specimen-6 { display: none; }
 
-.loose-part { position: absolute; z-index: 4; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--acid); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 7px; font-weight: 800; }
+.loose-part { position: absolute; z-index: 4; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; background: var(--acid); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; font-weight: 800; }
 .loose-part-a { right: 18%; bottom: -16px; width: 48px; height: 48px; transform: rotate(12deg); }
 .loose-part-b { top: 42%; left: -17px; width: 34px; height: 34px; color: white; background: var(--orange); transform: rotate(-8deg); }
-.bench-signal { position: absolute; z-index: 5; right: 18px; bottom: 12px; display: flex; gap: 9px; align-items: center; min-width: 190px; padding: 7px 10px; border: 1px solid var(--ink); color: #8793a1; background: rgba(18, 27, 46, .92); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 7px; letter-spacing: .07em; text-transform: uppercase; transform: translateY(70%); }
+.bench-signal { position: absolute; z-index: 5; right: 18px; bottom: 12px; display: flex; gap: 9px; align-items: center; min-width: 190px; padding: 7px 10px; border: 1px solid var(--ink); color: #8793a1; background: rgba(18, 27, 46, .92); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; transform: translateY(70%); }
 .bench-signal::before { width: 7px; height: 7px; border-radius: 50%; background: #65717f; content: ''; }
 .bench-signal.active { color: white; }
 .bench-signal.active::before { background: var(--acid); box-shadow: 0 0 9px var(--acid); }
-.bench-signal b { color: var(--acid); font-size: 10px; }
+.bench-signal b { color: var(--acid); font-size: 13px; }
 
 .media-count {
   position: absolute;
@@ -1230,7 +1230,7 @@ footer a {
   color: var(--acid);
   background: rgba(18, 27, 46, .9);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 8px;
+  font-size: 13px;
   font-weight: 750;
   letter-spacing: .06em;
   text-transform: uppercase;
@@ -1248,7 +1248,7 @@ footer a {
 }
 .archive-heading { display: flex; grid-template-columns: none; max-width: 1280px; margin-right: auto; margin-bottom: 38px; margin-left: auto; }
 .parts-cabinet { margin-top: 55px; padding: 14px; border: 3px solid var(--ink); background: #6d7a86; box-shadow: 14px 16px 0 var(--ink); }
-.cabinet-rail { display: flex; align-items: center; gap: 16px; padding: 12px 14px; color: white; background: var(--ink); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 9px; font-weight: 750; letter-spacing: .08em; }
+.cabinet-rail { display: flex; align-items: center; gap: 16px; padding: 12px 14px; color: white; background: var(--ink); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; font-weight: 750; letter-spacing: .08em; }
 .cabinet-rail span { margin-right: auto; }
 .cabinet-rail i { width: 14px; height: 14px; border: 2px solid var(--paper); border-radius: 50%; }
 .parts-bins { display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: 270px; gap: 10px; margin-top: 10px; }
@@ -1265,11 +1265,11 @@ footer a {
 .bin-8 { grid-column: span 4; }
 .bin-9 { grid-column: span 12; }
 .bin-10 { grid-column: span 6; }
-.bin-code, .bin-open { font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 8px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
-.bin-media-count { position: absolute; top: 34px; left: 14px; z-index: 2; padding: 4px 6px; color: var(--acid); background: var(--ink); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 7px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
+.bin-code, .bin-open { font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; font-weight: 750; letter-spacing: .07em; text-transform: uppercase; }
+.bin-media-count { position: absolute; top: 34px; left: 14px; z-index: 2; padding: 4px 6px; color: var(--acid); background: var(--ink); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .bin-code { color: var(--orange); }
-.parts-bin strong { position: relative; z-index: 1; margin-top: auto; padding-top: 16px; font-family: 'Bricolage Grotesque Variable', sans-serif; font-size: clamp(21px, 2vw, 31px); line-height: .95; letter-spacing: -.04em; }
-.parts-bin p { position: relative; z-index: 1; margin-top: 9px; max-width: 470px; color: #404a59; font-size: 12px; line-height: 1.4; }
+.parts-bin strong { position: relative; z-index: 1; margin-top: auto; padding-top: 16px; font-family: 'Sora Variable', sans-serif; font-size: clamp(21px, 2vw, 31px); line-height: .95; letter-spacing: -.04em; }
+.parts-bin p { position: relative; z-index: 1; margin-top: 9px; max-width: 470px; color: #404a59; font-size: 13px; line-height: 1.4; }
 .bin-open { position: absolute; top: 13px; right: 13px; color: var(--blue-dark); }
 .parts-bin > img { width: 100%; height: 112px; min-height: 112px; margin-top: 12px; object-fit: cover; }
 .bin-1 > img { flex: 1 1 auto; height: auto; min-height: 250px; }
@@ -1282,11 +1282,11 @@ footer a {
 .drawer-visual { position: relative; flex: 0 0 112px; width: 100%; height: 112px; min-height: 0; margin: 12px 0 0; overflow: hidden; }
 .pack-visual { background: #18253c; }
 .pack-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; image-rendering: pixelated; filter: none; }
-.pack-visual figcaption { position: absolute; right: 5px; bottom: 5px; padding: 4px 6px; color: var(--acid); background: rgba(18, 27, 46, .9); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 7px; letter-spacing: .05em; }
-.ascii-visual, .code-visual { padding: 12px; color: #d8ff5c; background: #121b2e; font-family: 'IBM Plex Sans Variable', sans-serif; font-size: clamp(8px, .8vw, 11px); line-height: 1.15; white-space: pre; }
+.pack-visual figcaption { position: absolute; right: 5px; bottom: 5px; padding: 4px 6px; color: var(--acid); background: rgba(18, 27, 46, .9); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; letter-spacing: .05em; }
+.ascii-visual, .code-visual { padding: 12px; color: #d8ff5c; background: #121b2e; font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; line-height: 1.15; white-space: pre; }
 .ascii-visual { display: grid; place-items: center; color: #f4eee0; text-align: center; text-shadow: 9px 0 var(--orange), -9px 0 var(--blue); }
 .code-visual span { color: #ff7a52; font-weight: 800; }
-.diff-visual { display: block; padding: 13px 14px; font-size: clamp(7px, .68vw, 10px); line-height: 1.38; }
+.diff-visual { display: block; padding: 13px 14px; font-size: 13px; line-height: 1.38; }
 .diff-visual span { display: block; font-weight: 650; }
 .diff-visual .diff-file { margin-bottom: 5px; color: #8fd6ff; font-weight: 850; letter-spacing: .05em; text-transform: uppercase; }
 .diff-visual .diff-del { color: #ff8a72; background: rgba(255, 91, 63, .1); }
@@ -1295,8 +1295,7 @@ footer a {
 
 .experience-list article { grid-template-columns: minmax(100px, .45fr) minmax(280px, 1fr) minmax(300px, 1.55fr) minmax(150px, .75fr); align-items: center; }
 .company-name { gap: 16px; }
-.company-name img { flex: 0 0 46px; width: 46px; }
-.company-name h3 { overflow-wrap: normal; word-break: normal; white-space: nowrap; font-size: clamp(22px, 2vw, 32px); }
+.company-name h3 { overflow-wrap: normal; word-break: normal; font-size: clamp(22px, 2vw, 32px); }
 
 @media (max-width: 1100px) {
   .hero { grid-template-columns: 1fr; max-width: 900px; }
@@ -1339,7 +1338,7 @@ footer a {
 
 .portfolio-hero h1 {
   margin: 20px 0 0;
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: clamp(92px, 13.5vw, 196px);
   font-stretch: 115%;
   font-weight: 900;
@@ -1372,7 +1371,7 @@ footer a {
   display: grid;
   gap: 8px;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: .06em;
   line-height: 1.35;
   text-transform: uppercase;
@@ -1394,7 +1393,7 @@ footer a {
   display: flex;
   width: max-content;
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 740;
   letter-spacing: .12em;
   text-transform: uppercase;
@@ -1474,7 +1473,7 @@ footer a {
 
 .document-heading h2 {
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 820;
   letter-spacing: .12em;
   line-height: 1.2;
@@ -1485,7 +1484,7 @@ footer a {
 .document-heading p {
   color: var(--muted);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: .08em;
   text-transform: uppercase;
 }
@@ -1561,7 +1560,7 @@ footer a {
   border: 1px solid var(--ink);
   background: var(--acid);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 780;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1583,7 +1582,7 @@ footer a {
 .supporting-projects small {
   color: var(--acid);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 760;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1616,7 +1615,7 @@ footer a {
 .supporting-projects button > span { display: grid; gap: 8px; }
 .supporting-projects small { color: var(--orange); }
 .supporting-projects strong { font-size: clamp(23px, 2vw, 31px); line-height: .93; letter-spacing: -.03em; text-transform: uppercase; }
-.supporting-projects em { color: #404a59; font-size: 13px; font-style: normal; line-height: 1.45; }
+.supporting-projects em { color: #404a59; font-size: 16px; font-style: normal; line-height: 1.45; }
 
 .machine-list { max-width: 1480px; margin: 0 auto; }
 .machine-list button {
@@ -1634,7 +1633,7 @@ footer a {
 .machine-list button:focus-visible { background: rgba(232, 255, 98, .36); box-shadow: inset 7px 0 0 var(--orange); }
 .machine-copy { display: grid; gap: 8px; padding-top: 3px; }
 .machine-copy strong { font-size: clamp(31px, 3.4vw, 50px); font-weight: 880; line-height: .9; letter-spacing: -.045em; text-transform: uppercase; }
-.machine-copy > span { max-width: 610px; color: #404a59; font-size: 14px; line-height: 1.45; }
+.machine-copy > span { max-width: 610px; color: #404a59; font-size: 16px; line-height: 1.45; }
 .project-image-rotator.machine { width: 100%; aspect-ratio: 1.7; border: 1px solid var(--ink); }
 
 .featured-project:focus-visible,
@@ -1667,7 +1666,7 @@ footer a {
   .supporting-projects em { display: none; }
   .machine-list button { grid-template-columns: 1fr; gap: 14px; padding: 20px 15px; }
   .machine-copy strong { font-size: 30px; }
-  .machine-copy > span { font-size: 13px; }
+  .machine-copy > span { font-size: 16px; }
   .project-image-rotator.machine { aspect-ratio: 1.9; }
 }
 
@@ -1708,7 +1707,7 @@ footer a {
     linear-gradient(90deg, rgba(48, 79, 211, .07) 1px, transparent 1px),
     var(--paper);
   background-size: 18px 18px;
-  box-shadow: 11px 12px 0 var(--blue);
+  box-shadow: 5.5px 6px 0 var(--blue);
 }
 
 .hero-field-notes > header {
@@ -1720,7 +1719,7 @@ footer a {
   color: var(--paper-bright);
   background: var(--ink);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 760;
   letter-spacing: .08em;
   text-transform: uppercase;
@@ -1794,12 +1793,12 @@ footer a {
   margin: 0 auto;
   padding: 20px 32px;
 }
-.archive-heading h2 { font-size: 12px; line-height: 1.2; }
+.archive-heading h2 { font-size: 13px; line-height: 1.2; }
 
 .parts-cabinet {
   max-width: 1480px;
   margin: 0 auto;
-  padding: 0 0 18px;
+  padding: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
@@ -1866,7 +1865,33 @@ footer a {
   padding-top: 17px;
   font-size: clamp(22px, 2vw, 30px);
 }
-.archive-section .parts-bin p { font-size: 12px; }
+.archive-section .parts-bin p { font-size: 16px; line-height: 1.5; }
+
+.bin-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  min-height: 48px;
+}
+.bin-heading .bin-media-count { position: static; }
+.parts-bin .bin-open {
+  position: static;
+  margin-top: auto;
+  padding-top: 18px;
+  font-size: 14px;
+}
+.parts-bin .code-visual {
+  font-family: Consolas, monospace;
+  white-space: pre-wrap;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.parts-bin .ascii-visual { font-family: Consolas, monospace; }
+
+@media (min-width: 1051px) and (max-width: 1250px) {
+  .parts-bins { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
 
 .experience-section { padding-top: clamp(68px, 7vw, 104px); }
 
@@ -1884,7 +1909,7 @@ footer a {
 @media (max-width: 760px) {
   .hero-heading-row { grid-template-columns: 1fr; gap: 30px; }
   .portfolio-hero h1 { font-size: clamp(66px, 21vw, 98px); }
-  .hero-field-notes { margin-right: 8px; box-shadow: 7px 8px 0 var(--blue); }
+  .hero-field-notes { margin-right: 8px; box-shadow: 3.5px 4px 0 var(--blue); }
   .field-note-record { grid-template-columns: repeat(2, 1fr); }
   .field-note-record p:nth-child(3) { border-top: 1px solid var(--ink); border-left: 0; }
   .field-note-record p:nth-child(4) { border-top: 1px solid var(--ink); }
@@ -1922,7 +1947,7 @@ footer a {
 }
 
 .resume-record .experience-list article {
-  grid-template-columns: 100px minmax(230px, .8fr) minmax(340px, 1.6fr) minmax(180px, .7fr);
+  grid-template-columns: 100px minmax(300px, 1fr) minmax(340px, 1.6fr) minmax(180px, .7fr);
   gap: 18px 28px;
   align-items: start;
   padding: 25px 24px;
@@ -1954,7 +1979,7 @@ footer a {
 
 @media (max-width: 1100px) {
   .resume-record .experience-list article {
-    grid-template-columns: 90px minmax(200px, .8fr) minmax(0, 1.5fr);
+    grid-template-columns: 90px minmax(270px, 1fr) minmax(0, 1.5fr);
   }
 
   .resume-record .experience-list article > span { display: none; }
@@ -1968,7 +1993,7 @@ footer a {
 
 /* Restore the earlier hand-set name treatment within the current hero. */
 .portfolio-hero h1 {
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-size: clamp(80px, 9.7vw, 144px);
   font-weight: 880;
   letter-spacing: -.075em;
@@ -2019,7 +2044,7 @@ nav.document-index a {
   border-right: 1px solid var(--ink);
   color: var(--ink);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.06em;
   text-decoration: none;
@@ -2032,7 +2057,7 @@ nav.document-index a::after { content: none; }
 .featured-copy strong,
 .supporting-projects strong,
 .machine-copy strong {
-  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-weight: 750;
   letter-spacing: -.035em;
   line-height: 1;
@@ -2040,7 +2065,7 @@ nav.document-index a::after { content: none; }
 }
 
 .portfolio-hero h1 {
-  font-family: 'IBM Plex Sans Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-weight: 700;
   letter-spacing: -.045em;
   line-height: .9;
@@ -2050,7 +2075,7 @@ nav.document-index a::after { content: none; }
 
 .section-heading h2,
 .contact-section h2 {
-  font-family: 'IBM Plex Sans Variable', sans-serif;
+  font-family: 'Sora Variable', sans-serif;
   font-weight: 700;
   letter-spacing: -.04em;
   line-height: 1.05;
@@ -2060,10 +2085,10 @@ nav.document-index a::after { content: none; }
 .featured-copy small,
 .featured-status,
 main .project-open,
-.credential-meta { font-size: 12px; }
+.credential-meta { font-size: 13px; }
 
 .experience-list time { font-size: 14px; }
-.document-heading p { font-size: 12px; }
+.document-heading p { font-size: 13px; }
 
 nav.document-index a:hover {
   color: var(--ink);
@@ -2089,7 +2114,7 @@ nav.document-index a.active {
   margin-top: 8px;
   color: var(--blue-dark);
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 9px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.06em;
   line-height: 1.2;
@@ -2141,8 +2166,9 @@ nav.document-index a.active {
   nav.document-index a {
     min-width: max-content;
     flex: 1 0 auto;
-    padding-right: 12px;
-    padding-left: 12px;
+    padding-right: 6px;
+    padding-left: 6px;
+    letter-spacing: .02em;
     border-right-color: var(--rule);
   }
 

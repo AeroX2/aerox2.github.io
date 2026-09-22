@@ -151,12 +151,12 @@
         {#if project.links || project.href}
           <p class="project-source-links" aria-label="Project source links">
             {#if project.links}
-              {#each project.links as link, index (link.href)}<a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>{#if index < project.links.length - 1}<span aria-hidden="true"> / </span>{/if}{/each}
+              {#each project.links as link (link.href)}<a href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>{/each}
             {:else if project.href}<a href={project.href} target="_blank" rel="noreferrer">Source and files ↗</a>{/if}
           </p>
         {/if}
       </div>
-      <ul>
+      <ul aria-label="Technologies">
         {#each project.tags as tag (tag)}<li>{tag}</li>{/each}
       </ul>
     </div>
@@ -249,22 +249,6 @@
         </article>
       {/each}
     </div>
-    <footer>
-      <span>Project specimen / selected evidence</span>
-      <div class="source-links">
-        {#if project.links}
-          {#each project.links as link (link.href)}<a
-              href={link.href}
-              target="_blank"
-              rel="noreferrer">{link.label} ↗</a
-            >{/each}
-        {:else if project.href}<a
-            href={project.href}
-            target="_blank"
-            rel="noreferrer">Source and files ↗</a
-          >{/if}
-      </div>
-    </footer>
   </div>
 </div>
 
@@ -296,7 +280,7 @@
     position: fixed;
     z-index: 100;
     inset: 0;
-    padding: 24px;
+    padding: 0 24px;
     overflow: auto;
     background: rgba(10, 18, 35, 0.78);
     backdrop-filter: blur(9px);
@@ -304,7 +288,7 @@
   .showcase-dialog {
     position: relative;
     width: min(1120px, 100%);
-    margin: 2vh auto;
+    margin: calc(2vh + 24px) auto;
     padding: 24px;
     color: var(--ink);
     background: var(--paper-bright);
@@ -334,8 +318,7 @@
       transform: none;
     }
   }
-  header,
-  footer {
+  header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -345,6 +328,7 @@
   }
   header div {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
     align-items: center;
   }
@@ -352,7 +336,6 @@
   header p,
   header small,
   header button,
-  footer,
   li {
     font-family: 'Recursive Variable', monospace;
     font-variation-settings: 'MONO' 1;
@@ -363,22 +346,24 @@
     padding: 6px 8px;
     color: white;
     background: var(--orange);
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 800;
   }
   header p {
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 700;
   }
   header small {
     color: var(--muted);
-    font-size: 8px;
+    font-size: 13px;
   }
   header button {
+    flex-shrink: 0;
+    white-space: nowrap;
     border: 0;
     padding: 10px;
     background: transparent;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 800;
     cursor: pointer;
   }
@@ -420,7 +405,7 @@
     color: var(--ink);
     background: rgba(232, 255, 98, 0.34);
     font-family: 'Recursive Variable', monospace;
-    font-size: 10px;
+    font-size: 13px;
     font-variation-settings: 'MONO' 1;
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -431,9 +416,12 @@
     text-underline-offset: 3px;
   }
   .showcase-intro > div .project-source-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     color: var(--ink);
     font-family: 'Recursive Variable', monospace;
-    font-size: 10px;
+    font-size: 13px;
     font-variation-settings: 'MONO' 1;
     font-weight: 750;
     letter-spacing: 0.04em;
@@ -441,22 +429,38 @@
     text-transform: uppercase;
   }
   .project-source-links a {
-    color: var(--blue-dark);
-    text-underline-offset: 3px;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid var(--ink);
+    border-radius: var(--radius-small);
+    color: var(--paper-bright);
+    background: var(--ink);
+    text-decoration: none;
+  }
+  .project-source-links a:hover {
+    background: var(--blue-dark);
+  }
+  .project-source-links a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
   }
   ul {
     display: flex;
     flex-wrap: wrap;
-    gap: 7px;
+    gap: 8px 20px;
     margin: 26px 0 0;
+    padding: 0;
     max-width: 760px;
     list-style: none;
   }
   li {
-    padding: 6px 8px;
-    border: 1px solid var(--ink);
-    font-size: 8px;
-    font-weight: 750;
+    color: var(--muted);
+    font-family: 'IBM Plex Sans Variable', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
   }
   .showcase-media {
     display: grid;
@@ -479,7 +483,7 @@
   .continuity-track article > span {
     color: var(--orange);
     font-family: 'Recursive Variable', monospace;
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -491,6 +495,13 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     border: 1px solid var(--ink);
+    border-radius: var(--radius-panel);
+  }
+  .continuity-track article:first-child {
+    border-radius: var(--radius-panel) 0 0 var(--radius-panel);
+  }
+  .continuity-track article:last-child {
+    border-radius: 0 var(--radius-panel) var(--radius-panel) 0;
   }
   .continuity-track article {
     position: relative;
@@ -519,8 +530,8 @@
   }
   .continuity-track p {
     margin-top: 10px;
-    color: var(--muted);
-    font-size: 11px;
+    color: var(--ink);
+    font-size: 15px;
     line-height: 1.4;
   }
   .showcase-media article {
@@ -528,6 +539,7 @@
     padding: 10px;
     background: var(--paper);
     border: 1px solid rgba(21, 27, 42, 0.45);
+    border-radius: var(--radius-panel);
   }
   .showcase-media article.wide {
     grid-column: 1 / -1;
@@ -560,7 +572,7 @@
     color: var(--ink);
     background: var(--acid);
     font-family: 'Recursive Variable', monospace;
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.05em;
     opacity: 0;
@@ -589,6 +601,7 @@
     }
   }
   video {
+    border-radius: var(--radius-small);
     display: block;
     width: 100%;
     aspect-ratio: 16 / 9;
@@ -602,6 +615,7 @@
     object-fit: cover;
   }
   iframe {
+    border-radius: var(--radius-small);
     display: block;
     width: 100%;
     height: clamp(260px, 26vw, 360px);
@@ -610,32 +624,9 @@
   }
   .showcase-media article > p {
     padding: 12px 4px 4px;
-    color: var(--muted);
-    font-size: 12px;
+    color: var(--ink);
+    font-size: 15px;
     line-height: 1.45;
-  }
-  footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    margin-top: 28px;
-    padding: 14px 12px;
-    color: var(--paper-bright);
-    background: var(--ink);
-    border-top: 0;
-    border-bottom: 0;
-    font-size: 9px;
-    font-weight: 700;
-  }
-  footer a {
-    color: var(--acid);
-  }
-  .source-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-    justify-content: flex-end;
   }
   .image-lightbox {
     position: fixed;
@@ -666,7 +657,7 @@
     background: transparent;
     color: var(--acid);
     font-family: 'Recursive Variable', monospace;
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -693,6 +684,12 @@
     .continuity-track {
       grid-template-columns: 1fr;
     }
+    .continuity-track article:first-child {
+      border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+    }
+    .continuity-track article:last-child {
+      border-radius: 0 0 var(--radius-panel) var(--radius-panel);
+    }
     .continuity-track article + article {
       border-top: 1px solid var(--ink);
       border-left: 0;
@@ -711,13 +708,6 @@
     .showcase-dialog > header {
       margin: -16px -16px 0;
       padding: 16px 16px 14px;
-    }
-    footer {
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    .source-links {
-      justify-content: flex-start;
     }
     .showcase-dialog::after {
       width: 34px;
@@ -744,9 +734,6 @@
     }
     .continuity-heading h3 {
       margin-top: 8px;
-    }
-    footer > span {
-      display: none;
     }
   }
 </style>

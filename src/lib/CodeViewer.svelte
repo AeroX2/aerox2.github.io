@@ -86,7 +86,7 @@
 
   .filename {
     color: #969696;
-    font-size: 0.8rem;
+    font-size: 0.875rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -106,7 +106,7 @@
   }
 
   code {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     line-height: 1.5;
     background: transparent !important;
   }
