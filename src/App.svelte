@@ -365,13 +365,6 @@
 
   const archive = [
     {
-      title: 'Nintendo DS repair',
-      description: 'Hot-air connector replacement followed by a full screen, touch, and audio test.',
-      href: 'https://github.com/AeroX2',
-      tag: 'Repair',
-      slug: 'nintendo-ds'
-    },
-    {
       title: 'Flare-On',
       description: 'Four years of reverse-engineering challenges, suspicious binaries, and physical medals.',
       href: 'https://flare-on.com/',
@@ -379,10 +372,24 @@
       slug: 'flare-on'
     },
     {
+      title: 'Mechanical wallet',
+      description: 'A printed card wallet whose thumb slider fans five cards out in a staggered cascade, with a rear door for notes and coins.',
+      href: 'https://github.com/AeroX2/wallet',
+      tag: 'FreeCAD',
+      slug: 'wallet'
+    },
+    {
+      title: 'Advent of Code',
+      description: 'Several years of puzzle solving across Python, Kotlin, Go, and Nim.',
+      href: 'https://github.com/AeroX2?tab=repositories&q=advent-of-code',
+      tag: '2019—2024',
+      slug: 'advent-of-code'
+    },
+    {
       title: 'OnnxStream / SDXL',
       description: 'Contributed Stable Diffusion XL and SDXL Turbo support to a tiny inference engine that runs on a Raspberry Pi Zero 2.',
       href: 'https://github.com/vitoplantamura/OnnxStream',
-      tag: 'C++ + ML',
+      tag: 'AI inference',
       slug: 'onnxstream-sdxl'
     },
     {
@@ -393,13 +400,6 @@
       slug: 'seed-reversal'
     },
     {
-      title: 'Advent of Code',
-      description: 'Several years of puzzle solving across Python, Kotlin, Go, and Nim.',
-      href: 'https://github.com/AeroX2?tab=repositories&q=advent-of-code',
-      tag: '2019—2024',
-      slug: 'advent-of-code'
-    },
-    {
       title: 'FTL ship models',
       description: 'Printable Blender models of the Kestrel, Rebel Flagship, and Stealth Cruiser from FTL.',
       href: 'https://github.com/AeroX2/ftl-models',
@@ -407,11 +407,11 @@
       slug: 'ftl-models'
     },
     {
-      title: 'Mechanical wallet',
-      description: 'A printed card wallet whose thumb slider fans five cards out in a staggered cascade, with a rear door for notes and coins.',
-      href: 'https://github.com/AeroX2/wallet',
-      tag: 'FreeCAD',
-      slug: 'wallet'
+      title: 'Nintendo DS repair',
+      description: 'Hot-air connector replacement followed by a full screen, touch, and audio test.',
+      href: 'https://github.com/AeroX2',
+      tag: 'Repair',
+      slug: 'nintendo-ds'
     },
     {
       title: 'Side quests',
@@ -695,7 +695,7 @@
       <aside class="hero-field-notes" aria-label="Career field notes">
         <header><span>JR / operating card</span></header>
         <div class="field-note-record">
-          <p><strong>2013</strong><span>career start / software + hardware</span></p>
+          <p><strong>2013</strong><span>Career start</span></p>
           <p><strong>FRC</strong><span>software lead / 50 kg robot</span></p>
           <p><strong>4×</strong><span>Flare-On finisher</span></p>
           <p><strong>1</strong><span>CPU in silicon</span></p>
@@ -774,8 +774,10 @@
         {#each archive as item, index (item.title)}
           {#if item.slug && drawerProjects[item.slug]}
           <button class={`parts-bin bin-${index + 1}`} class:opened={openedProjects.includes(item.slug)} type="button" onclick={() => openShowcase(drawerProjects[item.slug!])}>
-            <span class="bin-code">{String(index + 1).padStart(2, '0')} / {item.tag}</span>
-            {#if projectMediaCount(item.slug)}<span class="bin-media-count">{projectMediaCount(item.slug)} {projectMediaCount(item.slug) === 1 ? 'piece' : 'pieces'}</span>{/if}
+            <span class="bin-heading">
+              <span class="bin-code">{String(index + 1).padStart(2, '0')} / {item.tag}</span>
+              {#if projectMediaCount(item.slug)}<span class="bin-media-count">{projectMediaCount(item.slug)} {projectMediaCount(item.slug) === 1 ? 'piece' : 'pieces'}</span>{/if}
+            </span>
             {#if projectImages(drawerProjects[item.slug]).length > 0 && !['seed-reversal', 'advent-of-code', 'onnxstream-sdxl'].includes(item.slug)}
               <ProjectImageRotator images={projectImages(drawerProjects[item.slug])} alt={drawerProjects[item.slug].alt} variant="drawer" />
             {:else if item.title === 'Seed reversal GPU optimization'}
@@ -806,7 +808,7 @@
           </button>
           {:else}
           <a class={`parts-bin bin-${index + 1}`} href={item.href} target="_blank" rel="noreferrer">
-            <span class="bin-code">{String(index + 1).padStart(2, '0')} / {item.tag}</span>
+            <span class="bin-heading"><span class="bin-code">{String(index + 1).padStart(2, '0')} / {item.tag}</span></span>
             {#if item.title === 'Seed reversal GPU optimization'}
               <figure class="drawer-visual pack-visual"><img src="/projects/pack.png" alt="The original Minecraft pack.png" /><figcaption>3257840388504953787</figcaption></figure>
             {:else if item.title === 'Advent of Code'}
@@ -883,9 +885,10 @@
         </div>
         <div class="credentials-grid">
           <article class="credential-card credential-featured credential-with-proof">
-            <p class="credential-meta">PortSwigger / issued 2026 / valid to 2032</p>
+            <p class="credential-meta">PortSwigger</p>
             <h3>Burp Suite Certified Practitioner</h3>
             <ul class="credential-highlights">
+              <li>Issued in 2026, valid until 2032</li>
               <li>Attack-surface discovery and defensive bypasses</li>
               <li>Out-of-band testing techniques</li>
               <li>Business-impact analysis</li>
@@ -936,9 +939,11 @@
             </div>
           </article>
           <article class="credential-card">
-            <p class="credential-meta">Macquarie University / 2016—2020</p>
-            <h3>BEng (Honours), Software Design</h3>
+            <p class="credential-meta">Macquarie University</p>
+            <h3>Software Design</h3>
             <ul class="credential-highlights">
+              <li>Bachelor of Engineering (Honours)</li>
+              <li>Studied from 2016 to 2020</li>
               <li>Head of Computing Award in five semesters, for the highest academic mark in the cohort</li>
             </ul>
           </article>

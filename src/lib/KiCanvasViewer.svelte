@@ -206,6 +206,7 @@
   }
 
   .board-stage {
+    border-radius: var(--radius-small);
     min-height: 560px;
     border: 1px solid var(--ink);
     background: #121722;
@@ -255,6 +256,7 @@
   }
 
   button span {
+    border-radius: var(--radius-small);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -265,7 +267,7 @@
     color: var(--acid);
     background: rgba(18, 23, 34, 0.9);
     font-family: 'Recursive Variable', monospace;
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 750;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -278,14 +280,14 @@
     gap: 24px;
     padding-top: 12px;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
   }
 
   figcaption span {
     color: var(--blue-dark);
     font-family: 'Recursive Variable', monospace;
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 750;
     letter-spacing: 0.07em;
     text-transform: uppercase;

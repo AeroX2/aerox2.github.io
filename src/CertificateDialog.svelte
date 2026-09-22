@@ -83,7 +83,7 @@
   header button {
     margin: 0;
     font-family: 'Recursive Variable', monospace;
-    font-size: 10px;
+    font-size: 13px;
     font-variation-settings: 'MONO' 1;
     font-weight: 760;
     letter-spacing: .06em;

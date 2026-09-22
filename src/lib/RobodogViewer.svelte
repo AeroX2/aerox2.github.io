@@ -299,6 +299,7 @@
   }
 
   .viewer-stage {
+    border-radius: var(--radius-small) var(--radius-small) 0 0;
     position: relative;
     height: clamp(430px, 55vw, 650px);
     overflow: hidden;
@@ -344,6 +345,7 @@
   }
 
   .viewer-poster span {
+    border-radius: var(--radius-small);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -352,7 +354,7 @@
     border: 1px solid var(--paper-bright);
     background: rgba(21, 27, 42, 0.88);
     font-family: 'Recursive Variable', monospace;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 720;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -363,7 +365,7 @@
     display: block;
     margin-bottom: 4px;
     color: var(--acid);
-    font-size: 8px;
+    font-size: 13px;
   }
 
   .viewer-status {
@@ -375,7 +377,7 @@
     gap: 10px;
     color: var(--ink);
     font-family: 'Recursive Variable', monospace;
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 750;
     letter-spacing: 0.07em;
     text-transform: uppercase;
@@ -394,6 +396,7 @@
   }
 
   .orbit-note {
+    border-radius: var(--radius-small);
     position: absolute;
     right: 12px;
     bottom: 12px;
@@ -401,7 +404,7 @@
     color: var(--paper-bright);
     background: rgba(21, 27, 42, 0.8);
     font-family: 'Recursive Variable', monospace;
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 720;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -409,6 +412,7 @@
   }
 
   .joint-console {
+    border-radius: 0 0 var(--radius-small) var(--radius-small);
     border: 1px solid var(--ink);
     border-top: 0;
     background: var(--ink);
@@ -417,6 +421,8 @@
 
   .joint-console > header {
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
     padding: 10px 12px;
@@ -425,6 +431,7 @@
 
   .joint-console header div {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 9px;
   }
@@ -441,7 +448,7 @@
   }
 
   .joint-console header span {
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 780;
   }
 
@@ -449,14 +456,14 @@
     padding: 3px 5px;
     color: var(--ink);
     background: var(--acid);
-    font-size: 7px;
+    font-size: 13px;
   }
 
   .joint-console button {
     border: 0;
     color: var(--paper-bright);
     background: transparent;
-    font-size: 8px;
+    font-size: 13px;
     font-weight: 720;
     cursor: pointer;
   }
@@ -491,21 +498,21 @@
     width: 100%;
     margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.62);
-    font-size: 7px;
+    font-size: 13px;
   }
 
   legend b {
     color: var(--orange);
-    font-size: 10px;
+    font-size: 13px;
   }
 
   label {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr) 38px;
+    grid-template-columns: 58px minmax(0, 1fr) 48px;
     align-items: center;
     gap: 8px;
     min-height: 30px;
-    font-size: 7px;
+    font-size: 13px;
     font-weight: 650;
   }
 
@@ -528,14 +535,14 @@
     gap: 24px;
     padding: 12px 0 0;
     color: var(--muted);
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.4;
   }
 
   figcaption span {
     color: var(--blue-dark);
     font-family: 'Recursive Variable', monospace;
-    font-size: 9px;
+    font-size: 13px;
     font-weight: 750;
     letter-spacing: 0.07em;
     text-transform: uppercase;
