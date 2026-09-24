@@ -16,6 +16,9 @@
   --blue: #304fd3;
   --blue-dark: #1d317f;
   --orange: #ff552f;
+  --teal: #237c78;
+  --plum: #86449b;
+  --rose: #b83f65;
   --acid: #e8ff62;
   --rule: rgba(21, 27, 42, 0.2);
   --shadow: 0 16px 40px rgba(22, 31, 52, 0.16);
@@ -88,7 +91,9 @@ figure {
   text-decoration: none;
 }
 
-.wordmark > img {
+.site-logo {
+  display: block;
+  flex: 0 0 40px;
   width: 40px;
   height: 40px;
   object-fit: contain;
@@ -838,6 +843,7 @@ h2 {
 }
 
 .contact-section::before {
+  color: var(--section-accent, var(--blue));
   top: -78px;
   left: -78px;
   animation: corner-wave-left 4.8s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
@@ -846,7 +852,7 @@ h2 {
 .contact-section::after {
   right: -78px;
   bottom: -78px;
-  color: var(--blue-dark);
+  color: var(--section-accent, var(--blue));
   animation: corner-wave-right 5.6s cubic-bezier(0.22, 0.61, 0.36, 1) -2.4s infinite;
 }
 
@@ -867,7 +873,10 @@ h2 {
   font-size: clamp(46px, 6vw, 86px);
 }
 
-.contact-section h2 span { color: var(--blue); }
+.contact-section h2 span {
+  display: block;
+  color: var(--blue);
+}
 .contact-section h2 i { color: var(--orange); font-style: normal; }
 
 .contact-section > p:not(.section-label) {
@@ -1284,7 +1293,14 @@ footer a {
 .pack-visual img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; image-rendering: pixelated; filter: none; }
 .pack-visual figcaption { position: absolute; right: 5px; bottom: 5px; padding: 4px 6px; color: var(--acid); background: rgba(18, 27, 46, .9); font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; letter-spacing: .05em; }
 .ascii-visual, .code-visual { padding: 12px; color: #d8ff5c; background: #121b2e; font-family: 'IBM Plex Sans Variable', sans-serif; font-size: 13px; line-height: 1.15; white-space: pre; }
-.ascii-visual { display: grid; place-items: center; color: #f4eee0; text-align: center; text-shadow: 9px 0 var(--orange), -9px 0 var(--blue); }
+.ascii-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f4eee0;
+  text-align: left;
+  text-shadow: 9px 0 var(--orange), -9px 0 var(--blue);
+}
 .code-visual span { color: #ff7a52; font-weight: 800; }
 .diff-visual { display: block; padding: 13px 14px; font-size: 13px; line-height: 1.38; }
 .diff-visual span { display: block; font-weight: 650; }
@@ -1414,11 +1430,6 @@ footer a {
   background: rgba(246, 245, 238, .93);
 }
 
-.featured-section > .document-heading,
-.featured-section > .featured-layout {
-  border-left: 3px solid var(--blue);
-}
-
 .featured-section,
 .hero-field-notes,
 .resume-record {
@@ -1453,13 +1464,6 @@ footer a {
   border-radius: var(--radius-small);
 }
 
-@media (min-width: 761px) {
-  .featured-section > .document-heading,
-  .featured-section > .featured-layout {
-    border-left: 0;
-  }
-}
-
 .document-heading {
   display: flex;
   align-items: baseline;
@@ -1472,15 +1476,29 @@ footer a {
 }
 
 .document-heading h2 {
+  min-width: 0;
+  font-family: 'Sora Variable', sans-serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+  text-transform: none;
+}
+
+.document-heading h2::before {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--section-accent, var(--blue));
   font-family: 'IBM Plex Sans Variable', sans-serif;
-  font-size: 13px;
-  font-weight: 820;
+  font-size: 12px;
+  font-weight: 750;
   letter-spacing: .12em;
   line-height: 1.2;
   text-transform: uppercase;
+  content: 'Section /';
 }
 
-.document-heading h2::before { color: var(--orange); content: 'Section / '; }
 .document-heading p {
   color: var(--muted);
   font-family: 'IBM Plex Sans Variable', sans-serif;
@@ -1610,7 +1628,7 @@ footer a {
 }
 .supporting-projects button:last-child { border-bottom: 0; }
 .supporting-projects button:hover,
-.supporting-projects button:focus-visible { background: rgba(232, 255, 98, .34); box-shadow: inset 6px 0 0 var(--orange); }
+.supporting-projects button:focus-visible { background: rgba(232, 255, 98, .34); }
 .project-image-rotator.supporting { width: 100%; aspect-ratio: 1.5; border: 1px solid var(--ink); }
 .supporting-projects button > span { display: grid; gap: 8px; }
 .supporting-projects small { color: var(--orange); }
@@ -1630,7 +1648,7 @@ footer a {
 }
 .machine-list button:last-child { border-bottom: 0; }
 .machine-list button:hover,
-.machine-list button:focus-visible { background: rgba(232, 255, 98, .36); box-shadow: inset 7px 0 0 var(--orange); }
+.machine-list button:focus-visible { background: rgba(232, 255, 98, .36); }
 .machine-copy { display: grid; gap: 8px; padding-top: 3px; }
 .machine-copy strong { font-size: clamp(31px, 3.4vw, 50px); font-weight: 880; line-height: .9; letter-spacing: -.045em; text-transform: uppercase; }
 .machine-copy > span { max-width: 610px; color: #404a59; font-size: 16px; line-height: 1.45; }
@@ -1793,7 +1811,6 @@ footer a {
   margin: 0 auto;
   padding: 20px 32px;
 }
-.archive-heading h2 { font-size: 13px; line-height: 1.2; }
 
 .parts-cabinet {
   max-width: 1480px;
@@ -1837,7 +1854,7 @@ footer a {
 .archive-section .parts-bin:hover,
 .archive-section .parts-bin:focus-visible {
   background: rgba(232, 255, 98, .32);
-  box-shadow: inset 6px 0 0 var(--orange);
+  box-shadow: none;
   transform: none;
 }
 .archive-section .parts-bin.opened {
@@ -2214,25 +2231,27 @@ nav.document-index a.active {
 
 /* A shared frame keeps each desktop section part of the same visual system. */
 .section-card {
+  --section-accent: var(--blue);
   border-radius: var(--radius-panel);
   overflow: hidden;
 }
+
+.machine-index { --section-accent: var(--orange); }
+.archive-section { --section-accent: var(--teal); }
+.experience-section { --section-accent: var(--plum); }
+.contact-section { --section-accent: var(--rose); }
 
 @media (max-width: 760px) {
   .section-card {
     width: calc(100% - 16px);
     margin: 0 auto 20px;
     border: 0;
+    border-left: 3px solid var(--section-accent);
     border-radius: var(--radius-small);
     background: var(--paper);
   }
 
   .experience-section.section-card { padding: 0; }
-
-  .experience-section.section-card > .section-heading {
-    margin: 0;
-    padding: 24px 15px;
-  }
 
   .section-card .resume-record {
     border-right: 0;
@@ -2246,17 +2265,12 @@ nav.document-index a.active {
   .section-card {
     width: min(1480px, calc(100% - 32px));
     margin: 24px auto 36px;
-    border: 2px solid var(--blue);
+    border: 2px solid var(--section-accent);
     border-top-width: 5px;
     background: var(--paper);
   }
 
   .experience-section.section-card { padding: 0; }
-
-  .experience-section.section-card > .section-heading {
-    margin: 0;
-    padding: 28px 32px;
-  }
 
   .section-card .resume-record {
     border-right: 0;

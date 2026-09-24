@@ -654,7 +654,7 @@
 
 <header class="site-header">
   <a class="wordmark" href="#top" aria-label="James Ridey, back to top">
-    <img src="/android-chrome-192x192.png" width="40" height="40" alt="" />
+    <img class="site-logo" src="/android-chrome-192x192.png" width="40" height="40" alt="" />
     <small>software / silicon / everything between</small>
   </a>
   <nav aria-label="Primary navigation">
@@ -752,7 +752,6 @@
   <section class="machine-index section-card" id="machine-index" aria-labelledby="machine-index-title">
     <div class="document-heading">
       <h2 id="machine-index-title">Machine index</h2>
-      <p>Computers, electronics, and hardware projects</p>
     </div>
     <div class="machine-list">
       {#each machineProjects as project (project.slug)}
@@ -769,9 +768,8 @@
   </section>
 
   <section class="archive-section section-card" id="parts" aria-labelledby="archive-title">
-    <div class="document-heading archive-heading">
+    <div class="document-heading">
       <h2 id="archive-title">Parts drawer</h2>
-      <p>Contributions / models / smaller experiments</p>
     </div>
     <div class="parts-cabinet">
       <div class="parts-bins">
@@ -844,10 +842,8 @@
   </section>
 
   <section class="experience-section section-card" id="experience" aria-labelledby="experience-title">
-    <div class="section-heading">
-      <div>
-        <h2 id="experience-title">Experience + credentials</h2>
-      </div>
+    <div class="document-heading">
+      <h2 id="experience-title">Experience + credentials</h2>
     </div>
     <div class="resume-record">
       <div class="experience-list">
@@ -966,7 +962,7 @@
   </section>
 
   <section class="contact-section section-card" id="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title">End of website. <span>Not of projects</span><i>.</i></h2>
+    <h2 id="contact-title">End of website. <span>Not of projects<i>.</i></span></h2>
     <p>Follow the builds, browse the half-finished experiments, or open an issue when I have wired something backwards.</p>
     <div class="contact-actions">
       <a class="button primary" href="https://github.com/AeroX2" target="_blank" rel="noreferrer"><img src={githubIcon} alt="" />GitHub ↗</a>
