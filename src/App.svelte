@@ -530,9 +530,13 @@
     let animationFrame: number | undefined;
     const updateActiveSection = () => {
       animationFrame = undefined;
-      const offset = 74;
-      const current = sections.filter((section) => section.getBoundingClientRect().top <= offset).at(-1);
-      activeDocumentSection = current?.id ?? null;
+      const current = sections.filter((section) => {
+        const offset = parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+        return section.getBoundingClientRect().top <= offset + 1;
+      }).at(-1);
+      const atPageEnd = window.scrollY + window.innerHeight >=
+        document.documentElement.scrollHeight - 1;
+      activeDocumentSection = (atPageEnd ? sections.at(-1) : current)?.id ?? null;
     };
     const scheduleActiveSectionUpdate = () => {
       if (animationFrame !== undefined) return;
