@@ -963,7 +963,7 @@ footer a {
   }
 
   .wordmark small,
-  nav a:not(.nav-exit) {
+  .site-header nav a:not(.nav-exit) {
     display: none;
   }
 
@@ -2151,6 +2151,7 @@ nav.document-index a.active {
 
   .document-index {
     display: flex;
+    flex-wrap: wrap;
     width: calc(100% - 16px);
     margin: 0 auto;
     border-top-color: var(--rule);
@@ -2158,14 +2159,12 @@ nav.document-index a.active {
     border-radius: 0 0 var(--radius-small) var(--radius-small);
     background: var(--paper);
     box-shadow: 0 1px 0 var(--rule);
-    overflow-x: auto;
-    scrollbar-width: none;
   }
 
-  .document-index::-webkit-scrollbar { display: none; }
   nav.document-index a {
-    min-width: max-content;
-    flex: 1 0 auto;
+    min-width: 0;
+    min-height: 44px;
+    flex: 1 1 auto;
     padding-right: 6px;
     padding-left: 6px;
     letter-spacing: .02em;
@@ -2173,6 +2172,19 @@ nav.document-index a.active {
   }
 
   nav.document-index a:last-child { border-right: 0; }
+
+  .site-header .nav-exit { min-height: 44px; }
+
+  main section[id] { scroll-margin-top: 100px; }
+
+  .contact-section > * { min-width: 0; }
+
+  .contact-section h2 {
+    font-size: clamp(32px, 8vw, 46px);
+    overflow-wrap: anywhere;
+  }
+
+  .company-name h3 { overflow-wrap: anywhere; }
 
   .project-ticker {
     margin-top: 6px;
@@ -2182,6 +2194,16 @@ nav.document-index a.active {
 
   .bin-open {
     color: var(--blue-dark);
+  }
+}
+
+@media (max-width: 480px) {
+  nav.document-index a { flex-basis: 30%; }
+
+  nav.document-index a:nth-child(3) { border-right: 0; }
+
+  nav.document-index a:nth-child(n + 4) {
+    border-top: 1px solid var(--rule);
   }
 }
 

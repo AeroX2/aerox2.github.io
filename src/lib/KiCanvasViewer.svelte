@@ -309,6 +309,7 @@
     figcaption span {
       display: block;
       margin-bottom: 6px;
+      white-space: normal;
     }
   }
 </style>
