@@ -1,4 +1,29 @@
-# Svelte + TS + Vite
+# James Ridey's websites
+
+One repository and npm installation builds the workshop at `jamesridey.dev`
+and the professional site at `cv.jamesridey.dev`.
+
+```sh
+npm ci
+npm run build
+```
+
+Outputs are `dist/workshop` and `dist/cv`. The build validates assets, résumé
+consistency, and Cloudflare Pages limits. Run `npm run check` for Svelte and
+TypeScript validation.
+
+Use `npm run dev` for the workshop and `npm run dev:cv` for the CV. Use
+`npm run preview` and `npm run preview:cv` to inspect production outputs.
+Both websites get their PDF from `shared/James-Ridey-Resume.pdf`.
+
+GitHub Actions builds both once and deploys the matching output to each
+Cloudflare Pages project. During migration, the existing GitHub Pages deployment
+remains active until `CLOUDFLARE_PAGES_ENABLED` is set to `true`.
+
+See [build and migration instructions](docs/professional-site.md) for account
+setup, secrets, rollout, and rollback.
+
+## Original Vite template reference
 
 This template should help get you started developing with Svelte and TypeScript in Vite.
 

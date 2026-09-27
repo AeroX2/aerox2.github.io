@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#163552" />
+    <title>James Ridey | Software engineer</title>
+    <meta
+      name="description"
+      content="Software engineer exploring systems, performance, debugging and hardware integration. Experience at Nullify, Canva and Google; independent work in C++ inference, CUDA and reverse engineering."
+    />
+    <link rel="canonical" href="https://cv.jamesridey.dev/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="James Ridey | Software engineer" />
+    <meta
+      property="og:description"
+      content="Systems, performance and the satisfaction of a difficult problem solved. Professional experience and selected independent engineering work."
+    />
+    <meta property="og:url" content="https://cv.jamesridey.dev/" />
+    <meta
+      property="og:image"
+      content="https://cv.jamesridey.dev/social/jrb8.webp"
+    />
+    <meta
+      property="og:image:alt"
+      content="James's JRB8 computer running on a Tiny Tapeout demonstration board"
+    />
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
+    <link
+      rel="preload"
+      href="assets/ibm-plex-sans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="identity" href="#top" aria-label="James Ridey, back to top"
+        ><span class="monogram" aria-hidden="true">jr</span
+        ><span>James Ridey</span></a
+      >
+      <nav aria-label="Main navigation">
+        <a class="section-link" href="#experience">Experience</a>
+        <a class="section-link" href="#projects">Projects</a>
+        <a href="#contact">Contact me</a>
+        <a class="nav-resume" href="James-Ridey-Resume.pdf"
+          >View résumé <span class="file-label">PDF</span></a
+        >
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" id="top" aria-labelledby="intro-title">
+        <div class="hero-copy">
+          <p class="profession">Software engineer</p>
+          <h1 id="intro-title">James Ridey<span aria-hidden="true">.</span></h1>
+          <p class="hero-lead">
+            I like understanding how things work.<br class="desktop-break" />
+            Especially when they don’t.
+          </p>
+          <p class="hero-description">
+            I’ve shipped software at Nullify, Canva, and Google. My work spans
+            product engineering, performance investigations, and independent
+            projects in inference, reverse engineering, and hardware.
+          </p>
+          <div class="actions">
+            <a class="button primary" href="James-Ridey-Resume.pdf"
+              >View résumé <span class="file-label">PDF</span></a
+            >
+            <a class="button secondary" href="#contact">Contact me</a>
+          </div>
+          <p class="location">
+            Based in Sydney <span aria-hidden="true">/</span> Seeking relocation
+            to the San Francisco Bay Area
+          </p>
+        </div>
+        <aside class="direction" aria-labelledby="direction-title">
+          <h2 id="direction-title">What I’m looking for</h2>
+          <p>
+            Systems and performance roles with room to investigate difficult
+            bugs and work closer to the hardware.
+          </p>
+          <p>
+            I bring professional product-engineering experience and hands-on
+            independent work in C++, CUDA, and embedded systems.
+          </p>
+          <a href="#projects"
+            >Explore that work <span aria-hidden="true">↓</span></a
+          >
+        </aside>
+      </section>
+
+      <section class="skills-band" aria-labelledby="skills-title">
+        <div class="wrap skills-layout">
+          <h2 id="skills-title">Skills, in context</h2>
+          <div>
+            <h3>Professional</h3>
+            <p>Go, Python, TypeScript, JavaScript, React, AWS</p>
+          </div>
+          <div>
+            <h3>AI &amp; development tools</h3>
+            <p>
+              RAG interfaces, LLM-assisted development, Playwright, Storybook,
+              ESLint
+            </p>
+          </div>
+          <div>
+            <h3>Independent projects</h3>
+            <p>C/C++, CUDA, Verilog, C++ inference, STM32, ESP32, PCB design</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section wrap"
+        id="experience"
+        aria-labelledby="experience-title"
+      >
+        <div class="section-intro">
+          <h2 id="experience-title">Professional experience</h2>
+          <p>
+            Shipping products. Investigating bottlenecks.<br />Making complex
+            code easier to work with.
+          </p>
+        </div>
+        <div class="experience-list">
+          <article class="experience">
+            <div class="role">
+              <h3>Nullify</h3>
+              <p>Product Engineer</p>
+              <p class="date">March 2026–present</p>
+            </div>
+            <div class="role-work">
+              <p class="role-summary">
+                Performance and engineering tools for an AI application-security
+                platform.
+              </p>
+              <div class="results">
+                <div>
+                  <strong>1.9 s <span aria-hidden="true">→</span> 1.1 s</strong
+                  ><span
+                    >Go Lambda initialisation<br />Development deployment</span
+                  >
+                </div>
+                <div>
+                  <strong>9.7 s <span aria-hidden="true">→</span> 50 ms</strong
+                  ><span
+                    >Python startup overhead<br />Subsequent warm
+                    invocations</span
+                  >
+                </div>
+              </div>
+              <p>
+                I removed Go startup reflection and reused a Python subprocess
+                across warm invocations. These improvements targeted startup
+                overhead, rather than representing end-to-end request latency.
+              </p>
+              <details>
+                <summary>Frontend rebuild &amp; AI coding checks</summary>
+                <div class="detail-content">
+                  <p>
+                    I shipped a Vite frontend rebuild with an atomic
+                    architecture spanning approximately 470 components. After
+                    identifying recurring mistakes in generated code, I directed
+                    an LLM to implement ESLint rules for dependency direction,
+                    colour tokens, and shared primitives.
+                  </p>
+                  <p>
+                    I also built opt-in visual checks using Storybook and
+                    Playwright. ImageMagick compares light and dark screenshots
+                    against a pull request’s base revision, with differences
+                    posted to GitHub for review. The checks are advisory.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="role">
+              <h3>Canva</h3>
+              <p>Software Engineer</p>
+              <p class="date">2020–2025</p>
+            </div>
+            <div class="role-work">
+              <p class="role-summary">
+                Making AI-generated designs practical to preview.
+              </p>
+              <p>
+                For Magic Design, I integrated generated text and selected
+                photos into preset layouts outside the editor. Displaying many
+                designs as complex DOM trees caused slowdowns. Working with
+                editor stakeholders, I reused Canva’s canvas renderer to display
+                image previews without retaining each design’s full DOM.
+              </p>
+              <details>
+                <summary>Team Brain: a working RAG prototype</summary>
+                <div class="detail-content">
+                  <p>
+                    I built the frontend for a prototype that answered questions
+                    using users’ documents, partnering directly with the backend
+                    engineer to deliver and demonstrate the end-to-end
+                    experience. This was a prototype, not a production launch.
+                  </p>
+                </div>
+              </details>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="role">
+              <h3>Google</h3>
+              <p>Software Engineer Intern</p>
+              <p class="date">2017–2019 · Two summer internships</p>
+            </div>
+            <div class="role-work">
+              <p class="role-summary">Adapting software to a 512 MB device.</p>
+              <p>
+                I ported Neighbourly to KaiOS/JioPhone under a 512 MB RAM
+                constraint and wrote the team’s first porting specification.
+              </p>
+            </div>
+          </article>
+          <article class="experience experience-compact">
+            <div class="role">
+              <h3>ThoughtDesign</h3>
+              <p>Junior Software Engineer</p>
+              <p class="date">2014–2017</p>
+            </div>
+            <div class="role-work">
+              <p>Built web applications using ASP.NET MVC and Angular.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section
+        class="projects-section"
+        id="projects"
+        aria-labelledby="projects-title"
+      >
+        <div class="wrap section">
+          <div class="section-intro">
+            <h2 id="projects-title">Independent engineering</h2>
+            <p>
+              Personal builds and open-source contributions.<br />From an
+              unexpected result to a working system.
+            </p>
+          </div>
+          <article class="featured-project">
+            <figure>
+              <img
+                src="assets/epaper-frame.jpg"
+                alt="My e-paper art frame displaying a locally generated science-fiction scene"
+                width="1440"
+                height="960"
+                loading="lazy"
+              />
+              <figcaption>
+                A personal system, generating new images every day.
+              </figcaption>
+            </figure>
+            <div class="featured-copy">
+              <p class="project-domain">
+                C++ inference / Python / Raspberry Pi
+              </p>
+              <h3>Local AI, all the way to the display.</h3>
+              <p>
+                I wanted an e-paper art frame that generated its own images
+                locally. Getting it working took me into model exports, tensor
+                dimensions, tokenisation, and image-quality bugs.
+              </p>
+              <p>
+                I added SDXL Turbo support to OnnxStream’s C++ inference engine
+                and contributed fixes to tokenisation, VAE scaling, and XNNPACK
+                integration.
+                <strong>Five pull requests were merged upstream.</strong>
+              </p>
+              <p>
+                The finished frame connects inference, a Python service, image
+                history, web controls, and colour processing for the physical
+                display. It sits on my shelf and runs every day.
+              </p>
+              <div class="project-links">
+                <a href="https://github.com/vitoplantamura/OnnxStream/pull/46"
+                  >SDXL Turbo contribution</a
+                ><a href="https://github.com/AeroX2/ethereal-ink-frame"
+                  >Frame source</a
+                >
+              </div>
+              <details>
+                <summary>Inside the debugging process</summary>
+                <div class="detail-content">
+                  <p>
+                    To investigate mismatched output, I decoded OnnxStream’s
+                    latents using the Diffusers VAE to help isolate the cause.
+                    Working with the maintainer, I corrected the export’s latent
+                    dimensions to resolve repeated image content. Later fixes
+                    addressed decoder scaling and CLIP tokenisation.
+                  </p>
+                  <a
+                    href="https://github.com/vitoplantamura/OnnxStream/issues/44"
+                    >Read the investigation</a
+                  >
+                </div>
+              </details>
+            </div>
+          </article>
+          <div class="project-pair">
+            <article class="project">
+              <img
+                src="assets/jrb8.webp"
+                alt="JRB8 running on a Tiny Tapeout demonstration board, with its LEDs illuminated"
+                width="1536"
+                height="1024"
+                loading="lazy"
+              />
+              <div class="project-copy">
+                <p class="project-domain">
+                  Verilog / CPU architecture / Compilers
+                </p>
+                <h3>A computer from the logic up.</h3>
+                <p>
+                  I designed an 8-bit CPU, instruction set, and assembler,
+                  tested it in simulation and on a Tang Nano 9K FPGA, then had
+                  it fabricated through Tiny Tapeout. I also built a language,
+                  compiler, and browser-based compile-flash-run tool.
+                </p>
+                <a href="https://github.com/AeroX2/tt06-jrb8-computer"
+                  >Explore JRB8</a
+                >
+              </div>
+            </article>
+            <article class="project">
+              <img
+                src="assets/brother-cartridge.jpg"
+                alt="Electronics from my Brother embroidery cartridge reverse-engineering project"
+                width="1440"
+                height="960"
+                loading="lazy"
+              />
+              <div class="project-copy">
+                <p class="project-domain">
+                  Reverse engineering / Hardware interfaces
+                </p>
+                <h3>Making an old machine speak.</h3>
+                <p>
+                  I built an Arduino reader to dump cartridge memory,
+                  investigated stitch data through hex and desktop-software
+                  analysis, and made a replacement cartridge the embroidery
+                  machine accepted. Others have reused the published findings
+                  and code.
+                </p>
+                <a href="https://github.com/AeroX2/brother-cart-emulator"
+                  >Explore the cartridge project</a
+                >
+              </div>
+            </article>
+          </div>
+          <article class="cuda-project">
+            <img
+              src="assets/pack.png"
+              alt="The Minecraft pack.png landscape whose world seed was being searched for"
+              width="128"
+              height="128"
+              loading="lazy"
+            />
+            <div>
+              <p class="project-domain">CUDA / GPU profiling / Open source</p>
+              <h3>Finding the bottleneck in a Minecraft seed search.</h3>
+              <p>
+                NVIDIA Visual Profiler exposed early thread exits. I split
+                filtering and tree-position work into separate CUDA kernels,
+                achieving roughly <strong>2× performance on my machine</strong>.
+                The contribution was merged upstream.
+              </p>
+              <a
+                href="https://github.com/pack-png-mods/seed-reversal-gpu/pull/10"
+                >Read the merged contribution</a
+              >
+            </div>
+          </article>
+          <div class="workshop-link">
+            <p>
+              There’s more on the workbench: robotics, electronics, and other
+              experiments.
+            </p>
+            <a href="https://jamesridey.dev"
+              >Visit my project workshop <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section wrap credentials"
+        aria-labelledby="credentials-title"
+      >
+        <div>
+          <h2 id="credentials-title">Learning &amp; credentials</h2>
+          <p>
+            Formal training, independent study,<br />and problems worth sticking
+            with.
+          </p>
+        </div>
+        <dl>
+          <div>
+            <dt>Flare-On reverse engineering</dt>
+            <dd>
+              Completed every challenge in 2022–2025.<br />157th of 4,100+
+              entrants in 2025.
+            </dd>
+          </div>
+          <div>
+            <dt>Burp Suite Certified Practitioner</dt>
+            <dd>
+              Certified in 2026.
+              <a
+                href="https://portswigger.net/web-security/e/c/a2836e9325092f5f"
+                >Verify credential</a
+              >
+            </dd>
+          </div>
+          <div>
+            <dt>Offensive IoT Exploitation</dt>
+            <dd>
+              DEF CON training in firmware and hardware reverse engineering.
+            </dd>
+          </div>
+          <div>
+            <dt>BEng (Honours), Software Design</dt>
+            <dd>Macquarie University, 2016–2020.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section
+        class="contact-section"
+        id="contact"
+        aria-labelledby="contact-title"
+      >
+        <div class="wrap contact-layout">
+          <div>
+            <h2 id="contact-title">
+              Have a difficult problem<br />worth digging into?
+            </h2>
+            <p>
+              I’m interested in systems, performance, debugging, and hardware
+              integration roles. If that sounds like your team, I’d like to
+              talk.
+            </p>
+            <a class="email-link" href="mailto:james@ridey.email"
+              >james@ridey.email</a
+            >
+            <p class="contact-location">
+              Based in Sydney. Seeking relocation to the San Francisco Bay Area.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a class="button contact-resume" href="James-Ridey-Resume.pdf"
+              >View résumé <span class="file-label">PDF</span></a
+            ><a href="James-Ridey-Resume.pdf" download>Download résumé</a
+            ><a href="https://linkedin.com/in/james-ridey">LinkedIn</a
+            ><a href="https://github.com/AeroX2">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="wrap">
+      <span>James Ridey</span
+      ><a href="https://jamesridey.dev">Project workshop</a
+      ><a href="#top">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
