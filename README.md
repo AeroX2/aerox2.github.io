@@ -17,8 +17,9 @@ Use `npm run dev` for the workshop and `npm run dev:cv` for the CV. Use
 Both websites get their PDF from `shared/James-Ridey-Resume.pdf`.
 
 GitHub Actions builds both once and deploys the matching output to each
-Cloudflare Pages project. During migration, the existing GitHub Pages deployment
-remains active until `CLOUDFLARE_PAGES_ENABLED` is set to `true`.
+Cloudflare Pages project. Main pushes deploy both sites; pull requests only
+build and validate. GitHub Pages deployments are removed; the old site must be unpublished in
+repository Settings > Pages.
 
 See [build and migration instructions](docs/professional-site.md) for account
 setup, secrets, rollout, and rollback.
