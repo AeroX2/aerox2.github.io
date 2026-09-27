@@ -1,51 +1,93 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build and deploy both sites
 
 on:
-  # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
+  pull_request:
   workflow_dispatch:
+    inputs:
+      cloudflare:
+        description: Deploy to Cloudflare preview domains during migration
+        type: boolean
+        default: false
 
-# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
-# Allow one concurrent deployment
 concurrency:
-  group: 'pages'
-  cancel-in-progress: true
+  group: sites-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build and validate both outputs
+        run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sites
+          path: |
+            dist/workshop
+            dist/cv
+          include-hidden-files: true
+          retention-days: 7
+
+  github-pages:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && vars.CLOUDFLARE_PAGES_ENABLED != 'true' && inputs.cloudflare != true
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/download-artifact@v4
         with:
-          node-version: 20
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+          name: sites
+          path: dist
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder
-          path: './dist'
-      - name: Deploy to GitHub Pages
+          path: dist/workshop
+      - uses: actions/deploy-pages@v4
         id: deployment
-        uses: actions/deploy-pages@v4
+
+  cloudflare-pages:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main' && (vars.CLOUDFLARE_PAGES_ENABLED == 'true' || inputs.cloudflare == true)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: sites
+          path: dist
+      - name: Deploy workshop
+        uses: cloudflare/wrangler-action@v4
+        with:
+          wranglerVersion: '4.141.0'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/workshop --project-name=${{ vars.CLOUDFLARE_WORKSHOP_PROJECT || 'jamesridey-workshop' }} --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy CV
+        uses: cloudflare/wrangler-action@v4
+        with:
+          wranglerVersion: '4.141.0'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/cv --project-name=${{ vars.CLOUDFLARE_CV_PROJECT || 'jamesridey-cv' }} --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

@@ -5,8 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "dev:cv": "vite --mode cv --host 127.0.0.1 --port 5174",
+    "build": "npm run build:workshop && npm run build:cv && npm run check:sites",
+    "build:workshop": "vite build",
+    "build:cv": "vite build --mode cv",
+    "check:sites": "node tools/check-sites.mjs",
     "preview": "vite preview",
+    "preview:cv": "vite preview --mode cv --host 127.0.0.1 --port 5174",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -19,6 +24,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@tsconfig/svelte": "^5.0.4",
+    "@types/node": "^22.20.4",
     "@types/three": "^0.183.0",
     "@typescript-eslint/eslint-plugin": "^8.52.0",
     "@typescript-eslint/parser": "^8.52.0",
