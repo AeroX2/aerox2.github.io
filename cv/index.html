@@ -52,9 +52,9 @@
             Frontend engineering<br />for complex products.
           </p>
           <p class="hero-description">
-            I build interfaces and the architecture, tooling, and tests that
-            keep them reliable. My experience spans Nullify, Canva, and Google,
-            from rapid product prototypes to frontend rebuilds and performance investigations.
+            I’ve built software at Nullify, Canva, and Google. I enjoy designing
+            frontend architecture, tracking down bugs, and trying out ideas
+            in a working UI.
           </p>
           <div class="actions">
             <a class="button primary" href="James-Ridey-Resume.pdf"
@@ -70,8 +70,8 @@
         <aside class="intro-experience" aria-label="Selected professional work">
           <p class="profession">A few problems I’ve worked on</p>
           <dl>
-            <div><dt>Nullify</dt><dd>Primary owner of UI2: an atomic design architecture, most features, and tools to keep the frontend reliable.</dd></div>
-            <div><dt>Canva</dt><dd>Making AI-generated designs practical to preview, using the existing canvas renderer to reduce DOM complexity.</dd></div>
+            <div><dt>Nullify</dt><dd>Rebuilt UI2, owning the frontend architecture and most features.</dd></div>
+            <div><dt>Canva</dt><dd>Used Canva’s canvas renderer to speed up previews of generated designs.</dd></div>
             <div><dt>Google</dt><dd>Porting an app to KaiOS on a device with just 512 MB of RAM.</dd></div>
           </dl>
           <a href="#experience">Read about the work <span aria-hidden="true">↓</span></a>
@@ -79,12 +79,12 @@
         <aside class="direction" aria-labelledby="direction-title">
           <h2 id="direction-title">What I’m looking for</h2>
           <p>
-            Technically challenging frontend and broader software engineering
-            roles: complex products, architecture, performance, and difficult bugs.
+            I’m looking for frontend or broader software work that gives me
+            difficult problems to solve and room to learn.
           </p>
           <p>
-            A team where I can contribute my frontend experience, own
-            technical decisions, and keep learning across the stack.
+            I’d like to take responsibility for how a product is built,
+            with opportunities to work beyond the frontend.
           </p>
           <a href="#projects"
             >Explore my independent projects <span aria-hidden="true">↓</span></a
@@ -94,7 +94,7 @@
 
       <section class="skills-band" aria-labelledby="skills-title">
         <div class="wrap skills-layout">
-          <h2 id="skills-title">Skills, in context</h2>
+          <h2 id="skills-title">Technical skills</h2>
           <div>
             <h3>Professional</h3>
             <p>TypeScript, JavaScript, React, Go, Python, AWS</p>
@@ -121,8 +121,7 @@
         <div class="section-intro">
           <h2 id="experience-title">Professional experience</h2>
           <p>
-            Frontend and product engineering, from complex user interfaces
-            to architecture, performance, and developer tooling.
+            Recent work and what I contributed.
           </p>
         </div>
         <div class="experience-list">
@@ -134,36 +133,33 @@
             </div>
             <div class="role-work">
               <p class="role-summary">
-                Rebuilding the frontend and improving how it stays reliable.
+                UI2 frontend rebuild.
               </p>
               <p>
-                I was the primary owner of UI2, a shipped Vite frontend rebuild
-                spanning approximately 470 components. I designed the atomic
-                architecture and implemented most features, with colleagues
-                contributing to individual features.
+                I rebuilt UI2 with Vite and an atomic design architecture covering
+                about 470 components. I owned the architecture and built most
+                features, with help from colleagues on some features.
               </p>
               <p>
-                The rebuild improved performance, mobile support, visual
-                consistency, navigation flows, and accessibility scores. I set
-                the interaction and visual direction, using Claude Design to
-                explore and refine designs, and rapidly prototyped UI ideas
-                for proposed features.
+                The new UI was faster and worked better on mobile. Screens looked
+                consistent, navigation was easier to follow, and accessibility
+                scores improved. I set the design direction and used Claude
+                Design to try out ideas. I also built quick prototypes to explore
+                how proposed features could work.
               </p>
               <p>
-                I built visual regression checks to catch changes to the user
-                experience and end-to-end tests to verify UI flows. After
-                identifying recurring mistakes in generated code, I directed an
-                LLM to implement ESLint rules for component dependency direction,
-                colour tokens, and shared primitives.
+                I added screenshot comparisons to catch visual regressions and
+                end-to-end tests for UI flows. When AI-generated code kept
+                repeating the same mistakes, I used an LLM to build ESLint rules
+                for component dependencies, colour tokens, and shared UI elements.
               </p>
               <details>
                 <summary>How the visual checks work</summary>
                 <div class="detail-content">
                   <p>
-                    Opt-in Storybook stories are captured by Playwright in light
-                    and dark themes. ImageMagick compares the screenshots with
-                    the pull request’s base revision, and differences are posted
-                    to GitHub for review. The checks are advisory.
+                    Playwright captures selected Storybook components in light and
+                    dark themes. ImageMagick compares them with screenshots from
+                    before the change and posts the differences on the pull request.
                   </p>
                 </div>
               </details>
@@ -184,8 +180,7 @@
               </div>
               <p>
                 I removed Go startup reflection and reused a Python subprocess
-                across warm invocations. These improvements targeted startup
-                overhead, rather than representing end-to-end request latency.
+                across warm invocations to reduce startup time.
               </p>
 
             </div>
@@ -198,13 +193,13 @@
             </div>
             <div class="role-work">
               <p class="role-summary">
-                Making AI-generated designs practical to preview.
+                Faster previews for Magic Design.
               </p>
               <p>
                 For Magic Design, I integrated generated text and selected
                 photos into preset layouts outside the editor. Displaying many
                 designs as complex DOM trees caused slowdowns. Working with
-                editor stakeholders, I reused Canva’s canvas renderer to display
+                engineers on the editor team, I reused Canva’s canvas renderer to display
                 image previews without retaining each design’s full DOM.
               </p>
               <details>
@@ -212,9 +207,8 @@
                 <div class="detail-content">
                   <p>
                     I built the frontend for a prototype that answered questions
-                    using users’ documents, partnering directly with the backend
-                    engineer to deliver and demonstrate the end-to-end
-                    experience. This was a prototype, not a production launch.
+                    using their documents. I worked with the backend engineer to
+                    build and demonstrate the prototype.
                   </p>
                 </div>
               </details>
@@ -246,19 +240,18 @@
           </article>
         </div>
         <details>
-          <summary>A debugging story: when a Next.js upgrade broke navigation</summary>
+          <summary>Tracking down broken links in Next.js</summary>
           <div class="detail-content">
             <p>
               Links stopped responding after a Next.js upgrade. I spent several
               days stepping through JavaScript in the browser and comparing the
               execution with the framework source to understand the failure.
-              I isolated the problem and developed a patch independently.
+              I found the cause and wrote a patch.
             </p>
             <p>
-              The issue involved static-export prefetching receiving HTML where
-              it expected React Server Component data. Someone else had already
-              addressed the same bug; my work was the investigation and local
-              patch, not the upstream contribution.
+              Prefetching in a static export was receiving HTML where it expected
+              React Server Component data. By the time I had a patch, someone
+              else had already addressed the same bug.
             </p>
             <a href="https://github.com/vercel/next.js/issues/92341">Related Next.js issue</a>
           </div>
@@ -272,10 +265,9 @@
       >
         <div class="wrap section">
           <div class="section-intro">
-            <h2 id="projects-title">Independent engineering</h2>
+            <h2 id="projects-title">Personal projects</h2>
             <p>
-              Personal builds and open-source contributions.<br />From an
-              unexpected result to a working system.
+              Things I’ve built outside work, including open-source contributions.
             </p>
           </div>
           <article class="featured-project">
@@ -288,14 +280,14 @@
                 loading="lazy"
               />
               <figcaption>
-                A personal system, generating new images every day.
+                On my shelf, generating new images every day.
               </figcaption>
             </figure>
             <div class="featured-copy">
               <p class="project-domain">
                 C++ inference / Python / Raspberry Pi
               </p>
-              <h3>Local AI, all the way to the display.</h3>
+              <h3>An e-paper frame that generates its own art.</h3>
               <p>
                 I wanted an e-paper art frame that generated its own images
                 locally. Getting it working took me into model exports, tensor
@@ -320,7 +312,7 @@
                 >
               </div>
               <details>
-                <summary>Inside the debugging process</summary>
+                <summary>Tracking down repeated image content</summary>
                 <div class="detail-content">
                   <p>
                     To investigate mismatched output, I decoded OnnxStream’s
@@ -350,7 +342,7 @@
                 <p class="project-domain">
                   Verilog / CPU architecture / Compilers
                 </p>
-                <h3>A computer from the logic up.</h3>
+                <h3>JRB8: an 8-bit computer.</h3>
                 <p>
                   I designed an 8-bit CPU, instruction set, and assembler,
                   tested it in simulation and on a Tang Nano 9K FPGA, then had
@@ -374,7 +366,7 @@
                 <p class="project-domain">
                   Reverse engineering / Hardware interfaces
                 </p>
-                <h3>Making an old machine speak.</h3>
+                <h3>A replacement embroidery cartridge.</h3>
                 <p>
                   I built an Arduino reader to dump cartridge memory,
                   investigated stitch data through hex and desktop-software
@@ -413,8 +405,7 @@
           </article>
           <div class="workshop-link">
             <p>
-              There’s more on the workbench: robotics, electronics, and other
-              experiments.
+              My main site has more projects, including robotics and electronics.
             </p>
             <a href="https://jamesridey.dev"
               >Visit my project workshop <span aria-hidden="true">↗</span></a
@@ -430,8 +421,7 @@
         <div>
           <h2 id="credentials-title">Learning &amp; credentials</h2>
           <p>
-            Formal training, independent study,<br />and problems worth sticking
-            with.
+            Education, certifications, and reverse-engineering challenges.
           </p>
         </div>
         <dl>
@@ -474,9 +464,7 @@
           <div>
             <h2 id="contact-title">Let’s talk.</h2>
             <p>
-              I’m looking for challenging frontend and broader software engineering
-              work, building on my experience in interfaces, architecture, and
-              performance. If that sounds like your team, I’d like to talk.
+              If you’re hiring and think I’d be a good fit, send me an email.
             </p>
             <a class="email-link" href="mailto:james@ridey.email"
               >james@ridey.email</a
