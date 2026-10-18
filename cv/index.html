@@ -53,8 +53,8 @@
           </p>
           <p class="hero-description">
             I’ve built software at Nullify, Canva, and Google. I enjoy designing
-            frontend architecture, tracking down bugs, and trying out ideas
-            in a working UI.
+            frontend architecture, tracking down bugs, and trying out ideas in a
+            working UI.
           </p>
           <div class="actions">
             <a class="button primary" href="James-Ridey-Resume.pdf"
@@ -70,11 +70,30 @@
         <aside class="intro-experience" aria-label="Selected professional work">
           <p class="profession">A few problems I’ve worked on</p>
           <dl>
-            <div><dt>Nullify</dt><dd>Rebuilt UI2, owning the frontend architecture and most features.</dd></div>
-            <div><dt>Canva</dt><dd>Used Canva’s canvas renderer to speed up previews of generated designs.</dd></div>
-            <div><dt>Google</dt><dd>Enabled development access on a retail KaiOS phone and ported Neighbourly within its 512 MB RAM limit.</dd></div>
+            <div>
+              <dt>Nullify</dt>
+              <dd>
+                Rebuilt UI2, owning the frontend architecture and most features.
+              </dd>
+            </div>
+            <div>
+              <dt>Canva</dt>
+              <dd>
+                Used Canva’s canvas renderer to speed up previews of generated
+                designs.
+              </dd>
+            </div>
+            <div>
+              <dt>Google</dt>
+              <dd>
+                Enabled development access on a retail KaiOS phone and ported
+                Neighbourly within its 512 MB RAM limit.
+              </dd>
+            </div>
           </dl>
-          <a href="#experience">Read about the work <span aria-hidden="true">↓</span></a>
+          <a href="#experience"
+            >Read about the work <span aria-hidden="true">↓</span></a
+          >
         </aside>
         <aside class="direction" aria-labelledby="direction-title">
           <h2 id="direction-title">What I’m looking for</h2>
@@ -83,11 +102,12 @@
             difficult problems to solve and room to learn.
           </p>
           <p>
-            I’d like to take responsibility for how a product is built,
-            with opportunities to work beyond the frontend.
+            I’d like to take responsibility for how a product is built, with
+            opportunities to work beyond the frontend.
           </p>
           <a href="#projects"
-            >Explore my independent projects <span aria-hidden="true">↓</span></a
+            >Explore my independent projects
+            <span aria-hidden="true">↓</span></a
           >
         </aside>
       </section>
@@ -102,8 +122,8 @@
           <div>
             <h3>Frontend &amp; development tools</h3>
             <p>
-              Vite, Playwright, Storybook, ESLint, RAG interfaces,
-              LLM-assisted development
+              Vite, Playwright, Storybook, ESLint, RAG interfaces, LLM-assisted
+              development
             </p>
           </div>
           <div>
@@ -129,53 +149,56 @@
               <p class="date">March 2026–present</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">
-                UI2 frontend rebuild.
+              <p class="role-summary">UI2 frontend rebuild.</p>
+              <p>
+                I rebuilt UI2 with Vite and an atomic design architecture
+                covering about 470 components. I owned the architecture and
+                built most of it, with colleagues contributing some features.
               </p>
               <p>
-                I rebuilt UI2 with Vite and an atomic design architecture covering
-                about 470 components. I owned the architecture and built most
-                of it, with colleagues contributing some features.
-              </p>
-              <p>
-                The new UI was faster and worked better on mobile. Screens looked
-                consistent, navigation was easier to follow, and accessibility
-                scores improved. I set the design direction and used Claude
-                Design to try out ideas. I also built quick prototypes to explore
-                how proposed features could work.
+                The new UI was faster and worked better on mobile. Screens
+                looked consistent, navigation was easier to follow, and
+                accessibility scores improved. I set the design direction and
+                used Claude Design to try out ideas. I also built quick
+                prototypes to explore how proposed features could work.
               </p>
               <p>
                 I added screenshot comparisons to catch visual regressions and
                 end-to-end tests for UI flows. When AI-generated code kept
                 repeating the same mistakes, I used an LLM to build ESLint rules
-                for component dependencies, colour tokens, and shared UI elements.
+                for component dependencies, colour tokens, and shared UI
+                elements.
               </p>
-              <details>
-                <summary>How the visual checks work</summary>
-                <div class="detail-content">
-                  <p>
-                    Playwright captures selected Storybook components in light and
-                    dark themes. ImageMagick compares them with screenshots from
-                    before the change and posts the differences on the pull request.
-                  </p>
-                </div>
-              </details>
               <p>
-                I also investigated slow backend startup and improved performance
-                in Go and Python services.
+                Playwright captures selected Storybook components in light and
+                dark themes. ImageMagick compares them with screenshots from
+                before the change and posts the differences on the pull request.
               </p>
-              <details>
-                <summary>Backend startup improvements</summary>
-                <div class="detail-content">
-                  <p>
-                    Removing Go startup reflection reduced Lambda initialisation
-                    from 1.9 s to 1.1 s in a development deployment. Reusing a
-                    Python subprocess across warm invocations reduced Python
-                    startup overhead from 9.7 s to 50 ms.
-                  </p>
-                </div>
-              </details>
+              <h4 class="work-heading">Backend startup improvements</h4>
+              <p>
+                Removing Go startup reflection reduced Lambda initialisation
+                from 1.9 s to 1.1 s in a development deployment. Reusing a
+                Python subprocess across warm invocations reduced Python startup
+                overhead from 9.7 s to 50 ms.
+              </p>
 
+              <h4 class="work-heading">
+                Tracking down broken links in Next.js
+              </h4>
+              <p>
+                Links stopped responding after a Next.js upgrade. I spent
+                several days stepping through JavaScript in the browser and
+                comparing the execution with the framework source to understand
+                the failure. I found the cause and wrote a patch.
+              </p>
+              <p>
+                Prefetching in a static export was receiving HTML where it
+                expected React Server Component data. By the time I had a patch,
+                someone else had already addressed the same bug.
+              </p>
+              <a href="https://github.com/vercel/next.js/issues/92341"
+                >Related Next.js issue</a
+              >
             </div>
           </article>
           <article class="experience">
@@ -185,25 +208,25 @@
               <p class="date">2020–2025</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">
-                Faster previews for Magic Design.
+              <p class="role-summary">Faster previews for Magic Design.</p>
+              <p>
+                Magic Design needed to preview generated text and selected
+                photos in preset layouts outside the editor. Rendering each
+                design as a full DOM tree slowed the page down. I searched
+                Canva’s codebase for another approach and found the editor’s
+                canvas renderer.
               </p>
               <p>
-                Magic Design needed to preview generated text and selected photos
-                in preset layouts outside the editor. Rendering each design as a
-                full DOM tree slowed the page down. I searched Canva’s codebase
-                for another approach and found the editor’s canvas renderer.
-              </p>
-              <p>
-                I adapted it to produce image previews and worked with the editor
-                team to agree on reuse, taking responsibility for the resulting
-                technical debt. I estimated that this saved months of implementation work.
+                I adapted it to produce image previews and worked with the
+                editor team to agree on reuse, taking responsibility for the
+                resulting technical debt. I estimated that this saved months of
+                implementation work.
               </p>
               <p class="role-summary">Team Brain: a working RAG prototype</p>
               <p>
-                I worked with a backend engineer on Team Brain, a prototype
-                that answered questions using users’ documents. I built the
-                frontend, and we demonstrated it together.
+                I worked with a backend engineer on Team Brain, a prototype that
+                answered questions using users’ documents. I built the frontend,
+                and we demonstrated it together.
               </p>
             </div>
           </article>
@@ -214,16 +237,19 @@
               <p class="date">2017–2019 · Two summer internships</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">Getting Neighbourly running on a retail KaiOS phone.</p>
-              <p>
-                I extracted and reverse-engineered a factory-test app on the phone.
-                Its network diagnostic had a command-injection vulnerability,
-                which I used to enable development access on the retail device.
+              <p class="role-summary">
+                Getting Neighbourly running on a retail KaiOS phone.
               </p>
               <p>
-                I then ported Neighbourly to KaiOS/JioPhone. Keeping the app small
-                enough and running within 512 MB of RAM were the main challenges.
-                I also wrote the team’s first porting specification.
+                I extracted and reverse-engineered a factory-test app on the
+                phone. Its network diagnostic had a command-injection
+                vulnerability, which I used to enable development access on the
+                retail device.
+              </p>
+              <p>
+                I then ported Neighbourly to KaiOS/JioPhone. Keeping the app
+                small enough and running within 512 MB of RAM were the main
+                challenges. I also wrote the team’s first porting specification.
               </p>
             </div>
           </article>
@@ -238,23 +264,6 @@
             </div>
           </article>
         </div>
-        <details>
-          <summary>Tracking down broken links in Next.js</summary>
-          <div class="detail-content">
-            <p>
-              Links stopped responding after a Next.js upgrade. I spent several
-              days stepping through JavaScript in the browser and comparing the
-              execution with the framework source to understand the failure.
-              I found the cause and wrote a patch.
-            </p>
-            <p>
-              Prefetching in a static export was receiving HTML where it expected
-              React Server Component data. By the time I had a patch, someone
-              else had already addressed the same bug.
-            </p>
-            <a href="https://github.com/vercel/next.js/issues/92341">Related Next.js issue</a>
-          </div>
-        </details>
       </section>
 
       <section
@@ -266,7 +275,8 @@
           <div class="section-intro">
             <h2 id="projects-title">Personal projects</h2>
             <p>
-              Things I’ve built outside work, including open-source contributions.
+              Things I’ve built outside work, including open-source
+              contributions.
             </p>
           </div>
           <article class="featured-project">
@@ -289,14 +299,16 @@
               <h3>An e-paper frame that generates its own art.</h3>
               <p>
                 I wanted an e-paper art frame that generated its own images
-                locally. I had to adapt model exports and tensor dimensions, then track
-                down tokenisation and image-quality bugs.
+                locally. I had to adapt model exports and tensor dimensions,
+                then track down tokenisation and image-quality bugs.
               </p>
               <p>
                 I added SDXL Turbo support to OnnxStream’s C++ inference engine
                 and contributed fixes to tokenisation, VAE scaling, and XNNPACK
                 integration.
-                <strong>The maintainers accepted five of my pull requests.</strong>
+                <strong
+                  >The maintainers accepted five of my pull requests.</strong
+                >
               </p>
               <p>
                 A Python service runs image generation and keeps the image
@@ -310,22 +322,17 @@
                   >Frame source</a
                 >
               </div>
-              <details>
-                <summary>Tracking down repeated image content</summary>
-                <div class="detail-content">
-                  <p>
-                    To investigate mismatched output, I decoded OnnxStream’s
-                    latents using the Diffusers VAE to help isolate the cause.
-                    Working with the maintainer, I corrected the export’s latent
-                    dimensions to resolve repeated image content. Later fixes
-                    addressed decoder scaling and CLIP tokenisation.
-                  </p>
-                  <a
-                    href="https://github.com/vitoplantamura/OnnxStream/issues/44"
-                    >Read the investigation</a
-                  >
-                </div>
-              </details>
+              <h4 class="work-heading">Tracking down repeated image content</h4>
+              <p>
+                To investigate mismatched output, I decoded OnnxStream’s latents
+                using the Diffusers VAE to help isolate the cause. Working with
+                the maintainer, I corrected the export’s latent dimensions to
+                resolve repeated image content. Later fixes addressed decoder
+                scaling and CLIP tokenisation.
+              </p>
+              <a href="https://github.com/vitoplantamura/OnnxStream/issues/44"
+                >Read the investigation</a
+              >
             </div>
           </article>
           <div class="project-pair">
@@ -393,8 +400,8 @@
               <p>
                 I used NVIDIA Visual Profiler to find threads exiting early.
                 Splitting the filtering and tree-position work into separate
-                CUDA kernels made the search run roughly <strong>twice as fast
-                on my machine</strong>.
+                CUDA kernels made the search run roughly
+                <strong>twice as fast on my machine</strong>.
               </p>
               <a
                 href="https://github.com/pack-png-mods/seed-reversal-gpu/pull/10"
@@ -404,7 +411,8 @@
           </article>
           <div class="workshop-link">
             <p>
-              My main site has more projects, including robotics and electronics.
+              My main site has more projects, including robotics and
+              electronics.
             </p>
             <a href="https://jamesridey.dev"
               >Visit my project workshop <span aria-hidden="true">↗</span></a

@@ -35,8 +35,7 @@ a {
 a:hover {
   text-decoration-thickness: 2px;
 }
-a:focus-visible,
-summary:focus-visible {
+a:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
@@ -203,16 +202,29 @@ img {
   color: var(--muted);
   margin-top: 3px;
 }
- .intro-experience {
+.intro-experience {
   margin-top: 8px;
   padding-left: 30px;
   border-left: 2px solid var(--accent);
 }
-.intro-experience dl { margin: 24px 0; }
-.intro-experience dl div + div { margin-top: 24px; }
-.intro-experience dt { font-size: 20px; font-weight: 550; }
-.intro-experience dd { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
-.intro-experience > a { font-size: 14px; }
+.intro-experience dl {
+  margin: 24px 0;
+}
+.intro-experience dl div + div {
+  margin-top: 24px;
+}
+.intro-experience dt {
+  font-size: 20px;
+  font-weight: 550;
+}
+.intro-experience dd {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+.intro-experience > a {
+  font-size: 14px;
+}
 .direction {
   grid-column: 1 / -1;
   display: grid;
@@ -330,25 +342,12 @@ img {
   font-size: 12px;
   margin-top: 4px;
 }
-details {
-  margin-top: 20px;
-  font-size: 15px;
-}
-summary {
-  cursor: pointer;
-  color: var(--accent);
-  width: fit-content;
-  padding-block: 5px;
-}
-.detail-content {
-  margin-top: 12px;
-  padding: 4px 0 4px 20px;
-  border-left: 2px solid var(--line);
-  color: var(--muted);
-}
-.detail-content a {
-  display: inline-block;
-  margin-top: 12px;
+.work-heading {
+  margin: 24px 0 10px;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
 }
 .projects-section {
   background: #f3f5fb;
@@ -725,8 +724,7 @@ footer a {
   .actions,
   .skip-link,
   footer,
-  .contact-links,
-  summary {
+  .contact-links {
     display: none;
   }
   .wrap {
