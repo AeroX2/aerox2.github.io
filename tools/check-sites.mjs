@@ -57,6 +57,10 @@ for (const site of ['workshop', 'cv']) {
     }
   }
   if (site === 'cv') {
+    assert(
+      !/[\u00c2\u00c3\u00e2][\u0080-\u00bf\u2010-\u2122]|\ufffd/.test(html),
+      'CV contains broken UTF-8 text'
+    );
     assert(html.includes('cv.jamesridey.dev'), 'Missing CV canonical domain');
     await stat(resolve(directory, 'social/jrb8.webp'));
     await stat(resolve(directory, '404.html'));
