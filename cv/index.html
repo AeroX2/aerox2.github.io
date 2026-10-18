@@ -72,7 +72,7 @@
           <dl>
             <div><dt>Nullify</dt><dd>Rebuilt UI2, owning the frontend architecture and most features.</dd></div>
             <div><dt>Canva</dt><dd>Used Canva’s canvas renderer to speed up previews of generated designs.</dd></div>
-            <div><dt>Google</dt><dd>Ported Neighbourly to KaiOS on a device with 512 MB of RAM.</dd></div>
+            <div><dt>Google</dt><dd>Enabled development access on a retail KaiOS phone and ported Neighbourly within its 512 MB RAM limit.</dd></div>
           </dl>
           <a href="#experience">Read about the work <span aria-hidden="true">↓</span></a>
         </aside>
@@ -160,25 +160,21 @@
                   </p>
                 </div>
               </details>
-              <div class="results">
-                <div>
-                  <strong>1.9 s <span aria-hidden="true">→</span> 1.1 s</strong
-                  ><span
-                    >Go Lambda initialisation<br />Development deployment</span
-                  >
-                </div>
-                <div>
-                  <strong>9.7 s <span aria-hidden="true">→</span> 50 ms</strong
-                  ><span
-                    >Python startup overhead<br />Subsequent warm
-                    invocations</span
-                  >
-                </div>
-              </div>
               <p>
-                I removed Go startup reflection and reused a Python subprocess
-                across warm invocations to reduce startup time.
+                I also investigated slow backend startup and improved performance
+                in Go and Python services.
               </p>
+              <details>
+                <summary>Backend startup improvements</summary>
+                <div class="detail-content">
+                  <p>
+                    Removing Go startup reflection reduced Lambda initialisation
+                    from 1.9 s to 1.1 s in a development deployment. Reusing a
+                    Python subprocess across warm invocations reduced Python
+                    startup overhead from 9.7 s to 50 ms.
+                  </p>
+                </div>
+              </details>
 
             </div>
           </article>
@@ -193,11 +189,15 @@
                 Faster previews for Magic Design.
               </p>
               <p>
-                For Magic Design, I integrated generated text and selected
-                photos into preset layouts outside the editor. Displaying many
-                designs as complex DOM trees caused slowdowns. Working with
-                engineers on the editor team, I reused Canva’s canvas renderer to display
-                image previews without retaining each design’s full DOM.
+                Magic Design needed to preview generated text and selected photos
+                in preset layouts outside the editor. Rendering each design as a
+                full DOM tree slowed the page down. I searched Canva’s codebase
+                for another approach and found the editor’s canvas renderer.
+              </p>
+              <p>
+                I adapted it to produce image previews and worked with the editor
+                team to agree on reuse, taking responsibility for the resulting
+                technical debt. I estimated that this saved months of implementation work.
               </p>
               <details>
                 <summary>Team Brain: a working RAG prototype</summary>
@@ -218,10 +218,16 @@
               <p class="date">2017–2019 · Two summer internships</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">Adapting software to a 512 MB device.</p>
+              <p class="role-summary">Getting Neighbourly running on a retail KaiOS phone.</p>
               <p>
-                I ported Neighbourly to KaiOS/JioPhone under a 512 MB RAM
-                constraint and wrote the team’s first porting specification.
+                I extracted and reverse-engineered a factory-test app on the phone.
+                Its network diagnostic had a command-injection vulnerability,
+                which I used to enable development access on the retail device.
+              </p>
+              <p>
+                I then ported Neighbourly to KaiOS/JioPhone. Keeping the app small
+                enough and running within 512 MB of RAM were the main challenges.
+                I also wrote the team’s first porting specification.
               </p>
             </div>
           </article>
@@ -294,7 +300,7 @@
                 I added SDXL Turbo support to OnnxStream’s C++ inference engine
                 and contributed fixes to tokenisation, VAE scaling, and XNNPACK
                 integration.
-                <strong>Five pull requests were merged upstream.</strong>
+                <strong>The maintainers accepted five of my pull requests.</strong>
               </p>
               <p>
                 A Python service runs image generation and keeps the image
@@ -393,11 +399,10 @@
                 Splitting the filtering and tree-position work into separate
                 CUDA kernels made the search run roughly <strong>twice as fast
                 on my machine</strong>.
-                The contribution was merged upstream.
               </p>
               <a
                 href="https://github.com/pack-png-mods/seed-reversal-gpu/pull/10"
-                >Read the merged contribution</a
+                >View the pull request</a
               >
             </div>
           </article>
