@@ -501,7 +501,7 @@ img {
   font-size: 16px;
   color: var(--muted);
 }
-.email-link {
+.contact-primary-link {
   display: inline-block;
   font-size: 28px;
   margin-top: 24px;
@@ -692,7 +692,7 @@ footer a {
   .contact-links > a:not(.button) {
     padding-block: 10px;
   }
-  .email-link {
+  .contact-primary-link {
     font-size: 25px;
   }
 }
