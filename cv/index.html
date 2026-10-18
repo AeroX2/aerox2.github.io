@@ -72,7 +72,7 @@
           <dl>
             <div><dt>Nullify</dt><dd>Rebuilt UI2, owning the frontend architecture and most features.</dd></div>
             <div><dt>Canva</dt><dd>Used Canva’s canvas renderer to speed up previews of generated designs.</dd></div>
-            <div><dt>Google</dt><dd>Porting an app to KaiOS on a device with just 512 MB of RAM.</dd></div>
+            <div><dt>Google</dt><dd>Ported Neighbourly to KaiOS on a device with 512 MB of RAM.</dd></div>
           </dl>
           <a href="#experience">Read about the work <span aria-hidden="true">↓</span></a>
         </aside>
@@ -120,9 +120,6 @@
       >
         <div class="section-intro">
           <h2 id="experience-title">Professional experience</h2>
-          <p>
-            Recent work and what I contributed.
-          </p>
         </div>
         <div class="experience-list">
           <article class="experience">
@@ -138,7 +135,7 @@
               <p>
                 I rebuilt UI2 with Vite and an atomic design architecture covering
                 about 470 components. I owned the architecture and built most
-                features, with help from colleagues on some features.
+                of it, with colleagues contributing some features.
               </p>
               <p>
                 The new UI was faster and worked better on mobile. Screens looked
@@ -206,9 +203,9 @@
                 <summary>Team Brain: a working RAG prototype</summary>
                 <div class="detail-content">
                   <p>
-                    I built the frontend for a prototype that answered questions
-                    using their documents. I worked with the backend engineer to
-                    build and demonstrate the prototype.
+                    I worked with a backend engineer on Team Brain, a prototype
+                    that answered questions using users’ documents. I built the
+                    frontend, and we demonstrated it together.
                   </p>
                 </div>
               </details>
@@ -290,8 +287,8 @@
               <h3>An e-paper frame that generates its own art.</h3>
               <p>
                 I wanted an e-paper art frame that generated its own images
-                locally. Getting it working took me into model exports, tensor
-                dimensions, tokenisation, and image-quality bugs.
+                locally. I had to adapt model exports and tensor dimensions, then track
+                down tokenisation and image-quality bugs.
               </p>
               <p>
                 I added SDXL Turbo support to OnnxStream’s C++ inference engine
@@ -300,9 +297,9 @@
                 <strong>Five pull requests were merged upstream.</strong>
               </p>
               <p>
-                The finished frame connects inference, a Python service, image
-                history, web controls, and colour processing for the physical
-                display. It sits on my shelf and runs every day.
+                A Python service runs image generation and keeps the image
+                history. I built web controls and colour processing for the
+                e-paper display. The frame sits on my shelf and runs every day.
               </p>
               <div class="project-links">
                 <a href="https://github.com/vitoplantamura/OnnxStream/pull/46"
@@ -392,9 +389,10 @@
               <p class="project-domain">CUDA / GPU profiling / Open source</p>
               <h3>Finding the bottleneck in a Minecraft seed search.</h3>
               <p>
-                NVIDIA Visual Profiler exposed early thread exits. I split
-                filtering and tree-position work into separate CUDA kernels,
-                achieving roughly <strong>2× performance on my machine</strong>.
+                I used NVIDIA Visual Profiler to find threads exiting early.
+                Splitting the filtering and tree-position work into separate
+                CUDA kernels made the search run roughly <strong>twice as fast
+                on my machine</strong>.
                 The contribution was merged upstream.
               </p>
               <a
@@ -420,9 +418,6 @@
       >
         <div>
           <h2 id="credentials-title">Learning &amp; credentials</h2>
-          <p>
-            Education, certifications, and reverse-engineering challenges.
-          </p>
         </div>
         <dl>
           <div>
