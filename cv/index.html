@@ -49,12 +49,12 @@
           <p class="profession">Software engineer</p>
           <h1 id="intro-title">James Ridey</h1>
           <p class="hero-lead">
-            Frontend depth.<br />A drive to solve harder problems.
+            Frontend engineering<br />for complex products.
           </p>
           <p class="hero-description">
-            I’ve shipped software at Nullify, Canva, and Google. Frontend is
-            my strongest foundation: complex interfaces, architecture, and
-            the performance and tooling that make products work well.
+            I build interfaces and the architecture, tooling, and tests that
+            keep them reliable. My experience spans Nullify, Canva, and Google,
+            from rapid product prototypes to frontend rebuilds and performance investigations.
           </p>
           <div class="actions">
             <a class="button primary" href="James-Ridey-Resume.pdf"
@@ -70,7 +70,7 @@
         <aside class="intro-experience" aria-label="Selected professional work">
           <p class="profession">A few problems I’ve worked on</p>
           <dl>
-            <div><dt>Nullify</dt><dd>A frontend rebuild spanning approximately 470 components, with architecture rules and visual review tools.</dd></div>
+            <div><dt>Nullify</dt><dd>Primary owner of UI2: an atomic design architecture, most features, and tools to keep the frontend reliable.</dd></div>
             <div><dt>Canva</dt><dd>Making AI-generated designs practical to preview, using the existing canvas renderer to reduce DOM complexity.</dd></div>
             <div><dt>Google</dt><dd>Porting an app to KaiOS on a device with just 512 MB of RAM.</dd></div>
           </dl>
@@ -83,8 +83,8 @@
             roles: complex products, architecture, performance, and difficult bugs.
           </p>
           <p>
-            A team where I can contribute my frontend experience, take on
-            deeper engineering problems, and grow across the stack.
+            A team where I can contribute my frontend experience, own
+            technical decisions, and keep learning across the stack.
           </p>
           <a href="#projects"
             >Explore my independent projects <span aria-hidden="true">↓</span></a
@@ -134,24 +134,40 @@
             </div>
             <div class="role-work">
               <p class="role-summary">
-                Frontend architecture and developer tooling for an AI
-                application-security platform.
+                Rebuilding the frontend and improving how it stays reliable.
               </p>
-
+              <p>
+                I was the primary owner of UI2, a shipped Vite frontend rebuild
+                spanning approximately 470 components. I designed the atomic
+                architecture and implemented most features, with colleagues
+                contributing to individual features.
+              </p>
+              <p>
+                The rebuild improved performance, mobile support, visual
+                consistency, navigation flows, and accessibility scores. I set
+                the interaction and visual direction, using Claude Design to
+                explore and refine designs, and rapidly prototyped UI ideas
+                for proposed features.
+              </p>
+              <p>
+                I built visual regression checks to catch changes to the user
+                experience and end-to-end tests to verify UI flows. After
+                identifying recurring mistakes in generated code, I directed an
+                LLM to implement ESLint rules for component dependency direction,
+                colour tokens, and shared primitives.
+              </p>
+              <details>
+                <summary>How the visual checks work</summary>
+                <div class="detail-content">
                   <p>
-                    I shipped a Vite frontend rebuild with an atomic
-                    architecture spanning approximately 470 components. After
-                    identifying recurring mistakes in generated code, I directed
-                    an LLM to implement ESLint rules for dependency direction,
-                    colour tokens, and shared primitives.
+                    Opt-in Storybook stories are captured by Playwright in light
+                    and dark themes. ImageMagick compares the screenshots with
+                    the pull request’s base revision, and differences are posted
+                    to GitHub for review. The checks are advisory.
                   </p>
-                  <p>
-                    I also built opt-in visual checks using Storybook and
-                    Playwright. ImageMagick compares light and dark screenshots
-                    against a pull request’s base revision, with differences
-                    posted to GitHub for review. The checks are advisory.
-                  </p>
-                              <div class="results">
+                </div>
+              </details>
+              <div class="results">
                 <div>
                   <strong>1.9 s <span aria-hidden="true">→</span> 1.1 s</strong
                   ><span
@@ -229,6 +245,24 @@
             </div>
           </article>
         </div>
+        <details>
+          <summary>A debugging story: when a Next.js upgrade broke navigation</summary>
+          <div class="detail-content">
+            <p>
+              Links stopped responding after a Next.js upgrade. I spent several
+              days stepping through JavaScript in the browser and comparing the
+              execution with the framework source to understand the failure.
+              I isolated the problem and developed a patch independently.
+            </p>
+            <p>
+              The issue involved static-export prefetching receiving HTML where
+              it expected React Server Component data. Someone else had already
+              addressed the same bug; my work was the investigation and local
+              patch, not the upstream contribution.
+            </p>
+            <a href="https://github.com/vercel/next.js/issues/92341">Related Next.js issue</a>
+          </div>
+        </details>
       </section>
 
       <section
