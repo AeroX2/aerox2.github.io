@@ -203,29 +203,16 @@ img {
   color: var(--muted);
   margin-top: 3px;
 }
-.intro-hardware {
+ .intro-experience {
   margin-top: 8px;
+  padding-left: 30px;
+  border-left: 2px solid var(--accent);
 }
-.intro-hardware img {
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 3px 3px 54px 3px;
-}
-.intro-hardware a {
-  display: block;
-}
-.intro-hardware figcaption {
-  max-width: 40ch;
-  color: var(--muted);
-  font-size: 13px;
-  margin-top: 14px;
-  line-height: 1.5;
-}
-.intro-hardware figcaption strong {
-  display: block;
-  color: var(--ink);
-  font-weight: 550;
-}
+.intro-experience dl { margin: 24px 0; }
+.intro-experience dl div + div { margin-top: 24px; }
+.intro-experience dt { font-size: 20px; font-weight: 550; }
+.intro-experience dd { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.intro-experience > a { font-size: 14px; }
 .direction {
   grid-column: 1 / -1;
   display: grid;
