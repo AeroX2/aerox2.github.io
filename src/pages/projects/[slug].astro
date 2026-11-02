@@ -1,0 +1,29 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import App from '../../App.svelte';
+import { allProjects, type Project } from '../../data/projects';
+import { cardImage } from '../../data/pages';
+
+export const getStaticPaths = (() =>
+  allProjects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project }
+  }))) satisfies GetStaticPaths;
+
+const { project } = Astro.props as { project: Project };
+---
+
+<Base
+  title={`${project.title} — James Ridey`}
+  description={project.summary}
+  image={cardImage(project.image)}
+  imageAlt={project.alt}
+  type="article"
+>
+  <App
+    client:load
+    initialSlug={project.slug}
+    buildYear={new Date().getFullYear()}
+  />
+</Base>

@@ -1,7 +1,7 @@
 # Both websites: one repository and build
 
-Run `npm ci`, then `npm run build`. Vite builds both sites with the same
-installation and configuration. The build finishes by checking local asset
+Run `npm ci`, then `npm run build`. Astro builds the workshop and Vite builds
+the CV from the same installation. The build finishes by checking local asset
 references, identical résumé content, and Cloudflare Pages asset limits.
 
 | Site              | Output        | Local development | Production preview |
@@ -46,8 +46,9 @@ permissions. Optional repository variables `CLOUDFLARE_WORKSHOP_PROJECT` and
 do not enable a second automatic Git build in Cloudflare.
 
 Deployments are sequential, not atomic. If the second fails, retry the failed
-job or roll back the first using Cloudflare deployment history. The workshop's
-`_redirects` rewrites exact project paths to `/` without rewriting asset paths.
+job or roll back the first using Cloudflare deployment history. Each workshop
+project is a prerendered page (`projects/<slug>.html`), which Pages serves at
+the extensionless `/projects/<slug>` path.
 Verify project links and PDF downloads after deployments.
 
 The latest deployment attempt failed authentication. Live sites were uploaded

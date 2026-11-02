@@ -1,5 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { previewSrcset } from './data/pages';
+  import { onRotationTick } from './lib/rotationClock';
 
   type ImageSource = { src: string; alt?: string };
 
@@ -14,24 +16,24 @@
   let previous = $state<number | null>(null);
   let rotatorElement = $state<HTMLElement>();
 
-  const previewPattern = /^\/(projects|labeled-media)\/(.+)\.(?:jpe?g|png|webp)$/i;
-  const motionAllowed = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const variantSizes: Record<string, string> = {
+    featured: '(max-width: 1050px) 100vw, 66vw',
+    supporting: '(max-width: 650px) 130px, (max-width: 1050px) 33vw, 17vw',
+    machine: '(max-width: 650px) 100vw, (max-width: 1050px) 300px, 420px',
+    drawer: '(max-width: 650px) 100vw, 30vw'
+  };
+  const imageSizes = $derived(variantSizes[variant] ?? '(max-width: 650px) 100vw, 50vw');
 
-  function previewSources(source: string) {
-    const match = source.match(previewPattern);
-    if (!match) return undefined;
-    const path = `${match[1]}/${match[2]}`;
-    return `/card-media/${path}-640.webp 640w, /card-media/${path}-1200.webp 1200w`;
-  }
+  const motionAllowed = () => !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   async function preload(index: number) {
     const source = images[index]?.src;
     if (!source) return false;
     const image = new Image();
-    const sources = previewSources(source);
+    const sources = previewSrcset(source);
     if (sources) {
       image.srcset = sources;
-      image.sizes = '(max-width: 650px) 100vw, (max-width: 1050px) 50vw, 700px';
+      image.sizes = imageSizes;
     }
     image.src = source;
     try {
@@ -45,59 +47,51 @@
   onMount(() => {
     if (images.length < 2 || !motionAllowed()) return;
 
-    const seed = images[0].src.split('').reduce((total, character) => total + character.charCodeAt(0), 0);
-    const initialDelay = 1800 + (seed % 13_000);
-    const interval = 10_000 + (seed % 5_000);
-    let timeout: number | undefined;
     let fadeTimeout: number | undefined;
-    let disposed = false;
     let visible = false;
     let paused = false;
+    let nextReady = false;
+    let preparing = false;
 
-    const clearTimer = () => {
-      if (timeout) window.clearTimeout(timeout);
-      timeout = undefined;
-    };
-    const advance = async () => {
+    const prepareNext = async () => {
+      if (preparing) return;
+      preparing = true;
+      nextReady = false;
       const next = (active + 1) % images.length;
       const loaded = await preload(next);
-      if (!loaded || disposed || !visible || paused || !motionAllowed()) return;
+      nextReady = loaded && next === (active + 1) % images.length;
+      preparing = false;
+    };
+    const advance = () => {
+      if (!visible || paused || !motionAllowed()) return;
+      if (!nextReady) {
+        prepareNext();
+        return;
+      }
+      window.clearTimeout(fadeTimeout);
       previous = active;
-      active = next;
+      active = (active + 1) % images.length;
       fadeTimeout = window.setTimeout(() => (previous = null), 950);
+      prepareNext();
     };
-    const schedule = (delay: number) => {
-      clearTimer();
-      if (!visible || paused) return;
-      preload((active + 1) % images.length);
-      timeout = window.setTimeout(async () => {
-        await advance();
-        if (!disposed) schedule(interval);
-      }, delay);
-    };
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         visible = entry.isIntersecting;
-        if (visible) schedule(initialDelay);
-        else clearTimer();
+        if (visible && !nextReady) prepareNext();
       },
       { rootMargin: '180px 0px' }
     );
-
     if (rotatorElement) observer.observe(rotatorElement);
-    const pause = () => {
-      paused = true;
-      clearTimer();
-    };
-    const resume = () => {
-      paused = false;
-      schedule(interval);
-    };
+
+    const pause = () => (paused = true);
+    const resume = () => (paused = false);
     rotatorElement?.addEventListener('mouseenter', pause);
     rotatorElement?.addEventListener('mouseleave', resume);
+
+    const stopTicking = onRotationTick(advance);
     return () => {
-      disposed = true;
-      clearTimer();
+      stopTicking();
       window.clearTimeout(fadeTimeout);
       observer.disconnect();
       rotatorElement?.removeEventListener('mouseenter', pause);
@@ -112,8 +106,8 @@
     <img
       class="outgoing"
       src={previousImage.src}
-      srcset={previewSources(previousImage.src)}
-      sizes="(max-width: 650px) 100vw, (max-width: 1050px) 50vw, 700px"
+      srcset={previewSrcset(previousImage.src)}
+      sizes={imageSizes}
       alt=""
       aria-hidden="true"
       decoding="async"
@@ -127,10 +121,11 @@
       class="active"
       class:crossfading={previous !== null}
       src={activeImage.src}
-      srcset={previewSources(activeImage.src)}
-      sizes="(max-width: 650px) 100vw, (max-width: 1050px) 50vw, 700px"
+      srcset={previewSrcset(activeImage.src)}
+      sizes={imageSizes}
       alt={activeImage.alt || alt}
       loading={variant === 'featured' ? 'eager' : 'lazy'}
+      fetchpriority={variant === 'featured' && active === 0 ? 'high' : 'auto'}
       decoding="async"
       style:object-position={position}
     />

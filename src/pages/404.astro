@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { cardImage } from '../data/pages';
+import { findProject } from '../data/projects';
+
+const robodog = findProject('robodog')!;
+---
+
+<Base
+  title="Page not found — James Ridey"
+  description="This page does not exist. The workshop is one click away."
+  image={cardImage(robodog.image)}
+  imageAlt={robodog.alt}
+  noindex
+>
+  <main class="not-found">
+    <p>404 / missing part</p>
+    <h1>This page is not on the bench.</h1>
+    <a href="/">Back to the workshop →</a>
+  </main>
+</Base>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: 18px;
+    place-content: center;
+    min-height: 100vh;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .not-found p {
+    color: var(--orange-text);
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .not-found h1 {
+    font-family: 'Sora Variable', sans-serif;
+    font-size: clamp(32px, 6vw, 64px);
+    line-height: 1;
+  }
+</style>

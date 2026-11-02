@@ -22,8 +22,35 @@ async function checkFiles(directory) {
   return count;
 }
 
+async function htmlPages(directory) {
+  const pages = [];
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const file = resolve(directory, entry.name);
+    if (entry.isDirectory()) pages.push(...(await htmlPages(file)));
+    else if (entry.name.endsWith('.html')) pages.push(file);
+  }
+  return pages;
+}
+
+async function resolveLocal(directory, clean) {
+  const file = resolve(directory, clean.replace(/^\//, ''));
+  assert(
+    !relative(directory, file).startsWith('..'),
+    `Asset escapes output: ${clean}`
+  );
+  for (const candidate of [file, `${file}.html`, resolve(file, 'index.html')]) {
+    const info = await stat(candidate).catch(() => null);
+    if (info?.isFile()) return candidate;
+  }
+  assert.fail(`Missing local asset: ${clean}`);
+}
+
 for (const site of ['workshop', 'cv']) {
   const directory = resolve(root, 'dist', site);
+  const pages =
+    site === 'cv'
+      ? [resolve(directory, 'index.html')]
+      : await htmlPages(directory);
   const html = await readFile(resolve(directory, 'index.html'), 'utf8');
   const count = await checkFiles(directory);
   assert(count <= 20000, `${site} exceeds the Pages Free file limit`);
@@ -35,16 +62,14 @@ for (const site of ['workshop', 'cv']) {
     `${site} résumé differs`
   );
   const cssFiles = [];
-  for (const [, url] of html.matchAll(/(?:src|href)="([^"#]+)"/g)) {
-    if (/^(?:[a-z]+:|\/\/)/i.test(url)) continue;
-    const clean = decodeURIComponent(url.split(/[?#]/)[0]);
-    const file = resolve(directory, clean.replace(/^\//, ''));
-    assert(
-      !relative(directory, file).startsWith('..'),
-      `Asset escapes output: ${url}`
-    );
-    assert((await stat(file)).isFile(), `Missing ${site} asset: ${url}`);
-    if (file.endsWith('.css')) cssFiles.push(file);
+  for (const page of pages) {
+    const pageHtml = await readFile(page, 'utf8');
+    for (const [, url] of pageHtml.matchAll(/(?:src|href)="([^"#]+)"/g)) {
+      if (/^(?:[a-z]+:|\/\/)/i.test(url)) continue;
+      const clean = decodeURIComponent(url.split(/[?#]/)[0]);
+      const file = await resolveLocal(directory, clean);
+      if (file.endsWith('.css')) cssFiles.push(file);
+    }
   }
   for (const cssFile of cssFiles) {
     const css = await readFile(cssFile, 'utf8');
@@ -65,8 +90,24 @@ for (const site of ['workshop', 'cv']) {
     await stat(resolve(directory, 'social/jrb8.webp'));
     await stat(resolve(directory, '404.html'));
   } else {
-    const redirects = await readFile(resolve(directory, '_redirects'), 'utf8');
-    assert(redirects.includes('/projects/robodog / 200'));
+    assert(
+      html.includes('class="featured-project"'),
+      'Workshop index is not prerendered'
+    );
+    const robodog = await readFile(
+      resolve(directory, 'projects/robodog.html'),
+      'utf8'
+    );
+    assert(
+      robodog.includes('<title>Robot dog'),
+      'Project pages are missing their own titles'
+    );
+    const sitemap = await readFile(resolve(directory, 'sitemap.xml'), 'utf8');
+    assert(
+      sitemap.includes('/projects/robodog</loc>'),
+      'Sitemap is incomplete'
+    );
+    await stat(resolve(directory, '404.html'));
   }
   console.log(
     `${site}: ${count} files, local assets and shared résumé verified.`

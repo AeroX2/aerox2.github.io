@@ -112,6 +112,7 @@
       renderer.toneMappingExposure = 1.12;
       renderer.shadowMap.enabled = true;
       renderer.shadowMap.type = THREE.PCFShadowMap;
+      // eslint-disable-next-line svelte/no-dom-manipulating -- three.js owns this canvas
       canvasMount.appendChild(renderer.domElement);
 
       scene.add(new THREE.HemisphereLight(0xf4f7ff, 0x263044, 2.1));
@@ -165,9 +166,11 @@
       model.position.y -= bounds.min.y;
       scene.add(model);
 
+      /* eslint-disable svelte/prefer-svelte-reactivity -- scene lookups, not UI state */
       const jointNodes = new Map<string, Object3D>();
       const baseRotations = new Map<string, Quaternion>();
       const jointAxes = new Map<string, Vector3>();
+      /* eslint-enable svelte/prefer-svelte-reactivity */
       for (const leg of legs) {
         for (const joint of leg.joints) {
           const node = model.getObjectByName(`control__${joint.id}`);

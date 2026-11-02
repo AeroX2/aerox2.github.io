@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "James Ridey",
+  "short_name": "James R",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#bfc7d0",
+  "background_color": "#f6f5ee",
   "display": "standalone"
 }

@@ -11,7 +11,7 @@ SOURCE_PATTERN = re.compile(
     r"['\"](/(?:projects|labeled-media)/[^'\"]+\.(?:jpe?g|png|webp))['\"]",
     re.IGNORECASE,
 )
-WIDTHS = (640, 1200)
+WIDTHS = (400, 640, 1200)
 
 
 def referenced_images() -> list[str]:

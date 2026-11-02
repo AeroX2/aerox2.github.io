@@ -186,15 +186,13 @@ function lockResizeToAspect(start, handle, width, height, useWidth) {
 
   const fixedRight = start.x + start.width;
   const fixedBottom = start.y + start.height;
-  let x = handle.includes('w') ? fixedRight - width : start.x;
-  let y = handle.includes('n') ? fixedBottom - height : start.y;
   const maxWidth = handle.includes('w') ? fixedRight : 1 - start.x;
   const maxHeight = handle.includes('n') ? fixedBottom : 1 - start.y;
   const scale = Math.min(1, maxWidth / width, maxHeight / height);
   width *= scale;
   height *= scale;
-  x = handle.includes('w') ? fixedRight - width : start.x;
-  y = handle.includes('n') ? fixedBottom - height : start.y;
+  const x = handle.includes('w') ? fixedRight - width : start.x;
+  const y = handle.includes('n') ? fixedBottom - height : start.y;
   return { x, y, width, height };
 }
 
@@ -377,7 +375,6 @@ $('#videoScrub').addEventListener('input', (event) => {
 for (const field of ['project', 'usage', 'caption', 'notes']) $(`#${field}`).addEventListener('change', () => capture());
 for (const field of ['cropX', 'cropY', 'cropWidth', 'cropHeight']) {
   $(`#${field}`).addEventListener('input', () => {
-    const crop = cropValues();
     let nextCrop = {
       x: Number($('#cropX').value) / 100,
       y: Number($('#cropY').value) / 100,

@@ -4,6 +4,7 @@
   import RobodogViewer from './lib/RobodogViewer.svelte';
   import KiCanvasViewer from './lib/KiCanvasViewer.svelte';
   import { focusTrap } from './lib/focusTrap';
+  import { previewSrcset } from './data/pages';
   import type { ShowcaseMedia } from './showcaseMedia';
 
   type ProjectView = {
@@ -199,6 +200,8 @@
             >
               <img
                 src={item.src}
+                srcset={previewSrcset(item.src)}
+                sizes="(max-width: 650px) 100vw, min(45vw, 560px)"
                 alt={item.alt}
                 loading={index === 0 ? 'eager' : 'lazy'}
               />
@@ -481,7 +484,7 @@
   }
   .continuity-heading span,
   .continuity-track article > span {
-    color: var(--orange);
+    color: var(--orange-text);
     font-family: 'Recursive Variable', monospace;
     font-size: 13px;
     font-weight: 800;

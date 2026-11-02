@@ -1,0 +1,65 @@
+name: Build and deploy both sites
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sites-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Build and validate both outputs
+        run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sites
+          path: |
+            dist/workshop
+            dist/cv
+          include-hidden-files: true
+          retention-days: 7
+
+  cloudflare-pages:
+    needs: build
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: sites
+          path: dist
+      - name: Deploy workshop
+        uses: cloudflare/wrangler-action@v4
+        with:
+          wranglerVersion: '4.141.0'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/workshop --project-name=${{ vars.CLOUDFLARE_WORKSHOP_PROJECT || 'jamesridey-workshop' }} --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy CV
+        uses: cloudflare/wrangler-action@v4
+        with:
+          wranglerVersion: '4.141.0'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/cv --project-name=${{ vars.CLOUDFLARE_CV_PROJECT || 'jamesridey-cv' }} --branch=main
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

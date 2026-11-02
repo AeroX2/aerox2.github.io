@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import App from '../App.svelte';
+import { cardImage } from '../data/pages';
+import { findProject } from '../data/projects';
+
+const robodog = findProject('robodog')!;
+---
+
+<Base
+  title="James Ridey — software, silicon & strange machines"
+  description="James Ridey builds software, custom electronics, computers, robots, and strange machines."
+  image={cardImage(robodog.image)}
+  imageAlt={robodog.alt}
+>
+  <App client:load buildYear={new Date().getFullYear()} />
+</Base>
