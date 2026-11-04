@@ -224,15 +224,15 @@
           <p><strong>1</strong><span>CPU in silicon</span></p>
         </div>
         <p class="field-note-history"><span>Work history</span><b>Nullify · Canva · Google ×2</b></p>
-        <p class="field-note-history"><span>Current work</span><b>AI products · frontend architecture</b></p>
+        <p class="field-note-history"><span>Current work</span><b>Full-stack · performance</b></p>
         <p class="field-note-history"><span>After hours</span><b>Robotics · silicon · fabrication</b></p>
       </aside>
     </div>
     <div class="hero-ledger">
       <p class="hero-intro">
-        I’m a software engineer working across frontend architecture, AI products,
-        and developer tools. I also design and build hardware, from custom circuit
-        boards and processors to robots and embedded systems.
+        I’m a full-stack software engineer: five years at Canva, now the primary
+        owner of Nullify’s rebuilt frontend. I also design and build hardware, from
+        custom circuit boards and processors to robots and embedded systems.
       </p>
     </div>
   </section>
@@ -367,15 +367,15 @@
     <div class="resume-record">
       <div class="experience-list">
         <article>
-          <time>2025—now</time>
+          <time>2026—now</time>
           <div class="company-name"><img src={nullifyLogo} alt="" /><h3>Nullify</h3></div>
-          <p>Building AI product features and leading a ground-up rebuild of the frontend for Nullify's autonomous product-security platform.</p>
-          <span>Software engineering / frontend architecture / AI</span>
+          <p>Rebuilt the frontend for Nullify's AI security platform (470 components, initial payload halved), and cut Go and Python service startup times.</p>
+          <span>Full-stack product engineering</span>
         </article>
         <article>
           <time>2020—2025</time>
           <div class="company-name"><img src={canvaLogo} alt="" /><h3>Canva</h3></div>
-          <p>Architected Magic Design's state layer and shipped it two weeks ahead of launch; also rebuilt marketplace filtering for 150M+ monthly users, prototyped internal knowledge search, and mentored engineers.</p>
+          <p>Rendered Magic Design previews by adapting the editor's canvas renderer, built the frontend for a RAG prototype, and redesigned Marketplace search filters.</p>
           <span>Software engineering / AI products</span>
         </article>
         <article>

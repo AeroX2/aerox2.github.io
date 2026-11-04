@@ -3,18 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#163552" />
+    <meta name="theme-color" content="#ffffff" />
     <title>James Ridey | Software engineer</title>
     <meta
       name="description"
-      content="Software engineer with strong frontend experience at Nullify, Canva and Google. Seeking challenging frontend and broader software engineering roles in the San Francisco Bay Area."
+      content="Full-stack software engineer with experience at Nullify, Canva and Google. Relocating to the San Francisco Bay Area."
     />
     <link rel="canonical" href="https://cv.jamesridey.dev/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="James Ridey | Software engineer" />
     <meta
       property="og:description"
-      content="Frontend architecture, complex interfaces and performance. Experience at Nullify, Canva and Google. Seeking San Francisco Bay Area relocation."
+      content="Full-stack engineer: five years at Canva, now owner of Nullify's rebuilt frontend. Relocating to the San Francisco Bay Area."
     />
     <meta property="og:url" content="https://cv.jamesridey.dev/" />
     <link rel="icon" href="assets/favicon.png" type="image/png" />
@@ -37,7 +37,7 @@
         <a class="section-link" href="#experience">Experience</a>
         <a class="section-link" href="#projects">Projects</a>
         <a class="section-link" href="#background">Background</a>
-        <a href="#contact">Contact</a>
+        <a class="section-link" href="#contact">Contact</a>
         <a class="nav-resume" href="James-Ridey-Resume.pdf"
           >Resume <span class="file-label">PDF</span></a
         >
@@ -47,21 +47,19 @@
     <main id="main">
       <section class="hero wrap" id="top" aria-labelledby="intro-title">
         <div class="hero-copy">
-          <p class="profession">Software engineer</p>
           <h1 id="intro-title">James Ridey</h1>
-          <p class="hero-lead">Frontend engineering for complex products.</p>
-          <p class="hero-description">
-            I’ve built software at Nullify, Canva, and Google. I enjoy designing
-            frontend architecture, tracking down bugs, and trying out ideas in a
-            working UI.
+          <p class="hero-lead">
+            Full-stack software engineer. Five years at Canva, now the primary
+            owner of Nullify’s rebuilt frontend.
           </p>
           <p class="hero-description">
-            I’m looking for frontend or broader software work with difficult
-            problems to solve and room to learn.
+            I enjoy hard debugging and performance work, from framework
+            internals to Go services and CUDA kernels. Outside work I build
+            hardware, including an 8-bit CPU that was fabricated as a real chip.
           </p>
           <p class="location">
-            <strong>Seeking relocation to the San Francisco Bay Area.</strong>
-            <span>Based in Sydney.</span>
+            Sydney, Australia · Australian citizen (E-3 eligible) · Relocating
+            to the San Francisco Bay Area
           </p>
           <div class="actions">
             <a class="button primary" href="James-Ridey-Resume.pdf"
@@ -89,37 +87,31 @@
               <p class="date">March 2026–present</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">UI2 frontend rebuild.</p>
+              <p class="role-summary">Rebuilding the frontend</p>
               <p>
-                I rebuilt UI2 with Vite and an atomic design architecture
-                covering about 470 components. I owned the architecture and
-                built most of it, with colleagues contributing some features.
+                I rebuilt Nullify’s frontend from the ground up with Vite and an
+                atomic component architecture, now 470 components. I owned the
+                architecture and built most of the features, and cut the
+                compressed initial JS and CSS from 932 kB to 453 kB.
               </p>
               <p>
-                The new UI was faster and worked better on mobile. Screens
-                looked consistent, navigation was easier to follow, and
-                accessibility scores improved. I set the design direction and
-                used Claude Design to try out ideas. I also built quick
-                prototypes to explore how proposed features could work.
+                AI-generated code kept making the same mistakes, like adding new
+                buttons instead of reusing existing ones. I defined ESLint rules
+                for component dependency direction, colour tokens, and shared
+                primitives so those mistakes fail the lint.
               </p>
               <p>
-                I added screenshot comparisons to catch visual regressions and
-                end-to-end tests for UI flows. When AI-generated code kept
-                repeating the same mistakes, I used an LLM to build ESLint rules
-                for component dependencies, colour tokens, and shared UI
-                elements.
+                For visual regressions, Playwright screenshots selected
+                Storybook components in light and dark themes on the PR and its
+                base, ImageMagick diffs them, and the differences are posted on
+                the pull request. End-to-end tests cover the main UI flows.
               </p>
+              <h4 class="work-heading">Backend startup time</h4>
               <p>
-                Playwright captures selected Storybook components in light and
-                dark themes. ImageMagick compares them with screenshots from
-                before the change and posts the differences on the pull request.
-              </p>
-              <h4 class="work-heading">Backend startup improvements</h4>
-              <p>
-                Removing Go startup reflection reduced Lambda initialisation
-                from 1.9 s to 1.1 s in a development deployment. Reusing a
-                Python subprocess across warm invocations reduced Python startup
-                overhead from 9.7 s to 50 ms.
+                Removing OpenAPI reflection from Go startup cut Lambda
+                initialisation from 1.9 s to 1.1 s in a development deployment.
+                Keeping a Python process alive across warm invocations cut
+                Python startup overhead from 9.7 s to 50 ms.
               </p>
 
               <h4 class="work-heading">
@@ -148,7 +140,7 @@
               <p class="date">2020–2025</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">Faster previews for Magic Design.</p>
+              <p class="role-summary">Previews for Magic Design</p>
               <p>
                 Magic Design needed to preview generated text and selected
                 photos in preset layouts outside the editor. Rendering each
@@ -157,16 +149,21 @@
                 canvas renderer.
               </p>
               <p>
-                I adapted it to produce image previews and worked with the
-                editor team to agree on reuse, taking responsibility for the
-                resulting technical debt. I estimated that this saved months of
-                implementation work.
+                I adapted it to produce image previews and agreed the reuse with
+                the editor team. By my estimate that saved months compared with
+                building a separate renderer.
               </p>
-              <p class="role-summary">Team Brain: a working RAG prototype</p>
+              <p class="role-summary">Team Brain</p>
               <p>
-                I worked with a backend engineer on Team Brain, a prototype that
-                answered questions using users’ documents. I built the frontend,
-                and we demonstrated it together.
+                I worked with a backend engineer on Team Brain, a RAG prototype
+                that answered questions using users’ documents. I built the
+                frontend, and we demonstrated it together.
+              </p>
+              <p class="role-summary">Marketplace</p>
+              <p>
+                I redesigned Marketplace’s search filters, which also reduced
+                their API response time, and added Forms, Polls, and Quizzes to
+                the editor’s search panel.
               </p>
             </div>
           </article>
@@ -177,9 +174,7 @@
               <p class="date">2017–2019 · Two summer internships</p>
             </div>
             <div class="role-work">
-              <p class="role-summary">
-                Getting Neighbourly running on a retail KaiOS phone.
-              </p>
+              <p class="role-summary">Neighbourly on a retail KaiOS phone</p>
               <p>
                 I extracted and reverse-engineered a factory-test app on the
                 phone. Its network diagnostic had a command-injection
@@ -214,10 +209,6 @@
         <div class="wrap section">
           <div class="section-intro">
             <h2 id="projects-title">Personal projects</h2>
-            <p>
-              Things I’ve built outside work, including open-source
-              contributions.
-            </p>
           </div>
           <article class="featured-project">
             <figure>
@@ -236,7 +227,7 @@
               <p class="project-domain">
                 C++ inference / Python / Raspberry Pi
               </p>
-              <h3>An e-paper frame that generates its own art.</h3>
+              <h3>E-paper frame with on-device image generation</h3>
               <p>
                 I wanted an e-paper art frame that generated its own images
                 locally. I had to adapt model exports and tensor dimensions,
@@ -251,7 +242,7 @@
                 >
               </p>
               <p>
-                A Python service runs image generation and keeps the image
+                A FastAPI service runs image generation and keeps the image
                 history. I built web controls and colour processing for the
                 e-paper display. The frame sits on my shelf and runs every day.
               </p>
@@ -288,7 +279,7 @@
                 <p class="project-domain">
                   Verilog / CPU architecture / Compilers
                 </p>
-                <h3>JRB8: an 8-bit computer.</h3>
+                <h3>JRB8 8-bit computer</h3>
                 <p>
                   I designed an 8-bit CPU, instruction set, and assembler,
                   tested it in simulation and on a Tang Nano 9K FPGA, then had
@@ -310,7 +301,7 @@
                 <p class="project-domain">
                   Reverse engineering / Hardware interfaces
                 </p>
-                <h3>A replacement embroidery cartridge.</h3>
+                <h3>Brother embroidery cartridge</h3>
                 <p>
                   I built an Arduino reader to dump cartridge memory,
                   investigated stitch data through hex and desktop-software
@@ -334,12 +325,11 @@
             />
             <div>
               <p class="project-domain">CUDA / GPU profiling / Open source</p>
-              <h3>Finding the bottleneck in a Minecraft seed search.</h3>
+              <h3>Minecraft pack.png seed search</h3>
               <p>
                 I used NVIDIA Visual Profiler to find threads exiting early.
                 Splitting the filtering and tree-position work into separate
-                CUDA kernels made the search run roughly
-                <strong>twice as fast on my machine</strong>.
+                CUDA kernels doubled the search speed.
               </p>
               <a
                 href="https://github.com/pack-png-mods/seed-reversal-gpu/pull/10"
@@ -373,12 +363,14 @@
             <dl>
               <div>
                 <dt>Professional</dt>
-                <dd>TypeScript, JavaScript, React, Go, Python, AWS</dd>
+                <dd>
+                  TypeScript, JavaScript, React, Next.js, Go, Python, AWS Lambda
+                </dd>
               </div>
               <div>
-                <dt>Frontend &amp; development tools</dt>
+                <dt>Tooling</dt>
                 <dd>
-                  Vite, Playwright, Storybook, ESLint, RAG interfaces,
+                  Vite, Playwright, Storybook, ESLint, FastAPI, RAG interfaces,
                   LLM-assisted development
                 </dd>
               </div>
@@ -432,14 +424,14 @@
       >
         <div class="wrap contact-layout">
           <div>
-            <h2 id="contact-title">Let’s talk.</h2>
+            <h2 id="contact-title">Contact</h2>
             <a
               class="contact-primary-link"
               href="https://linkedin.com/in/james-ridey"
-              >Connect with me on LinkedIn</a
+              >LinkedIn</a
             >
             <p class="contact-location">
-              Based in Sydney. Seeking relocation to the San Francisco Bay Area.
+              Based in Sydney, relocating to the San Francisco Bay Area.
             </p>
           </div>
           <div class="contact-links">
